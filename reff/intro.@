@@ -21,7 +21,6 @@
 		@elem:var @type:int:ls list = @intro:moreFunction[demo, demo2] // 同じクラス内の時の取り扱い、どうするか・・・
 
 		@ret 0 // return。関数の方に合わせたものを返す必要がある。
-		@end // 関数の終わりを示す。インデントは勿論合わせて上げたままだよね？
 
 	@elem:function:private @type:int:ls moreFunction[@type:arg args]
 		@elem:var @type:int tmp = @sysio:getarg[args, 0] // こうなるのかなぁ・・・？わからん。
@@ -31,4 +30,3 @@
 		-1 *> tmp2
 		tmp2 -> tmp
 		@ret [tmp, tmp2] // 複数返り値をどう処理するかなぁ。要検討。
-		@end // これを忘れたらコンパイルエラー？
