@@ -26,9 +26,9 @@
 	@elem:function:private @type:int:ls moreFunction[@type:arg args]
 		@elem:var @type:int tmp = @sysio:getarg[args, 0] // こうなるのかなぁ・・・？わからん。
 		@elem:var @type:int tmp2 = @sysio:getarg[args, 1]
-		tmp <+ tmp2 // tmpにtmp2を足す動作かな
-		tmp -> tmp2 // tmp2からtmpを引く動作かな？
-		tmp2 <* -1
-		tmp <- tmp2
+		tmp2 +> tmp
+		tmp -> tmp2
+		-1 *> tmp2
+		tmp2 -> tmp
 		@ret [tmp, tmp2] // 複数返り値をどう処理するかなぁ。要検討。
 		@end // これを忘れたらコンパイルエラー？
