@@ -1,0 +1,3 @@
+@class case0
+  @elem:function:public @type:int main[@type:arg args]
+    @ret 0
