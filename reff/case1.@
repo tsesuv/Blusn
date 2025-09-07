@@ -1,0 +1,7 @@
+@direc:include "sysbio.@h"
+
+@class:case1
+	@elem:function:public @type:int main[@type:arg args]
+		// LPTポートで通信ができるようにしたい。
+		// @sysio:lpt とかで通信したいんよなぁ
+		@ret 0
