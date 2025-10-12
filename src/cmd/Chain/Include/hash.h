@@ -1,4 +1,4 @@
-/* hash algorithm header */
+/* UnSynk hash algorithm header */
 /* Version:1.0.0 */
 
 #ifndef HASH_H
@@ -59,43 +59,33 @@ static uint256_t sha256(const char *p)
 
 	size_t len = strlen(p);
 
-	/* パディング後の長さ計算 */
-	size_t new_len = len + 1;  /* 0x80を追加 */
+	size_t new_len = len + 1;
 	while ((new_len + 8) % 64 != 0)
 	{
 		new_len++;
 	}
 
-	/* メッセージバッファの確保（パディング＋8バイト長分） */
 	unsigned char *msg = (unsigned char *)malloc(new_len + 8);
 	if (msg == NULL)
 	{
-		/* メモリ確保に失敗した場合は、全メンバ0のハッシュを返す */
 		uint256_t zero = { 0, 0, 0, 0, 0, 0, 0, 0 };
 		return zero;
 	}
 
-	/* 元メッセージのコピー */
 	memcpy(msg, p, len);
-	/* 0x80の付加 */
 	msg[len] = 0x80;
-	/* 残りを0でパディング */
 	memset(msg + len + 1, 0, new_len - len - 1);
 
-	/* 元メッセージ長をビット単位で表現（ここでは最大4GBまで対応） */
 	unsigned int bit_len = (unsigned int)len * 8;
-	/* 上位32ビットは0として格納 */
 	msg[new_len + 0] = 0;
 	msg[new_len + 1] = 0;
 	msg[new_len + 2] = 0;
 	msg[new_len + 3] = 0;
-	/* 下位32ビットをビッグエンディアンで格納 */
 	msg[new_len + 4] = (unsigned char)((bit_len >> 24) & 0xff);
 	msg[new_len + 5] = (unsigned char)((bit_len >> 16) & 0xff);
 	msg[new_len + 6] = (unsigned char)((bit_len >> 8) & 0xff);
 	msg[new_len + 7] = (unsigned char)(bit_len & 0xff);
 
-	/* 初期ハッシュ値（SHA256規定） */
 	uint32_t h0 = 0x6a09e667;
 	uint32_t h1 = 0xbb67ae85;
 	uint32_t h2 = 0x3c6ef372;
@@ -105,7 +95,6 @@ static uint256_t sha256(const char *p)
 	uint32_t h6 = 0x1f83d9ab;
 	uint32_t h7 = 0x5be0cd19;
 
-	/* SHA256定数 */
 	static const uint32_t k[64] =
 	{
 		0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5,
@@ -131,7 +120,6 @@ static uint256_t sha256(const char *p)
 	for (i = 0; i < total_len; i += 64)
 	{
 		uint32_t w[64];
-		/* 最初の16ワードを設定（ビッグエンディアン変換） */
 		for (j = 0; j < 16; j++)
 		{
 			w[j] = ((uint32_t)msg[i + j * 4 + 0] << 24) |
@@ -139,7 +127,6 @@ static uint256_t sha256(const char *p)
 				   ((uint32_t)msg[i + j * 4 + 2] << 8)  |
 				   ((uint32_t)msg[i + j * 4 + 3]);
 		}
-		/* 16以降のワードを拡張計算 */
 		for (j = 16; j < 64; j++)
 		{
 			uint32_t s0 = RRT(w[j - 15], 7) ^ RRT(w[j - 15], 18) ^ (w[j - 15] >> 3);
@@ -147,7 +134,6 @@ static uint256_t sha256(const char *p)
 			w[j] = w[j - 16] + s0 + w[j - 7] + s1;
 		}
 
-		/* 作業用変数の初期化 */
 		uint32_t a = h0;
 		uint32_t b = h1;
 		uint32_t c = h2;
@@ -157,7 +143,6 @@ static uint256_t sha256(const char *p)
 		uint32_t g = h6;
 		uint32_t h = h7;
 
-		/* 圧縮処理メインループ */
 		for (j = 0; j < 64; j++)
 		{
 			uint32_t S1 = RRT(e, 6) ^ RRT(e, 11) ^ RRT(e, 25);
@@ -177,7 +162,6 @@ static uint256_t sha256(const char *p)
 			a = temp1 + temp2;
 		}
 
-		/* ハッシュ値の更新 */
 		h0 += a;
 		h1 += b;
 		h2 += c;
@@ -190,7 +174,6 @@ static uint256_t sha256(const char *p)
 
 	free(msg);
 
-	/* 結果をuint256_tに格納して返却 */
 	uint256_t result;
 	result.a = h0;
 	result.b = h1;

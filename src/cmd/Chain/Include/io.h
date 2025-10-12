@@ -1,4 +1,4 @@
-/* I/O header */
+/* UnSynk I/O header */
 /* Version:1.3.1 Pre-Alpha */
 
 #ifndef IO_H

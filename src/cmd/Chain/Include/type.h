@@ -1,4 +1,4 @@
-/* Type header */
+/* UnSynk Type header */
 /* Version:1.1.0 Pre-Alpha */
 
 #ifndef TYPE_H
