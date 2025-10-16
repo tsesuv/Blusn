@@ -3,6 +3,6 @@
 class case1
 	int [arg args] main @public
 		int i <- 0, i++, for < 10
-			i ~str @txout // Pythonみたいなインデント言語？なんかやなんよなぁ・・・
+			i ~str @sys:txout // Pythonみたいなインデント言語？なんかやなんよなぁ・・・
 
 		0 @ret
