@@ -1,3 +1,5 @@
 class case0
 	int [arg args] main @public
+	@begin
 		0 @ret
+	@end

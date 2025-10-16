@@ -4,6 +4,7 @@
 
 class intro // Javaのクラスを採用してみる。mdl(モジュール)でもいいかもなぁ。
 	int [arg args] main @public // xx型の、[yy]を受け取る、zz関数で、ww(public/private)な関数
+	@begin
 		// intで整数型。:signedや:unsignedをつけることも可能。省略時は:signed。
 		// arg argsで引数。引数についてはたぶん後で仕様を変えると思う。
 
@@ -20,8 +21,10 @@ class intro // Javaのクラスを採用してみる。mdl(モジュール)で�
 		int:ls list <- [demo, demo2] @intro:moreFunction
 
 		0 @ret // return。関数の方に合わせたものを返す必要がある。
+	@end
 
 	int:ls [arg args] moreFunction @private
+	@begin
 		int tmp = [args, 0] @sys:getarg // こうなるのかなぁ・・・？わからん。
 		int tmp2 = [args, 1] @sys:getarg
 		tmp <- tmp + tmp2 // <-は代入記号
@@ -29,3 +32,4 @@ class intro // Javaのクラスを採用してみる。mdl(モジュール)で�
 		tmp <- tmp - tmp2
 
 		[tmp, tmp2] @ret // 複数返り値をどう処理するかなぁ。要検討。
+	@end
