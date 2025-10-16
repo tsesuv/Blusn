@@ -3,7 +3,7 @@
 [DEF::MAIN::(
 	(LET::X::0)
 	(IN::X) # 逐次処理はそのままつなげるだけ
-	(IF::(GT::X::3)::(
+	((IF)::(GT::X::3)::(
 		OUT::'$0 is Greater!%j"'::X
 	)::(
 		OUT::'$0 is Smaller!%j"'::X

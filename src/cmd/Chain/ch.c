@@ -5,14 +5,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "io.h"
-#include "type.h"
-
-////////////////////////////////////////////////////////
-
-FILE *CMFILE;
-char *Program = "";
-uint32_t FILESIZE = 0;
+#include "Include/io.h"
+#include "Include/type.h"
+#include "Include/ch.h"
 
 ////////////////////////////////////////////////////////
 
@@ -56,7 +51,7 @@ int exec(char *p)
 
 ////////////////////////////////////////////////////////
 
-int main(int argc, char **argv)
+int __firstinit(int argc, char **argv)
 {
 	if(argc < 2)
 	{
@@ -79,14 +74,57 @@ int main(int argc, char **argv)
 		}
 	}
 
-	int ReadFlag = 0;
-	while(ReadFlag > 0)
+	// int ReadFlag = 0;
+	// while(ReadFlag > 0)
+	// {
+	// 	ReadFlag = fread(&Program[FILESIZE], sizeof(char), 1, CMFILE);
+	// 	FILESIZE++;
+	// }
+	// fclose(CMFILE);
+	// exec(Program);
+
+	return 0;
+}
+
+int _perse(const char *p)
+{
+	int i = 0;
+
+	while(*(p + i) != '\0')
 	{
-		ReadFlag = fread(&Program[FILESIZE], sizeof(char), 1, CMFILE);
-		FILESIZE++;
+		if(*(p + i) == '#')
+		{
+			while(*(p + i) != ';') i++;
+			i++;
+		}
+
+		if(*(p + i) == '%')
+		{
+			i++;
+			switch(*(p + i))
+			{
+				case 'j':
+					putchar(0x0A);
+					break;
+			}
+			i++;
+		}
+
+		printf("%c", *(p + i));
+
+		i++;
 	}
-	fclose(CMFILE);
-	exec(Program);
+
+	return 0;
+}
+
+////////////////////////////////////////////////////////
+
+int main(int argc, char **argv)
+{
+	__firstinit(argc, argv);
+
+	_perse("#test;[DEF::MAIN::(OUT::'Hello, world!%j\"')]\0");
 
 	return 0;
 }
