@@ -93,14 +93,22 @@ char *_nomalize(const char *p)
 
 tkList *_tokenalize(const char *p)
 {
+	tkList *tklist = malloc(sizeof(tkList));
+	tklist->capacity = 64;
+	tklist->tokens = malloc(sizeof(Token) * tklist->capacity);
+	tklist->tk_count = 0;
+
 	int i = 0;
+	char buffer[256];
+	int bidx = 0;
 
 	while(*(p + i) != '\0')
 	{
 		if(*(p + i) == '#')
 		{
-			while(*(p + i) != ';') i++;
+			while(*(p + i) != ';' && *(p + i) != '\n' && *(p + i) != '\0') i++;
 			i++;
+			continue;
 		}
 
 		if(*(p + i) == '%')
