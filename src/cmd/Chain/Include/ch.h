@@ -2,16 +2,46 @@
 #define CH_H
 
 #include <stdio.h>
-#include <stdint.h>
+#include "type.h"
 
 FILE *CMFILE;
 char *Program = "";
 uint32_t FILESIZE = 0;
 
-struct
+typedef enum
 {
-	int conj_op_dpr;
-	int presrv_conj_op_dpr;
-} var;
+	TK_OP,
+	TK_SYM,
+	TK_FMLA
+} tkType;
+
+typedef enum
+{
+	OP_COLON,
+	OP_PAREN,
+	OP_BRACKET
+} opType;
+
+typedef struct
+{
+	tkType type;
+
+	union
+	{
+		opType op;
+		char *symbol;
+	} value;
+
+	int char_pos;
+	int paren_depth;
+	int opening_pos;
+} Token;
+
+typedef struct
+{
+	Token *tokens;
+	int tk_count;
+	int capacity;
+} tkList;
 
 #endif /* ch.h */

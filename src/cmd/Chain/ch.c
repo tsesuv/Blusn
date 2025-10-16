@@ -86,7 +86,12 @@ int __firstinit(int argc, char **argv)
 	return 0;
 }
 
-int _perse(const char *p)
+char *_nomalize(const char *p)
+{
+	return "";
+}
+
+tkList *_tokenalize(const char *p)
 {
 	int i = 0;
 
@@ -118,13 +123,22 @@ int _perse(const char *p)
 	return 0;
 }
 
+int _perse(const tkList *p)
+{
+	return 0;
+}
+
 ////////////////////////////////////////////////////////
 
 int main(int argc, char **argv)
 {
 	__firstinit(argc, argv);
 
-	_perse("#test;[DEF::MAIN::(OUT::'Hello, world!%j\"')]\0");
+	char *nomalized = _nomalize("#test;[DEF::MAIN::(OUT::'Hello, world!%j\"')]\0");
+
+	tkList *tk_list = _tokenalize(nomalized);
+
+	_perse(tk_list);
 
 	return 0;
 }
