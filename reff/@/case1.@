@@ -1,7 +1,8 @@
-@direc:include "sysbio.@h"
+"sysbio.@h" @include
 
-@class:case1
-	@elem:function:public @type:int main[@type:arg args]
-		// LPTポートで通信ができるようにしたい。
-		// @sysio:lpt とかで通信したいんよなぁ
-		@ret 0
+class case1
+	int [arg args] main @public
+		int i <- 0, i++, for < 10
+			i ~str @txout // Pythonみたいなインデント言語？なんかやなんよなぁ・・・
+
+		0 @ret
