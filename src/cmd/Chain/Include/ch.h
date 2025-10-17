@@ -18,8 +18,10 @@ typedef enum
 typedef enum
 {
 	OP_COLON,
-	OP_PAREN,
-	OP_BRACKET
+	OP_PAREN_O,
+	OP_PAREN_C,
+	OP_BRACKET_O,
+	OP_BRACKET_C
 } opType;
 
 typedef struct
@@ -33,7 +35,6 @@ typedef struct
 	} value;
 
 	int char_pos;
-	int paren_depth;
 	int opening_pos;
 } Token;
 
