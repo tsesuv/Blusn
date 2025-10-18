@@ -1,5 +1,5 @@
 /* UnSynk Chain Interpreter */
-/* Version:1.1.0 Pre-Alpha */
+/* Version: 1.2.0 Pre-Alpha */
 /* Created by UnSynk, tsesuv notsel */
 
 #include <stdio.h>
@@ -16,21 +16,24 @@
 
 int version()
 {
-	printf("UnSynk Chain Interpreter Version:1.0.0 Pre-Alpha\r\n");
-	printf("Created by UnSynk, tsesuv notsel\r\n");
-	printf("Enter 'ch /?` you get more helps.\r\n");
+	printf("=====UnSynk Chain Interpreter=====\n");
+	printf(" Version: 1.2.0 Pre-Alpha\n");
+	printf(" build: 2025101801\n");
+	printf("----------------------------------\n");
+	printf(" Created by UnSynk, tsesuv notsel\n");
+	printf(" Enter 'ch /?` you get more helps.\n");
 	exit(0);
 }
 
 int help()
 {
-	printf("UnSynk Chain Interpreter\r\n");
-	printf("Usage:\r\n");
-	printf("	ch [/i <chs file path>] [Options]\r\n");
-	printf("Options:\r\n");
-	printf("	/i Enter the chs file path.\r\n");
-	printf("	/? This help message.\r\n");
-	printf("	/v Print software informations.\r\n");
+	printf("UnSynk Chain Interpreter\n");
+	printf("Usage:\n");
+	printf("	ch [/i <chs file path>] [Options]\n");
+	printf("Options:\n");
+	printf("	/i Enter the chs file path.\n");
+	printf("	/? This help message.\n");
+	printf("	/v Print software informations.\n");
 	exit(0);
 }
 
