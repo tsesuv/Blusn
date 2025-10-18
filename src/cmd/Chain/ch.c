@@ -94,6 +94,8 @@ char *_nomalize(const char *p)
 	int memsize = strlen(p) * 4;
 	char *result = malloc(memsize);
 	int oidx = 0;
+	char flag = 0;
+	char ls_end_flag = 0;
 
 	int i = 0;
 	while(p[i] != '\0')
@@ -107,28 +109,13 @@ char *_nomalize(const char *p)
 
 		if(p[i] == '\'')
 		{
-			i++;
-			_append(result, &oidx, &memsize, "(LIST:");
-
-			while(p[i] != '\'' && p[i] != '\0')
+			ls_end_flag++;
+			if(flag) flag = 0;
+			else
 			{
-				if(p[i] == '%')
-				{
-					int bvalue = _pros_escape(p, &i);
-					char hex_str[4];
-					sprintf(hex_str, "%d:", bvalue);
-					_append(result, &oidx, &memsize, hex_str);
-				}
-				else
-				{
-					char hex_str[4];
-					sprintf(hex_str, "%d:", (uint8_t)p[i]);
-					_append(result, &oidx, &memsize, hex_str);
-					i++;
-				}
+				flag = 1;
+				_append(result, &oidx, &memsize, "(LIST:");
 			}
-
-			_append(result, &oidx, &memsize, "\0)");
 			i++;
 		}
 		else
@@ -139,6 +126,36 @@ char *_nomalize(const char *p)
 				result = realloc(result, memsize);
 			}
 			result[oidx] = p[i];
+			
+			if(flag)
+			{
+				if(p[i] == '%')
+				{
+					int bvalue = _pros_escape(p, i);
+					char hex_str[4];
+					sprintf(hex_str, "%d:", bvalue);
+					_append(result, &oidx, &memsize, hex_str);
+					i++;
+				}
+				else if(p[i] == '"')
+				{
+					_append(result, &oidx, &memsize, "0)");
+				}
+				else
+				{
+					char hex_str[4];
+					sprintf(hex_str, "%d:", (uint8_t)p[i]);
+					_append(result, &oidx, &memsize, hex_str);
+				}
+			}
+			else
+			{
+				char hex_str[4];
+				sprintf(hex_str, "%c", (uint8_t)p[i]);
+				_append(result, &oidx, &memsize, hex_str);
+				
+			}
+
 			i++;
 		}
 	}
@@ -243,10 +260,15 @@ int print_tk(tkList *tklist)
 int main(int argc, char **argv)
 {
 	__firstinit(argc, argv);
+	getchar();
 
-	char *nomalized = _nomalize("#test;[DEF::MAIN::(OUT::'Hello, world!%j\"')]\0");
+	char *nomalized = _nomalize("#test;[DEF:MAIN:(OUT:'Hello, world!%j\"')]\0");
+	printf("Nomalized: %s\nLast char: %d\n", nomalized, nomalized[strlen(nomalized)]);
+	getchar();
 
 	tkList *tk_list = _tokenalize(nomalized);
+	print_tk(tk_list);
+	getchar();
 
 	_perse(tk_list);
 

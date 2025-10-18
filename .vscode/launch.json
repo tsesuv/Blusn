@@ -6,8 +6,7 @@
 	"configurations": [],
 	"name": "c debug",
 	"type": "cdbg",
-	"program": "$[WorkspaceFolder}/src/cmd/Chain/ch",
+	"program": "/home/tsesuv/Blusn/src/cmd/Chain/ch",
 	"args": ["ch.c"],
-	"environment": [{ "name": "config", "value": "Debug" }],
-	"cwd": "${workspaceFolder}"
+	"environment": [{ "name": "config", "value": "Debug" }]
 }

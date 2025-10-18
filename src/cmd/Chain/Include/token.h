@@ -4,22 +4,22 @@
 #include <stdio.h>
 #include "ch.h"
 
-int _pros_escape(const char *p, int *i)
+int _pros_escape(const char *p, int i)
 {
 	i++;
-	char next = p[*i];
 
-	switch(next)
+	switch(p[i])
 	{
-		case '0': *i++; return 0;
-		case 'e': *i++; return 0x1B;
-		case '6': *i++; // あとで対応する
-		case '1': *i++;
-		case '2': *i++;
-		case '3': *i++;
-		case '4': *i++;
-		case '9': *i++; return 0x7F;
-		default: return next;
+		case '0': return 0;
+		case 'e': return 0x1B;
+		case 'j': return 0x0A;
+		case '6': break; // あとで対応する
+		case '1': break;
+		case '2': break;
+		case '3': break;
+		case '4': break;
+		case '9': return 0x7F;
+		default: return p[i];
 	}
 }
 
