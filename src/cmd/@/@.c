@@ -8,25 +8,14 @@
 FILE *SrcFile;
 FILE *ByteCode;
 
-int (* BuiltCmd)(int, ...);
+int (* BuiltInit)(int, ...);
 
 ////////////////////////////////////////////////////////
 
 int version(int, ...);
 int help(int, ...);
-int write(const char *, const int *, const size_t, const size_t);
 
 ////////////////////////////////////////////////////////
-
-int main(int argc, char **argv)
-{
-	if(argc < 2)
-	{
-		version(0);
-	}
-
-	return 0;
-}
 
 int version(int l, ...)
 {
@@ -59,13 +48,16 @@ int help(int l, ...)
 	exit(0);
 }
 
-int write(const char *file, const int *dat, const size_t dsize, const size_t dlngth)
+////////////////////////////////////////////////////////
+
+int main(int argc, char **argv)
 {
-	ByteCode = fopen(file, "wb");
-
-	fwrite(dat, dsize, dlngth, ByteCode);
-
-	fclose(ByteCode);
+	if(argc < 2)
+	{
+		version(0);
+	}
 
 	return 0;
 }
+
+////////////////////////////////////////////////////////
