@@ -1,5 +1,5 @@
 class case0
-	int [arg args] main @public
+	[args arg] main int @public
 	@begin
-		0 @ret
+		0 ret
 	@end
