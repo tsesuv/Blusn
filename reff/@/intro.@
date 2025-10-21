@@ -3,30 +3,35 @@
 "sysbio.@h" @include // sysbioはSYStem Basic Input/Output
 
 class intro // Javaのクラスを採用してみる。mdl(モジュール)でもいいかもなぁ。
-	int [arg args] main @public // xx型の、[yy]を受け取る、zz関数で、ww(public/private)な関数
+	[args arg] main int @public // xx型の、[yy]を受け取る、zz関数で、ww(public/private)な関数
 	@begin
 		// intで整数型。:signedや:unsignedをつけることも可能。省略時は:signed。
-		// arg argsで引数。引数についてはたぶん後で仕様を変えると思う。
+		// args argで引数。引数についてはたぶん後で仕様を変えると思う。
 
-		int demo @public <- 32
+		demo int @public <- 32
 		// publicを省略時はprivate。
 
-		"Hello, world!" @sys:txout
-		demo ~str:safe @sys:txout // ~ooでoo型に型変換
+		"Hello, world!", @newl @sys:txout
+		demo ~str:safe, @newl @sys:txout // ~ooでoo型に型変換
 		// 安全な型変換では、人にやさしい変換、例えば32という整数値は32という文字列になったりする変換になる。
 		// unsafe、つまり安全でない型変換では、システム的な変換、例えば32という整数値は文字コードとして空白文字になったりする変換になる。
 		// 省略した場合は安全な型変換になる。
 
-		int demo2 <- 16
-		int:ls list <- [demo, demo2] @intro:moreFunction
+		demo2 int <- 16
+		list int:ls <- [demo, demo2] @intro:moreFunction
+
+		i <- 0 int, k <- 0 int; i++ & k++; for < 10 & < 5 // これなら二重ループ。iが速く動き、iが条件を満たしたらkが動いてiが初期値に戻る。
+		@begin
+			"i: ", i, @sys:newl, "k: ", k, @sys:newl @sys:txout
+		@end
 
 		0 @ret // return。関数の方に合わせたものを返す必要がある。
 	@end
 
-	int:ls [arg args] moreFunction @private
+	[args arg] moreFunction int:ls @private
 	@begin
-		int tmp = [args, 0] @sys:getarg // こうなるのかなぁ・・・？わからん。
-		int tmp2 = [args, 1] @sys:getarg
+		tmp int <- [args, 0] @sys:getarg // こうなるのかなぁ・・・？わからん。
+		tmp2 int <- [args, 1] @sys:getarg
 		tmp <- tmp + tmp2 // <-は代入記号
 		tmp2 <- tmp - tmp2
 		tmp <- tmp - tmp2
