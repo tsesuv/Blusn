@@ -7,8 +7,8 @@ Leyer0:
 
 Leyer1:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
-|     |     | ESC |  ^  |Space|     |  c  |     |  x  |  q  |     |     |     |    |
-|  w  |Shift|  <  |  v  | [>] | Lyr2|  d  | [v] |  z  |  g  |Shift|     |          |
+|     |     | ESC |  ^  |Space|     |  c  |  w  |  x  |  q  |     |     |     |    |
+|     |Shift|  <  |  v  | [>] | Lyr2|  d  | [v] |  z  |  g  |Shift|     |          |
 |Shift|     | Tab | DEL |  BS |     |  j  |  h  |  l  |  b  |  y  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
