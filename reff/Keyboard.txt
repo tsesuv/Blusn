@@ -1,0 +1,50 @@
+Leyer0:
+|     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
+|     |     | ESC |  ^  |Space|     |  q  |  a  |  i  |  u  |     |     |     |    |
+|     |Shift|  <  |  v  | [>] | Lyr2|  t  | [f] |  w  |  k  |Shift|     |          |
+|Shift|     | Tab | DEL |  BS |     |  x  |  e  |  o  |  p  |  z  |      Shift     |
+|  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
+
+Leyer1:
+|     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
+|     |     | ESC |  ^  |Space|     |  c  |  s  |  n  |  m  |     |     |     |    |
+|     |Shift|  <  |  v  | [>] | Lyr2|  d  | [v] |  l  |  g  |Shift|     |          |
+|Shift|     | Tab | DEL |  BS |     |  j  |  h  |  r  |  b  |  y  |      Shift     |
+|  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
+
+Leyer2:
+|     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
+|     |     | ESC |  ^  |Space|     |  @  |  #  |  [  |  ]  |     |     |     |    |
+|     |Shift|  <  |  v  | [>] | Lyr2|  /  | [$] |  (  |  )  |Shift|     |          |
+|Shift|     | Tab | DEL |  BS |     |  \  |  ,  |  .  |  ;  |  "  |      Shift     |
+|  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
+
+Leyer1+2:
+|     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
+|     |     | ESC |  ^  |Space|     |  |  |  =  |  %  |  &  |     |     |     |    |
+|     |Shift|  <  |  v  | [>] | Lyr2|  ~  | [-] |  +  |  *  |Shift|     |          |
+|Shift|     | Tab | DEL |  BS |     |  ^  |  ?  |  !  |  :  |  '  |      Shift     |
+|  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
+
+Leyer2+Shift:
+|     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
+|     |     | ESC |  ^  |Space|     |     |  `  |  {  |  }  |     |     |     |    |
+|     |Shift|  <  |  v  | [>] | Lyr2|     | [_] |  <  |  >  |Shift|     |          |
+|Shift|     | Tab | DEL |  BS |     |     |     |     |     |     |      Shift     |
+|  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
+
+Shift:
+|     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
+|     |     | ESC | PgUp|Space|     |  Q  |  A  |  I  |  U  |     |     |     |    |
+|     |Shift| Home| PgDn|[End]| Lyr2|  T  | [F] |  W  |  K  |Shift|     |          |
+|Shift|     | Tab | DEL |  BS |     |  X  |  E  |  O  |  P  |  Z  |      Shift     |
+|  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
+
+Leyer1+Shift:
+|     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
+|     |     | ESC |  ^  |Space|     |  C  |  S  |  N  |  M  |     |     |     |    |
+|     |Shift|  <  |  v  | [>] | Lyr2|  D  | [V] |  L  |  G  |Shift|     |          |
+|Shift|     | Tab | DEL |  BS |     |  J  |  H  |  R  |  B  |  Y  |      Shift     |
+|  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
+
+*日本語入力に使用する場合、左Shift(QWERTY:Z)キーが半/全(漢字)キーになります
