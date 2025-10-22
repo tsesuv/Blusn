@@ -47,4 +47,5 @@ Leyer1+Shift:
 |Shift|     | Tab | DEL |  BS |     |  J  |  H  |  R  |  B  |  Y  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
-*日本語入力に使用する場合、左Shift(QWERTY:Z)キーが半/全(漢字)キーになります
+*日本語入力に使用する場合、左Shift(QWERTY:Z)キーの一個下が半/全(漢字)キーになります
+
