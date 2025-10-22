@@ -1,14 +1,14 @@
 Leyer0:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
-|     |     | ESC |  ^  |Space|     |  q  |  a  |  i  |  u  |     |     |     |    |
-|     |Shift|  <  |  v  | [>] | Lyr2|  t  | [f] |  w  |  k  |Shift|     |          |
-|Shift|     | Tab | DEL |  BS |     |  x  |  e  |  o  |  p  |  z  |      Shift     |
+|     |     | ESC |  ^  |Space|     |  m  |  a  |  i  |  u  |     |     |     |    |
+|     |Shift|  <  |  v  | [>] | Lyr2|  t  | [f] |  s  |  k  |Shift|     |          |
+|Shift|     | Tab | DEL |  BS |     |  n  |  e  |  o  |  p  |  l  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Leyer1:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
-|     |     | ESC |  ^  |Space|     |  c  |  s  |  n  |  m  |     |     |     |    |
-|     |Shift|  <  |  v  | [>] | Lyr2|  d  | [v] |  l  |  g  |Shift|     |          |
+|     |     | ESC |  ^  |Space|     |  c  |  s  |  x  |  q  |     |     |     |    |
+|     |Shift|  <  |  v  | [>] | Lyr2|  d  | [v] |  z  |  g  |Shift|     |          |
 |Shift|     | Tab | DEL |  BS |     |  j  |  h  |  r  |  b  |  y  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
@@ -35,15 +35,15 @@ Leyer2+Shift:
 
 Shift:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
-|     |     | ESC | PgUp|Space|     |  Q  |  A  |  I  |  U  |     |     |     |    |
-|     |Shift| Home| PgDn|[End]| Lyr2|  T  | [F] |  W  |  K  |Shift|     |          |
-|Shift|     | Tab | DEL |  BS |     |  X  |  E  |  O  |  P  |  Z  |      Shift     |
+|     |     | ESC | PgUp|Space|     |  M  |  A  |  I  |  U  |     |     |     |    |
+|     |Shift| Home| PgDn|[End]| Lyr2|  T  | [F] |  S  |  K  |Shift|     |          |
+|Shift|     | Tab | DEL |  BS |     |  N  |  E  |  O  |  P  |  L  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Leyer1+Shift:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
-|     |     | ESC |  ^  |Space|     |  C  |  S  |  N  |  M  |     |     |     |    |
-|     |Shift|  <  |  v  | [>] | Lyr2|  D  | [V] |  L  |  G  |Shift|     |          |
+|     |     | ESC |  ^  |Space|     |  C  |  S  |  X  |  Q  |     |     |     |    |
+|     |Shift|  <  |  v  | [>] | Lyr2|  D  | [V] |  Z  |  G  |Shift|     |          |
 |Shift|     | Tab | DEL |  BS |     |  J  |  H  |  R  |  B  |  Y  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
