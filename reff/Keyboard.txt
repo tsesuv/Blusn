@@ -2,50 +2,50 @@ Leyer0:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     |     | ESC |  ^  |Space|     |  m  |  a  |  i  |  u  |     |     |     |    |
 |     |Shift|  <  |  v  | [>] | Lyr2|  t  | [f] |  s  |  k  |Shift|     |          |
-|Shift|     | Tab | DEL |  BS |     |  n  |  e  |  o  |  p  |  r  |      Shift     |
+|Shift| F/H | Tab | DEL |  BS |     |  n  |  e  |  o  |  p  |  r  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Leyer1:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     |     | ESC |  ^  |Space|     |  c  |  w  |  x  |  q  |     |     |     |    |
 |     |Shift|  <  |  v  | [>] | Lyr2|  d  | [v] |  z  |  g  |Shift|     |          |
-|Shift|     | Tab | DEL |  BS |     |  j  |  h  |  l  |  b  |  y  |      Shift     |
+|Shift| F/H | Tab | DEL |  BS |     |  j  |  h  |  l  |  b  |  y  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Leyer2:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     |     | ESC |  ^  |Space|     |  @  |  #  |  [  |  ]  |     |     |     |    |
 |     |Shift|  <  |  v  | [>] | Lyr2|  /  | [$] |  (  |  )  |Shift|     |          |
-|Shift|     | Tab | DEL |  BS |     |  \  |  ,  |  .  |  ;  |  "  |      Shift     |
+|Shift| F/H | Tab | DEL |  BS |     |  \  |  ,  |  .  |  ;  |  "  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Leyer1+2:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     |     | ESC |  ^  |Space|     |  |  |  =  |  %  |  &  |     |     |     |    |
 |     |Shift|  <  |  v  | [>] | Lyr2|  ~  | [-] |  +  |  *  |Shift|     |          |
-|Shift|     | Tab | DEL |  BS |     |  ^  |  ?  |  !  |  :  |  '  |      Shift     |
+|Shift| F/H | Tab | DEL |  BS |     |  ^  |  ?  |  !  |  :  |  '  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Leyer2+Shift:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     |     | ESC |  ^  |Space|     |     |  `  |  {  |  }  |     |     |     |    |
 |     |Shift|  <  |  v  | [>] | Lyr2|     | [_] |  <  |  >  |Shift|     |          |
-|Shift|     | Tab | DEL |  BS |     |     |     |     |     |     |      Shift     |
+|Shift| F/H | Tab | DEL |  BS |     |     |     |     |     |     |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Shift:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     |     | ESC |  ^  |Space|     |  M  |  A  |  I  |  U  |     |     |     |    |
 |     |Shift|  <  |  v  | [>] | Lyr2|  T  | [F] |  S  |  K  |Shift|     |          |
-|Shift|     | Tab | DEL |  BS |     |  N  |  E  |  O  |  P  |  R  |      Shift     |
+|Shift| F/H | Tab | DEL |  BS |     |  N  |  E  |  O  |  P  |  R  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Leyer1+Shift:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     |     | ESC | PgUp|Space|     |  C  |  W  |  X  |  Q  |     |     |     |    |
 |     |Shift| Home| PgDn|[End]| Lyr2|  D  | [V] |  Z  |  G  |Shift|     |          |
-|Shift|     | Tab | DEL |  BS |     |  J  |  H  |  L  |  B  |  Y  |      Shift     |
+|Shift| F/H | Tab | DEL |  BS |     |  J  |  H  |  L  |  B  |  Y  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
-*日本語入力に使用する場合、左Shift(QWERTY:Z)キーの一個下が半/全(漢字)キーになります
-
+*F/Hキーは日本語入力時のみ使用する全角/半角()漢字
+キーです。
