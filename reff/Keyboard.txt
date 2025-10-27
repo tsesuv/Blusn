@@ -47,5 +47,5 @@ Leyer1+Shift:
 |Shift| F/H | Tab | DEL |  BS |     |  J  |  H  |  L  |  B  |  Y  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
-*F/Hキーは日本語入力時のみ使用する全角/半角()漢字
+*F/Hキーは日本語入力時のみ使用する全角/半角(漢字)
 キーです。
