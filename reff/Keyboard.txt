@@ -35,15 +35,15 @@ Leyer2+Shift:
 
 Shift:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
-|     |     | ESC | PgUp|Space|     |  M  |  A  |  I  |  U  |     |     |     |    |
-|     |Shift| Home| PgDn|[End]| Lyr2|  T  | [F] |  S  |  K  |Shift|     |          |
+|     |     | ESC |  ^  |Space|     |  M  |  A  |  I  |  U  |     |     |     |    |
+|     |Shift|  <  |  v  | [>] | Lyr2|  T  | [F] |  S  |  K  |Shift|     |          |
 |Shift|     | Tab | DEL |  BS |     |  N  |  E  |  O  |  P  |  R  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Leyer1+Shift:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
-|     |     | ESC |  ^  |Space|     |  C  |  W  |  X  |  Q  |     |     |     |    |
-|     |Shift|  <  |  v  | [>] | Lyr2|  D  | [V] |  Z  |  G  |Shift|     |          |
+|     |     | ESC | PgUp|Space|     |  C  |  W  |  X  |  Q  |     |     |     |    |
+|     |Shift| Home| PgDn|[End]| Lyr2|  D  | [V] |  Z  |  G  |Shift|     |          |
 |Shift|     | Tab | DEL |  BS |     |  J  |  H  |  L  |  B  |  Y  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
