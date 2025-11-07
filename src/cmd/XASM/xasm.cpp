@@ -5,9 +5,6 @@
 ////////////////////////////////////////////////////////
 
 #include "xasm.inc"
-#include "node.inc"
-#include "util.inc"
-#include "build.inc"
 #include "asmbl.inc"
 
 ////////////////////////////////////////////////////////
@@ -34,10 +31,10 @@ int main(int argc, char **argv)
 	std::string ifname = "";
 	std::string ofname = "";
 
-	std::regex i_patt(R"(;(?:i:|if=|infile:)([^\s/]+))");
-	std::regex o_patt(R"(;(?:o:|of=|outfile:)([^\s/]+))");
-	std::regex oth_patt1(R"(;(\?|help))");
-	std::regex oth_patt2(R"(;(v|version))");
+	std::regex i_patt(R"(:(?:i:|if=|infile:)([^\s/]+))");
+	std::regex o_patt(R"(:(?:o:|of=|outfile:)([^\s/]+))");
+	std::regex oth_patt1(R"(:(\?|help))");
+	std::regex oth_patt2(R"(:(v|version))");
 	std::smatch i_match;
 	std::smatch o_match;
 	std::smatch oth_match1;
@@ -68,10 +65,10 @@ bool version(void)
 {
 	std::cout << "====UnSynk XMC Assembler====" << std::endl;
 	std::cout << " Version: 1.1.3 Pre-Alpha" << std::endl;
-	std::cout << " Build: 2025110701" << std::endl;
+	std::cout << " Build: 2025110702" << std::endl;
 	std::cout << "----------------------------------" << std::endl;
 	std::cout << " Created by UnSynk, tsesuv notsel" << std::endl;
-	std::cout << " Enter 'xasm ;?` you get more helps." << std::endl;
+	std::cout << " Enter 'xasm :?` you get more helps." << std::endl;
 	
 	return true;
 }
@@ -81,10 +78,10 @@ bool help(void)
 	std::cout << "UnSynk XMC Assembler" << std::endl;
 	std::cout << "Created by UnSynk, tsesuv notsel" << std::endl;
 	std::cout << "Usage:" << std::endl;
-	std::cout << "\t;i:<file path>  ;if=<file path>  ;infile:<file path>\t:\tSpecify input file path." << std::endl;
-	std::cout << "\t;o:<file path>  ;of=<file path>  ;outfile:<file path>\t:\tSpecify output file path." << std::endl;
-	std::cout << "\t;?  ;help\t:\tThis help message." << std::endl;
-	std::cout << "\t;v  ;version\t:\t Print software infomations." << std::endl;
+	std::cout << "\t:i:<file path>  :if=<file path>  :infile:<file path>\t:\tSpecify input file path." << std::endl;
+	std::cout << "\t:o:<file path>  :of=<file path>  :outfile:<file path>\t:\tSpecify output file path." << std::endl;
+	std::cout << "\t:?  :help\t\t\t:\tThis help message." << std::endl;
+	std::cout << "\t:v  :version\t\t\t:\t Print software infomations." << std::endl;
 
 	return true;
 }
