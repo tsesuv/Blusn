@@ -6,7 +6,6 @@
 	"configurations": [],
 	"name": "c debug",
 	"type": "cdbg",
-	"program": "/home/tsesuv/Blusn/src/cmd/Chain/ch",
-	"args": ["ch.c"],
+	"program": "/home/tsesuv/Blusn/src/cmd/XASM/xasm",
 	"environment": [{ "name": "config", "value": "Debug" }]
 }
