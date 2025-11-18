@@ -3,21 +3,25 @@
 
 ////////////////////////////////////////////////////////
 
-int version(void);
-int help(void);
+bool IsREPL = true;
+
+////////////////////////////////////////////////////////
+
+bool version(void);
+bool help(void);
 
 ////////////////////////////////////////////////////////
 
 int main(int argc, char **argv)
 {
-	if(argc < 2) exit(version());
+	if(1 < argc) IsREPL = false;
 
 	return 0;
 }
 
 ////////////////////////////////////////////////////////
 
-int version(void)
+bool version(void)
 {
 	std::cout << "  UnSynk @ REPL & Interpreter" << std::endl;
 	std::cout << "-------------------------------" << std::endl;
@@ -26,10 +30,10 @@ int version(void)
 	std::cout << "-------------------------------" << std::endl;
 	std::cout << "enter `@ /?' you get more helps.\n" << std::endl;
 
-	return 0;
+	return true;
 }
 
-int help(void)
+bool help(void)
 {
 	std::cout << "  UnSynk @ REPL & Interpreter" << std::endl;
 	std::cout << "-------------------------------" << std::endl;
@@ -41,5 +45,5 @@ int help(void)
 	std::cout << "\t/w\t:\tEnable additional warnings." << std::endl;
 	std::cout << "\t/?\t:\tPrint this help mesage." << std::endl;
 
-	return 0;
+	return true;
 }
