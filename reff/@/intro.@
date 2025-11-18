@@ -22,7 +22,7 @@ intro mdl // Javaのクラス的なのを採用
 		@end
 
 		s1 str <- @sys:txin
-		@sys:txin.fail if
+		@sys:txin.fail if // @xx:yy.zzはメンバ関数。
 		@begin
 			"Invalid input", newl @sys:txout // ちなみに@sys:txout.noflushにするとバッファフラッシュをしないでおいておくこともできる。デフォルトは呼び出すとフラッシュされるようになっている。
 			"ERROR_INPUT_STR_INVALID" errno // errnoはretと排他の関係にある構文で、他言語でいう例外処理的な扱いになる。errnoは上位でキャッチできる構造(エラーコード数値でもエラーコード文字列でも)を返す必要がある。errnoは上位でhitすることをすることで処理でき、
