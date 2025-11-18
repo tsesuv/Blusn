@@ -3,24 +3,20 @@
 "sysbio.@h" include // sysbioはSYStem Basic Input/Output
 
 intro mdl // Javaのクラス的なのを採用
-	[args arg] main int @public
+	[args] main @public
 	@begin
-		// intで整数型。signedやunsignedをつけることも可能。省略時はsigned。
-		// args argで引数。引数についてはたぶん後で仕様を変えると思う。
+		// 動的型付け言語。
 
-		demo int @public <- 32
-		// publicを省略時はprivate。
+		demo @public <- 32
+		// mdl内変数ではpublicを省略時はprivate。
 
 		"Hello, world!", newl @sys:txout
-		demo ~str$safe, newl @sys:txout // ~ooでoo型に型変換
-		// 安全な型変換では、人にやさしい変換、例えば32という整数値は32という文字列になったりする変換になる。
-		// unsafe、つまり安全でない型変換では、システム的な変換、例えば32という整数値は文字コードとして空白文字になったりする変換になる。
-		// 省略した場合は安全な型変換になる。
+		demo, newl @sys:txout
 
-		demo2 int <- 16
-		list int$ls <- [demo, demo2] @intro:moreFunction // $はプロパティ構文。のちに出てくる.はメンバ関数。
+		demo2 <- 16
+		List$ls <- [demo, demo2] @intro:moreFunction // リストは変数に$をつけた後にlsと指定する。これはプロパティ構文という構文である。
 
-		i int <- 0, k int <- 0; i++ , k++; for < 10 , < 5 // これなら二重ループ。iが速く動き、iが条件を満たしたらkが動いてiが初期値に戻る。
+		i <- 0, k <- 0; i++ , k++; for < 10 , < 5 // これなら二重ループ。iが速く動き、iが条件を満たしたらkが動いてiが初期値に戻る。
 		@begin
 			"i: ", i, newl, "k: ", k, newl @sys:txout
 		@end
@@ -29,17 +25,17 @@ intro mdl // Javaのクラス的なのを採用
 		@sys:txin.fail if
 		@begin
 			"Invalid input", newl @sys:txout // ちなみに@sys:txout.noflushにするとバッファフラッシュをしないでおいておくこともできる。デフォルトは呼び出すとフラッシュされるようになっている。
-			0 errno // errnoはretと排他の関係にある構文で、他言語でいう例外処理的な扱いになる。errnoはunsigned int32型を返す必要がある。errnoは上位でcatch的なことをすることで処理でき、
+			"ERROR_INPUT_STR_INVALID" errno // errnoはretと排他の関係にある構文で、他言語でいう例外処理的な扱いになる。errnoは上位でキャッチできる構造(エラーコード数値でもエラーコード文字列でも)を返す必要がある。errnoは上位でhitすることをすることで処理でき、
 				// その処理が終わったら元のerrnoの次の行から再開する(back)かそのcatchしたところと同じ関数で再送する(ret)かerrnoの起こった行を再送する(rtry)かプロセスをキルする(die)必要がある。
 		@end
 
 		0 ret // return。関数の方に合わせたものを返す必要がある。
 	@end
 
-	[args arg] moreFunction int$ls @private
+	[args] moreFunction$ls @private // プロパティ構文は関数定義、宣言でも同様。
 	@begin
-		tmp int <- [args, 0] @sys:getarg // こうなるのかなぁ・・・？わからん。
-		tmp2 int <- [args, 1] @sys:getarg
+		tmp <- [args, 0] @sys:getarg // こうなるのかなぁ・・・？わからん。
+		tmp2 <- [args, 1] @sys:getarg
 		tmp <- tmp + tmp2 // <-は代入記号
 		tmp2 <- tmp - tmp2
 		tmp <- tmp - tmp2
