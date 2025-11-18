@@ -29,8 +29,8 @@ intro mdl // Javaのクラス的なのを採用
 		@sys:txin.fail if
 		@begin
 			"Invalid input", newl @sys:txout // ちなみに@sys:txout.noflushにするとバッファフラッシュをしないでおいておくこともできる。デフォルトは呼び出すとフラッシュされるようになっている。
-			{} @sys:errno // @sys:errnoはretと排他の関係にある構文で、他言語でいう例外処理的な扱いになる。現状@sys:errnoはerrno型を返す必要がある。errnoは上位でcatch的なことをすることで処理でき、
-				// その処理が終わったら元の@sys:errnoに戻る(back)かそのcatchしたところと同じ関数で再送する(ret)かerrnoの起こった行を再送する(rtry)かプロセスをキルする(die)必要がある。
+			0 errno // errnoはretと排他の関係にある構文で、他言語でいう例外処理的な扱いになる。errnoはunsigned int32型を返す必要がある。errnoは上位でcatch的なことをすることで処理でき、
+				// その処理が終わったら元のerrnoの次の行から再開する(back)かそのcatchしたところと同じ関数で再送する(ret)かerrnoの起こった行を再送する(rtry)かプロセスをキルする(die)必要がある。
 		@end
 
 		0 ret // return。関数の方に合わせたものを返す必要がある。
