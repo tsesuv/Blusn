@@ -5,16 +5,12 @@
 
 typedef enum
 {
-	TK_OP,
+	TK_OP, // 代入やらの命令
 	TK_COMM, // ,
-	TK_AT, // @
 	TK_COLON, // :
-	TK_ARROW, // <-
 	TK_DBL_QUOTE, // "
-	TK_AT_BEG, // @begin
-	TK_AT_END, // @end
+	TK_AT, // @から始まる場合
 	TK_SYM,
-	TK_NUM,
 	TK_EOF
 } tkType;
 
