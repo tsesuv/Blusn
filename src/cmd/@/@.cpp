@@ -3,7 +3,41 @@
 
 ////////////////////////////////////////////////////////
 
+typedef enum
+{
+	TK_OP,
+	TK_COMM, // ,
+	TK_AT, // @
+	TK_COLON, // :
+	TK_ARROW, // <-
+	TK_DBL_QUOTE, // "
+	TK_AT_BEG, // @begin
+	TK_AT_END, // @end
+	TK_SYM,
+	TK_NUM,
+	TK_EOF
+} tkType;
+
+typedef enum
+{} opType;
+
+typedef struct
+{
+	tkType type;
+	std::string sym;
+} Token;
+
+typedef struct
+{
+	Token *next;
+} tkList;
+
 ////////////////////////////////////////////////////////
+
+
+bool eval(void);
+bool lexer(void);
+bool parcer(void);
 
 bool version(void);
 bool help(void);
