@@ -23,11 +23,11 @@ int main(int argc, char **argv)
 
 bool version(void)
 {
-	std::cout << "  UnSynk @ REPL & Interpreter" << std::endl;
-	std::cout << "-------------------------------" << std::endl;
+	std::cout << "      UnSynk @ Evaluator" << std::endl;
+	std::cout << "------------------------------" << std::endl;
 	std::cout << " Version: 1.0.0 Pre-Alpha" << std::endl;
-	std::cout << " Build  : 2025103101"      << std::endl;
-	std::cout << "-------------------------------" << std::endl;
+	std::cout << " Build  : 2025111901"      << std::endl;
+	std::cout << "------------------------------" << std::endl;
 	std::cout << "enter `@ /?' you get more helps.\n" << std::endl;
 
 	return true;
@@ -35,15 +35,20 @@ bool version(void)
 
 bool help(void)
 {
-	std::cout << "  UnSynk @ REPL & Interpreter" << std::endl;
-	std::cout << "-------------------------------" << std::endl;
+	std::cout << "      UnSynk @ Evaluator" << std::endl;
+	std::cout << "------------------------------" << std::endl;
 	std::cout << "Usage:"                   << std::endl;
-	std::cout << "\t@ src.@ </o:filename> </w>" << std::endl;
-	std::cout << "-------------------------------" << std::endl;
+	std::cout << "	@ </hidden:{true|false}> </delay:{true|false}> </src:[\\file\\path.@]" << std::endl;
+	std::cout << "------------------------------" << std::endl;
 	std::cout << "Options:" << std::endl;
-	std::cout << "\t/o\t:\tSpecify output file name and file path." << std::endl;
-	std::cout << "\t/w\t:\tEnable additional warnings." << std::endl;
-	std::cout << "\t/?\t:\tPrint this help mesage." << std::endl;
+	std::cout << "	/hidden	:	Enable output hidden flag." << std::endl;
+	std::cout << "	/delay	:	Enable delay execute flag." << std::endl;
+	std::cout << "	/src	:	Configuration source file path." << std::endl;
+	std::cout << "	/?		:	Print this help message." << std::endl;
+	std::cout << "	/help	:	Print this help message." << std::endl;
+	std::cout << "	/h		:	Print this help message." << std::endl;
+	std::cout << "	/v		:	Print software informations." << std::endl;
+	std::cout << "	/version:	Print software informations." << std::endl;
 
 	return true;
 }
