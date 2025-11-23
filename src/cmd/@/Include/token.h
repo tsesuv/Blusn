@@ -39,133 +39,116 @@ typedef struct
 	unsigned long int column;
 } Token;
 
-typedef struct
+typedef struct tkList
 {
 	Token *tokens;
 	unsigned long int tk_cnt;
-	unsigned long int cap;
+	struct tkList *next;
 } tkList;
 
 ////////////////////////////////////////////////////////
 
-Token *tknnew(unsigned long int len);
-Token *tknclne(Token *t);
-Token *tknset(tkType type, str *value);
-tkList *tklnew(unsigned long int cap);
-tkList *tklclne(tkList *t);
+Token tknnew(unsigned long int len);
+Token tknclne(Token *t);
+Token tknset(tkType type, str value);
+tkList tklnew(unsigned long int cap);
+tkList tklclne(const tkList *t);
 
-tkList *lexer(str s);
+tkList lexer(str s);
 tkList *parser(tkList *L);
 
-bool addToken(tkList *tklist, tkType type, const str *value);
+bool _addToken(tkList *L, tkType type, const str value);
+bool _spritToken(char c, str *buf, tkList *L);
 
 ////////////////////////////////////////////////////////
 
-Token *tknnew(unsigned long int len)
+// このファイルにおける一切の変更を禁ずる
+
+Token tknnew(unsigned long int len)
 {
-	Token *t = malloc(sizeof(Token) * len);
-	t->type = TK_VOID;
-	t->value = *(str *)NULL;
+	Token t = *(Token *)malloc(sizeof(Token) * len);
+	t.type = TK_VOID;
+	t.value = strnew(len);
+	t.line = 0;
+	t.column = 0;
 
 	return t;
 }
 
-Token *tknclne(Token *t)
+Token tknclne(Token *t)
 {
-	Token *v = tknnew(strlen(&t->value));
+	Token v = tknnew(strlen(t->value));
 
-	for(int i = 0; i < strlen(&t->value); i++) strpush(&v->value, strget(&t->value)[i]);
-}
-
-Token *tknset(tkType type, str *value)
-{
-	Token *t = tknclne(tknnew(strlen(value)));
-	
-	t->type = type;
-	for(unsigned int i = 0; i < strlen(value); i++) strpush(&t->value, strget(value)[i]);
-
-	return t;
-}
-
-tkList *tklnew(unsigned long int cap)
-{
-	tkList *r;
-	r->tokens = tknnew(cap);
-	r->tk_cnt = 0;
-	r->cap = sizeof(tkList) * cap;
-
-	return r;
-}
-
-tkList *tklclne(tkList *t)
-{
-	tkList *v = tklnew(t->cap);
-
-	for(int i = 0; i < t->tk_cnt; i++) v->tokens[i] = t->tokens[i];
-	v->tk_cnt = t->tk_cnt;
-	v->cap = t->cap;
+	v.value = strclne(&t->value);
+	v.line = t->line;
+	v.column = t->column;
 
 	return v;
 }
 
-tkList *lexer(str s)
+Token tknset(tkType type, str value)
 {
-	tkList *tklist = tklclne(tklnew(64));
+	Token t = tknnew(strlen(value));
+	
+	t.type = type;
+	for(unsigned int i = 0; i < strlen(value); i++) strpush(&t.value, strget(value)[i]);
+
+	return t;
+}
+
+tkList tklnew(unsigned long int tk_cnt)
+{
+	tkList L;
+	L.tokens[0] = tknnew(1);
+	L.tk_cnt = 0;
+
+	return L;
+}
+
+tkList tklclne(const tkList *t)
+{
+	tkList v = tklnew(t->tk_cnt);
+
+	for(int i = 0; i < t->tk_cnt; i++) v.tokens[i] = tknclne(t->tokens);
+	v.tk_cnt = t->tk_cnt;
+
+	return v;
+}
+
+tkList lexer(const str s)
+{
+	tkList L = tklnew(64);
 
 	unsigned long int i = 0;
-	str buf = *strclne(strnew(64));
-	while(strget(&s)[i] != '\0')
+	str buf = strnew(64);
+	while(strget(s)[i] != '\0')
 	{
-		if(strget(&s)[i] == '\'')
+		if(strget(s)[i] == '\'')
 		{
-			while(strget(&s)[i] != '\n' && strget(&s)[i] != '\0') i++;
+			while(strget(s)[i] != '\n' && strget(s)[i] != '\0') i++;
 			i++;
 			continue;
 		} // 1行コメントスキップ
-		if(strcmp(strsub(&s, i, 3), strset(">>?")))
+		if(strcmp(strsub(s, i, 3), strset(">>?")))
 		{
-			while(!strcmp(strsub(&s, i, 3), strset("?<<"))) i++;
+			while(!strcmp(strsub(s, i, 3), strset("?<<"))) i++;
 			i += 3;
 			continue;
 		} // 複数行コメントスキップ
 
-		switch(strget(&s)[i]) // トークンごとに分けたい
-		{
-			case '(':
-				strpush(&buf, '\0');
-				addToken(tklist, TK_LPAREN, &buf);
-				break;
-			case ' ':
-				strpush(&buf, '\0');
-				if(strisdec(&buf)) addToken(tklist, TK_NUM, &buf);
-				break;
-			default:
-				strpush(&buf, strget(&s)[i]);
-				break;
-		}
+		_spritToken(strget(s)[i], &buf, &L);
+
+		i++;
 	}
 
-	if(0 < strlen(&s))
+	if(0 < strlen(s))
 	{
 		strpush(&buf, '\0');
 
-		switch(strget(&s)[i]) // トークンごとに分けたい
-		{
-			case '(':
-				strpush(&buf, '\0');
-				addToken(tklist, TK_LPAREN, &buf);
-				break;
-			case ' ':
-				strpush(&buf, '\0');
-				if(strisdec(&buf)) addToken(tklist, TK_NUM, &buf);
-				break;
-			default:
-				strpush(&buf, strget(&s)[i]);
-				break;
-		}
+		_spritToken(strget(s)[i], &buf, &L);
 	}
 
-	return tklist;
+	return L;
 }
 
 tkList *parser(tkList *L)
@@ -175,18 +158,32 @@ tkList *parser(tkList *L)
 
 ////////////////////////////////////////////////////////
 
-bool addToken(tkList *tklist, tkType type, const str *value)
+bool _addToken(tkList *L, tkType type, const str value)
 {
-	if(!(tklist->tk_cnt < tklist->cap))
+	Token t = tknnew(strlen(value) + 1);
+	t = tknset(type, value);
+
+	L->tk_cnt++;
+
+	return true;
+}
+
+bool _spritToken(char c, str *buf, tkList *L)
+{
+	switch(c) // トークンごとに分けたい
 	{
-		tklist->cap *= 2;
-		tklist->tokens = realloc(tklist->tokens, sizeof(Token) * tklist->cap);
+		case '(':
+			strpush(buf, '\0');
+			_addToken(L, TK_LPAREN, *buf);
+			break;
+		case ' ':
+			strpush(buf, '\0');
+			if(strisdec(*buf)) _addToken(L, TK_NUM, *buf);
+			break;
+		default:
+			strpush(buf, c);
+			break;
 	}
-
-	Token *t = tknnew(strlen(value) + 1);
-	tknset(type, value);
-
-	tklist->tk_cnt++;
 
 	return true;
 }

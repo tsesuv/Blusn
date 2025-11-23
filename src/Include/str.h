@@ -22,52 +22,52 @@ typedef struct
 
 ////////////////////////////////////////////////////////
 
-str *strnew(unsigned long int cap);
-str *strset(const char *p);
-str *strcat(str *s1, str *s2);
+str strnew(unsigned long int cap);
+str strset(const char *p);
+str strcat(const str s1, const str s2);
 bool strpush(str *s, char c);
-str *strsub(const str *s, unsigned long int start, unsigned long int len);
-bool strcmp(const str *a, const str *b);
-str *strclne(const str *s);
-const unsigned long int strlen(str *s);
-const char *strget(str *s);
-bool strisnum(str *s);
+str strsub(const str s, unsigned long int start, unsigned long int len);
+bool strcmp(const str a, const str b);
+str strclne(const str *s);
+const unsigned long int strlen(const str s);
+const char *strget(const str s);
+bool strisnum(const str s);
 bool strfree(str *s);
 
 ////////////////////////////////////////////////////////
 
-str *strnew(unsigned long int cap)
+str strnew(unsigned long int cap)
 {
-	str *s;
-	s->dat = malloc(cap + 1);
-	s->dat[0] = '\0';
-	s->len = 0;
-	s->cap = cap;
-	s->ecnum = 0;
+	str s;
+	s.dat = malloc(cap + 1);
+	s.dat[0] = '\0';
+	s.len = 0;
+	s.cap = cap;
+	s.ecnum = 0;
 
 	return s;
 }
 
-str *strset(const char *p)
+str strset(const char *p)
 {
 	unsigned long int len = 0;
 
 	while(p[len]) len++;
 	
-	str *s = strclne(strnew(len));
+	str s = strnew(len);
 
-	for(int k = 0; k < len; k++) s->dat[k] = p[k];
-	s->len = len;
-	s->dat[s->len] = '\0';
+	for(int k = 0; k < len; k++) s.dat[k] = p[k];
+	s.len = len;
+	s.dat[s.len] = '\0';
 
 	return s;
 }
 
-str *strcat(str *s1, str *s2)
+str strcat(const str s1, const str s2)
 {
-	str *t = strclne(strnew(s2->len));
-	t = strclne(s2);
-	for(unsigned long int i = 0; i < t->len; i++) strpush(s1, t->dat[i]);
+	str t = strnew(s1.len + s2.len);
+	t = strclne(&s1);
+	for(unsigned long int i = 0; i < s2.len; i++) t.dat[s1.len + i] = strget(s2)[i];
 
 	return t;
 }
@@ -86,64 +86,75 @@ bool strpush(str *s, char c)
 	return true;
 }
 
-str *strsub(const str *s, unsigned long int start, unsigned long int len)
+str strsub(const str s, unsigned long int start, unsigned long int len)
 {
-	if(s->len < start + len) len = s->len - start;
-	str *t = strclne(strnew(len));
+	if(s.len < start + len) len = s.len - start;
+	str t = strnew(len);
 
 	for(unsigned long int i = 0; i < len; i++)
 	{
-		t->dat[i] = s->dat[start + i];
+		t.dat[i] = s.dat[start + i];
 	}
-	t->len = len;
-	t->dat[t->len] = '\0';
+	t.len = len;
+	t.dat[t.len] = '\0';
 
 	return t;
 }
 
-bool strcmp(const str *a, const str *b)
+bool strcmp(const str a, const str b)
 {
-	if(a->len != b->len) return false;
+	if(a.len != b.len) return false;
 
-	for(unsigned long int i = 0; i < a->len; i++)
+	for(unsigned long int i = 0; i < a.len; i++)
 	{
-		if(a->dat[i] != b->dat[i]) return false;
+		if(a.dat[i] != b.dat[i]) return false;
 	}
 
 	return true;
 }
 
-str *strclne(const str *s)
+str strclne(const str *s)
 {
-	str *t = strnew(s->len);
+	str t = strnew(s->len);
 
-	for(unsigned long int i = 0; i < s->len; i++) t->dat[i] = s->dat[i];
-	t->len = s->len;
-	t->dat[t->len] = '\0';
+	for(unsigned long int i = 0; i < s->len; i++) t.dat[i] = s->dat[i];
+	t.len = s->len;
+	t.dat[t.len] = '\0';
 
 	return t;
 }
 
-const unsigned long int strlen(str *s)
+const unsigned long int strlen(str s)
 {
-	return s->len;
+	return s.len;
 }
 
-const char *strget(str *s)
+const char *strget(str s)
 {
-	return s->dat;
+	return s.dat;
 }
 
-bool strisdec(str *s)
+bool strisdec(str s)
 {
 	for(unsigned long int i = 0; i < strlen(s); i++)
 	{
 		for(unsigned long int k = 0; k < 10; k++)
 		{
-			if(!strcmp(strset(strget(s)[i]), strset((char)k + 0x30))) return false;
+			if(strget(s)[i] != (char)(k + 0x30)) return false;
 		}
 	}
 
+	return true;
+}
+
+bool txout(const str s, ...)
+{
+	va_list ap;
+	va_start(ap, s);
+
+	vprintf(s.dat, ap);
+
+	va_end(ap);
 	return true;
 }
 
