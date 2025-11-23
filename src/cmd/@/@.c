@@ -15,17 +15,15 @@ int cmp(int a, int b);
 
 int main(void)
 {
-	str test = strnew(1);
-	test = strset("token1 token2 123 0x5 000\n");
+	str test = strset("Token1 Token2 123 000\n");
 	txout(test);
-	tkList res = tklnew(1);
-	res = lexer(test);
-	txout(strset("Now working\n"));
-	// printf("Token list size: %d\n", res.tk_cnt);
-	// for(int i = 0; i < 5; i++)
-	// {
-	// 	printf("Token[%d]: %d (type), %s\n", i, res->tokens[i].type, res->tokens[i]);
-	// }
+	tkList *res = lexer(test);
+	printf("Token list size: %d\n", res->tk_cnt);
+	for(int i = 0; i < 4; i++)
+	{
+		printf("Token[%d]: %d (type), %s\n", i, res->token.type, strget(res->token.dat));
+		res = res->next;
+	}
 	strfree(&test);
 
 	return 0;

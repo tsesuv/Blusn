@@ -1,6 +1,17 @@
 {
     "C_Cpp.default.compilerPath": "C:/MinGW/bin/gcc.exe",
     "files.associations": {
-        "stdio.h": "c"
+        "*.h": "c",
+        "*.inc": "cpp",
+        "stdio.h": "c",
+        "charconv": "c",
+        "optional": "c",
+        "format": "c",
+        "system_error": "c",
+        "array": "c",
+        "functional": "c",
+        "tuple": "c",
+        "type_traits": "c",
+        "utility": "c"
     }
 }
