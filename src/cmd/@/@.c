@@ -33,7 +33,7 @@ bool version(void)
 
 bool help(void)
 {
-	printf("      UnSynk @ Evaluator\n");
+	printf("      UnSynk @ Evalizer\n");
 	printf("------------------------------\n");
 	printf("Usage:\n");
 	printf("	@ </autoexit:{true|false}> </hidden:{true|false}> </delay:{true|false}> </src:[\\file\\path.@]\n");

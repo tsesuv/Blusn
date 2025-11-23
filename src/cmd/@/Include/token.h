@@ -27,6 +27,7 @@ typedef enum
 	TK_AT,
 	TK_AT_BEGIN,
 	TK_AT_END,
+	TK_VOID,
 	TK_EOF
 } tkType;
 
@@ -47,17 +48,49 @@ typedef struct
 
 ////////////////////////////////////////////////////////
 
+Token *tknnew(unsigned long int len);
+Token *tknclne(Token *t);
+Token *tknset(tkType type, str *value);
 tkList *tklnew(unsigned long int cap);
 tkList *tklclne(tkList *t);
-Token *lexer(str s);
-tkList *parce(tkList *L);
+
+tkList *lexer(str s);
+tkList *parser(tkList *L);
+
+bool addToken(tkList *tklist, tkType type, const str *value);
 
 ////////////////////////////////////////////////////////
+
+Token *tknnew(unsigned long int len)
+{
+	Token *t = malloc(sizeof(Token) * len);
+	t->type = TK_VOID;
+	t->value = *(str *)NULL;
+
+	return t;
+}
+
+Token *tknclne(Token *t)
+{
+	Token *v = tknnew(strlen(&t->value));
+
+	for(int i = 0; i < strlen(&t->value); i++) strpush(&v->value, strget(&t->value)[i]);
+}
+
+Token *tknset(tkType type, str *value)
+{
+	Token *t = tknclne(tknnew(strlen(value)));
+	
+	t->type = type;
+	for(unsigned int i = 0; i < strlen(value); i++) strpush(&t->value, strget(value)[i]);
+
+	return t;
+}
 
 tkList *tklnew(unsigned long int cap)
 {
 	tkList *r;
-	r->tokens = malloc(sizeof(Token) * cap);
+	r->tokens = tknnew(cap);
 	r->tk_cnt = 0;
 	r->cap = sizeof(tkList) * cap;
 
@@ -66,7 +99,7 @@ tkList *tklnew(unsigned long int cap)
 
 tkList *tklclne(tkList *t)
 {
-	tkList *v = strnew(t->cap);
+	tkList *v = tklnew(t->cap);
 
 	for(int i = 0; i < t->tk_cnt; i++) v->tokens[i] = t->tokens[i];
 	v->tk_cnt = t->tk_cnt;
@@ -75,12 +108,11 @@ tkList *tklclne(tkList *t)
 	return v;
 }
 
-Token *lexer(str s)
+tkList *lexer(str s)
 {
 	tkList *tklist = tklclne(tklnew(64));
 
-	int i = 0;
-	int bufi = 0;
+	unsigned long int i = 0;
 	str buf = *strclne(strnew(64));
 	while(strget(&s)[i] != '\0')
 	{
@@ -89,15 +121,74 @@ Token *lexer(str s)
 			while(strget(&s)[i] != '\n' && strget(&s)[i] != '\0') i++;
 			i++;
 			continue;
+		} // 1行コメントスキップ
+		if(strcmp(strsub(&s, i, 3), strset(">>?")))
+		{
+			while(!strcmp(strsub(&s, i, 3), strset("?<<"))) i++;
+			i += 3;
+			continue;
+		} // 複数行コメントスキップ
+
+		switch(strget(&s)[i]) // トークンごとに分けたい
+		{
+			case '(':
+				strpush(&buf, '\0');
+				addToken(tklist, TK_LPAREN, &buf);
+				break;
+			case ' ':
+				strpush(&buf, '\0');
+				if(strisdec(&buf)) addToken(tklist, TK_NUM, &buf);
+				break;
+			default:
+				strpush(&buf, strget(&s)[i]);
+				break;
 		}
 	}
 
+	if(0 < strlen(&s))
+	{
+		strpush(&buf, '\0');
+
+		switch(strget(&s)[i]) // トークンごとに分けたい
+		{
+			case '(':
+				strpush(&buf, '\0');
+				addToken(tklist, TK_LPAREN, &buf);
+				break;
+			case ' ':
+				strpush(&buf, '\0');
+				if(strisdec(&buf)) addToken(tklist, TK_NUM, &buf);
+				break;
+			default:
+				strpush(&buf, strget(&s)[i]);
+				break;
+		}
+	}
+
+	return tklist;
+}
+
+tkList *parser(tkList *L)
+{
 	return 0;
 }
 
-tkList *parce(tkList *L)
+////////////////////////////////////////////////////////
+
+bool addToken(tkList *tklist, tkType type, const str *value)
 {
-	return 0;
+	if(!(tklist->tk_cnt < tklist->cap))
+	{
+		tklist->cap *= 2;
+		tklist->tokens = realloc(tklist->tokens, sizeof(Token) * tklist->cap);
+	}
+
+	Token *t = tknnew(strlen(value) + 1);
+	tknset(type, value);
+
+	tklist->tk_cnt++;
+
+	return true;
 }
 
 #endif

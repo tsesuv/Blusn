@@ -1,5 +1,5 @@
 /* UnSynk String Header */
-/* Version: 1.0.2 Pre-alpha */
+/* Version: 1.1.0 Pre-alpha */
 /* Created by UnSynk, tsesuv notsel */
 
 #ifndef STR_H
@@ -22,20 +22,21 @@ typedef struct
 
 ////////////////////////////////////////////////////////
 
-str *strnew(int cap);
+str *strnew(unsigned long int cap);
 str *strset(const char *p);
-bool strcat(str *s1, str *s2);
+str *strcat(str *s1, str *s2);
 bool strpush(str *s, char c);
 str *strsub(const str *s, unsigned long int start, unsigned long int len);
 bool strcmp(const str *a, const str *b);
 str *strclne(const str *s);
 const unsigned long int strlen(str *s);
 const char *strget(str *s);
+bool strisnum(str *s);
 bool strfree(str *s);
 
 ////////////////////////////////////////////////////////
 
-str *strnew(int cap)
+str *strnew(unsigned long int cap)
 {
 	str *s;
 	s->dat = malloc(cap + 1);
@@ -62,14 +63,13 @@ str *strset(const char *p)
 	return s;
 }
 
-bool strcat(str *s1, str *s2)
+str *strcat(str *s1, str *s2)
 {
 	str *t = strclne(strnew(s2->len));
 	t = strclne(s2);
-	for(int i = 0; i < t->len; i++) strpush(s1, t->dat[i]);
+	for(unsigned long int i = 0; i < t->len; i++) strpush(s1, t->dat[i]);
 
-	strfree(t);
-	return true;
+	return t;
 }
 
 bool strpush(str *s, char c)
@@ -91,7 +91,7 @@ str *strsub(const str *s, unsigned long int start, unsigned long int len)
 	if(s->len < start + len) len = s->len - start;
 	str *t = strclne(strnew(len));
 
-	for(int i = 0; i < len; i++)
+	for(unsigned long int i = 0; i < len; i++)
 	{
 		t->dat[i] = s->dat[start + i];
 	}
@@ -105,7 +105,7 @@ bool strcmp(const str *a, const str *b)
 {
 	if(a->len != b->len) return false;
 
-	for(int i = 0; i < a->len; i++)
+	for(unsigned long int i = 0; i < a->len; i++)
 	{
 		if(a->dat[i] != b->dat[i]) return false;
 	}
@@ -117,7 +117,7 @@ str *strclne(const str *s)
 {
 	str *t = strnew(s->len);
 
-	for(int i = 0; i < s->len; i++) t->dat[i] = s->dat[i];
+	for(unsigned long int i = 0; i < s->len; i++) t->dat[i] = s->dat[i];
 	t->len = s->len;
 	t->dat[t->len] = '\0';
 
@@ -132,6 +132,19 @@ const unsigned long int strlen(str *s)
 const char *strget(str *s)
 {
 	return s->dat;
+}
+
+bool strisdec(str *s)
+{
+	for(unsigned long int i = 0; i < strlen(s); i++)
+	{
+		for(unsigned long int k = 0; k < 10; k++)
+		{
+			if(!strcmp(strset(strget(s)[i]), strset((char)k + 0x30))) return false;
+		}
+	}
+
+	return true;
 }
 
 bool strfree(str *s)
