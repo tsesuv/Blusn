@@ -6,8 +6,6 @@ intro mdl ' Javaのクラス的なのを採用
 @begin
 	[args args] main int @public
 	@begin
-		' 動的型付け言語。
-
 		demo int @public <- 32
 		' mdl内変数ではpublicを省略時はprivate。
 
