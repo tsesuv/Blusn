@@ -5,6 +5,7 @@
 #ifndef STR_H
 #define STR_H
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
 
@@ -31,7 +32,9 @@ bool strcmp(const str a, const str b);
 str strclne(const str *s);
 const unsigned long int strlen(const str s);
 const char *strget(const str s);
-bool strisnum(const str s);
+bool strisdec(const str s);
+bool txout(const str s, ...);
+bool txoutln(const str s, ...);
 bool strfree(str *s);
 
 ////////////////////////////////////////////////////////
@@ -152,6 +155,18 @@ bool txout(const str s, ...)
 	va_list ap;
 	va_start(ap, s);
 
+	vprintf(s.dat, ap);
+
+	va_end(ap);
+	return true;
+}
+
+bool txoutln(const str s, ...)
+{
+	va_list ap;
+	va_start(ap, s);
+
+	strpush(&s, *"\n");
 	vprintf(s.dat, ap);
 
 	va_end(ap);
