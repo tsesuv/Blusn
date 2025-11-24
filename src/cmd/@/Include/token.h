@@ -152,7 +152,7 @@ tkList *tklclne(const tkList *t)
 {
 	tkList *v = tklnew(t->tk_cnt);
 
-	for(int i = 0; i < t->tk_cnt; i++) v->token = tknclne(&t->token);
+	for(unsigned long int i = 0; i < t->tk_cnt; i++) v->token = tknclne(&t->token);
 	v->head = t->head;
 	v->tk_cnt = t->tk_cnt;
 	v->cap = t->cap;
