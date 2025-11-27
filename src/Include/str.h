@@ -25,16 +25,23 @@ typedef struct
 
 str strnew(unsigned long int cap);
 str strset(const char *p);
+
 str strcat(const str s1, const str s2);
 bool strpush(str *s, char c);
+bool strrmv(str *s, unsigned long int pos);
+
 str strsub(const str s, unsigned long int start, unsigned long int len);
 bool strcmp(const str a, const str b);
 str strclne(const str *s);
+
 const unsigned long int strlen(const str s);
 const char *strget(const str s);
 bool strisdec(const str s);
+
+str txin(void);
 bool txout(const str s, ...);
 bool txoutln(const str s, ...);
+
 bool strfree(str *s);
 
 ////////////////////////////////////////////////////////
@@ -85,6 +92,14 @@ bool strpush(str *s, char c)
 
 	s->dat[s->len++] = c;
 	s->dat[s->len] = '\0';
+
+	return true;
+}
+
+bool strrmv(str *s, unsigned long int pos)
+{
+	s->dat[pos] = '\0';
+	s->len--;
 
 	return true;
 }
@@ -148,6 +163,18 @@ bool strisdec(str s)
 	}
 
 	return true;
+}
+
+str txin(void)
+{
+	str s = strnew(1);
+	char *p;
+
+	scanf("%s", p);
+	s = strset(p);
+	if(p[s.len] == '\n') strrmv(&s, s.len);
+
+	return s;
 }
 
 bool txout(const str s, ...)
