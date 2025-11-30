@@ -1,32 +1,91 @@
-; Dateiname: MBR
-
-BITS 16														; 16Bit-Modus
-ORG 0x7C00													; Adresse laden für Bootloader
+BITS 16
+ORG 0x7C00
 
 start:
-	; Initialisierung des Stapel
-	cli														; Deaktivieren des Interrupt
-	xor ax, ax												; Klar des AX-Register
-	mov sp, 0x7C00											; Setzen des Stapel Zeiger
-	mov ss, ax												; 0 Setzen für Stapel Segment
-	sti														; Aktivieren des Interrupt
+	cli
+	xor ax, ax
+	mov ds, ax
+	mov es, ax
+	mov ss, ax
+	mov sp, 0x7C00
 
-	; "Hello, World!" を画面に表示
-	mov si, msg												; メッセージのアドレスをSIにロード
+	mov si, PartTable
+	mov cx, 4
+	FindEnt:
+		mov al, [si]
+		cmp al, 0x80
+		je FoundEnt
+		
+		add si, 16
+		loop FindEnt
 
-print_char:
-	lodsb													; SIが指す文字をALにロード
-	or al, al												; ALが0か確認
-	jz hang													; 0なら終了
-	mov ah, 0x0E											; BIOSのテキスト出力機能
-	int 0x10												; BIOS割り込み
-	jmp print_char											; 次の文字へ
+		jmp NoActPart
 
-hang:
-	hlt														; CPUを停止
-	jmp hang												; 無限ループ
+	FoundEnt:
+		mov ch, [si + 3]
+		mov cl, [si + 2]
+		mov dh, [si + 1]
+		mov dl, [Bootable]
 
-msg db 'Willcommen bei Blusn Bootloader!', 0x0D, 0x0A, 0	; 表示するメッセージ (0で終了)
+		mov ah, 2
+		mov al, 1
+		mov bx, 0x7C00
+		int 0x13
+		jc ReadErr
 
-times 510-($-$$) db 0		; セクタサイズ(512バイト)にパディング
-dw 0xAA55					; ブートセクタ署名
+		msg db 'I try jmp to 7C00!', 0x0D, 0x0A, 0
+		mov si, msg
+		call print
+
+		jmp 0x0000:0x7C00
+
+		nop
+
+		msg2 db 'End MBR program but not Jumping...', 0
+		mov si, msg2
+		call print
+
+	NoActPart:
+		error1 db 'E1 - No Active Partition', 0
+		mov si, error1
+		call print
+		hlt
+		jmp $
+
+	ReadErr:
+		error2 db 'E2 - Read Error', 0
+		mov si, error2
+		call putchar
+		hlt
+		jmp $
+
+putchar:
+	mov ah, 0x0E
+	mov bx, 7
+	int 0x10
+	ret
+
+print:
+	mov ah, 0x0E
+	mov bx, 7
+	print_loop:
+		mov al, [si]
+		int 0x10
+		inc si
+		cmp al, 0
+		jne print_loop
+	ret
+
+Bootable:
+	db 0
+
+times 0x1BE - ($ - $$) db 0
+
+PartTable:
+	times 64 db 0
+
+times 510 - ($ - $$) db 0
+
+db 0x55
+db 0xAA
+; ブートセクタ署名
