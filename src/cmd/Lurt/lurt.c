@@ -112,7 +112,7 @@ bool version(void)
 	txoutln(strset("Lurt - A line editor trying respect EDLIN"));
 	txoutln(strset("-----------------------------------------"));
 	txoutln(strset(" Version: 1.0.0 Pre-Alpha"));
-	txoutln(strset(" Build: 2025112701"));
+	txoutln(strset(" Build: 2025113001"));
 	txoutln(strset("-----------------------------------------"));
 	txoutln(strset("enter `LURT /?' you get more helps."));
 
