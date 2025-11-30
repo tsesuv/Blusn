@@ -2,14 +2,28 @@
 /* Version: 1.0.0 Pre-alpha */
 /* Created by UnSynk, tsesuv notsel */
 
-/* 
-   History
-   2025/11/24/23:23: スクリーンエディタは諦めて新しいLurtとして開発開始
- */
+#include <fcntl.h>
+#include <unistd.h>
 
 #include "str.h"
 
 ////////////////////////////////////////////////////////
+
+FILE *text;
+
+typedef struct
+{
+	bool IsErr;
+	signed int code;
+} errno;
+
+////////////////////////////////////////////////////////
+
+bool edit(FILE *fp, str fname);
+
+bool ChkFileExist(FILE *fp, str fname);
+bool OpenFile(FILE *fp, str fname);
+bool ExecCmd(str cmd);
 
 bool version(void);
 bool help(void);
@@ -31,12 +45,74 @@ int main(int argc, char *argv[])
 
 ////////////////////////////////////////////////////////
 
+bool edit(FILE *fp, str fname)
+{
+	str cmd = strnew(1);
+	bool FileState[5] = {false, false, false, false, false}; // FileIsNew, General error, ReadOnly error, NoRoom error
+
+	FileState[0] = ChkFileExist(fp, fname);
+	FileState[1] = OpenFile(fp, fname);
+	
+	for(unsigned int i = 1; i < 5; i++)
+	{
+		if(!FileState[i])
+		{
+			switch(i)
+			{
+				case 1:
+					txoutln(strset("File Creation Error"));
+					break;
+				case 2:
+					txoutln(strset("File is READ-ONRY"));
+					break;
+				case 3:
+					txoutln(strset("No room in directory for file"));
+					break;
+				case 4:
+					txoutln(strset(""));
+					break;
+				case 5:
+					txoutln(strset(""));
+					break;
+			}
+		}
+	}
+	if(FileState[0]) txoutln(strset("New file"));
+
+	txout(strset("*"));
+	cmd = txin();
+
+	ExecCmd(cmd);
+
+	return true;
+}
+
+bool ChkFileExist(FILE *fp, str fname)
+{
+	int NewFMode = -1;
+	int fd = open(strget(fname), O_CREAT | O_EXCL | O_WRONLY, NewFMode);
+
+	return fd != -1 ? true :  false;
+}
+
+bool OpenFile(FILE *fp, str fname)
+{
+	errno res = {1, fopen_s(&fp, strget(fname), "w")};
+
+	return res.code == 0 ? true : false;
+}
+
+bool ExecCmd(str cmd)
+{
+	return true;
+}
+
 bool version(void)
 {
 	txoutln(strset("Lurt - A line editor trying respect EDLIN"));
 	txoutln(strset("-----------------------------------------"));
 	txoutln(strset(" Version: 1.0.0 Pre-Alpha"));
-	txoutln(strset(" Build: 2025112401"));
+	txoutln(strset(" Build: 2025112701"));
 	txoutln(strset("-----------------------------------------"));
 	txoutln(strset("enter `LURT /?' you get more helps."));
 
@@ -48,11 +124,12 @@ bool help(void)
 	txoutln(strset("Lurt - A line editor trying respect EDLIN"));
 	txoutln(strset("-----------------------------------------"));
 	txoutln(strset("Usage:"));
-	txoutln(strset("	LURT /I:<filepath> </B>"));
+	txoutln(strset("	LURT /I:<filepath> </B> </E:{Encode}>"));
 	txoutln(strset("-----------------------------------------"));
 	txoutln(strset("Options:"));
 	txoutln(strset("	/I	:	Specify file for edit."));
 	txoutln(strset("	/B	:	Enable loading non last EOF."));
+	txoutln(strset("	/E	:	Set file encode."));
 	txoutln(strset("	/?	:	Print this help message."));
 	txoutln(strset("	/v	:	Print software informations."));
 
