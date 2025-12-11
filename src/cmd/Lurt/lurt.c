@@ -11,12 +11,6 @@
 
 FILE *text;
 
-typedef struct
-{
-	bool IsErr;
-	signed int code;
-} errno;
-
 ////////////////////////////////////////////////////////
 
 bool edit(FILE *fp, str fname);
@@ -69,10 +63,10 @@ bool edit(FILE *fp, str fname)
 					txoutln(strset("No room in directory for file"));
 					break;
 				case 4:
-					txoutln(strset(""));
+					txoutln(strset("Unknown file state (4)"));
 					break;
 				case 5:
-					txoutln(strset(""));
+					txoutln(strset("Unknown file state (5)"));
 					break;
 			}
 		}

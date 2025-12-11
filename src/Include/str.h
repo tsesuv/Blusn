@@ -11,15 +11,7 @@
 
 ////////////////////////////////////////////////////////
 
-typedef enum {false, true} bool;
-
-typedef struct
-{
-	char *dat; // data
-	unsigned long int len; // 長さ
-	int cap; // キャパシティ
-	int ecnum; // 文字エンコードも保持したいよなぁ。0でASCII、とか。やり方わからんがな。
-} str;
+#include "type.h"
 
 ////////////////////////////////////////////////////////
 
@@ -49,11 +41,12 @@ bool strfree(str *s);
 str strnew(unsigned long int cap)
 {
 	str s;
+	s.vtype = VTYPE_STR;
 	s.dat = malloc(cap + 1);
 	s.dat[0] = '\0';
 	s.len = 0;
 	s.cap = cap;
-	s.ecnum = 0;
+	s.encode = 0;
 
 	return s;
 }
@@ -75,9 +68,8 @@ str strset(const char *p)
 
 str strcat(const str s1, const str s2)
 {
-	str t = strnew(s1.len + s2.len);
-	t = strclne(&s1);
-	for(unsigned long int i = 0; i < s2.len; i++) t.dat[s1.len + i] = strget(s2)[i];
+	str t = strclne(&s1);
+	for(unsigned long int i = 0; i < s2.len; i++) strpush(&t, strget(s2)[i]);
 
 	return t;
 }
@@ -193,7 +185,7 @@ bool txoutln(const str s, ...)
 	va_list ap;
 	va_start(ap, s);
 
-	strpush(&s, *"\n");
+	strpush(&s, '\n');
 	vprintf(s.dat, ap);
 
 	va_end(ap);
