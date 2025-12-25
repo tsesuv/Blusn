@@ -5,7 +5,9 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+#include "type.h"
 #include "str.h"
+#include "map.h"
 
 ////////////////////////////////////////////////////////
 

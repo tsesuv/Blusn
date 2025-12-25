@@ -44,7 +44,7 @@ class XASM
 				else if(str.substr(0, 2) == "0o") val = std::stoul(str.substr(2), nullptr, 8);
 				else if(str.substr(0, 2) == "0s") val = std::stoul(str.substr(2), nullptr, 6);
 				else if(str.substr(0, 2) == "0b") val = std::stoul(str.substr(2), nullptr, 2);
-				else val = std::stoul(str.substr(2));
+				else val = std::stoul(str, nullptr, 10);
 
 				return true;
 			}
@@ -99,7 +99,7 @@ class XASM
 			{
 				std::string lastToken = trimmed.substr(lastSpace + 1);
 
-				if(!lastToken.empty() && (std::isdigit(lastToken[0]) || (2 < lastToken.size() && lastToken[0] == '0' && (lastToken[1] == 'x' || lastToken[1] == 'o' || lastToken[1] == 's' || lastToken[1] == 'd' || lastToken[1] || 'b'))))
+				if(!lastToken.empty() && (std::isdigit(lastToken[0]) || (2 < lastToken.size() && lastToken[0] == '0' && (lastToken[1] == 'x' || lastToken[1] == 'o' || lastToken[1] == 's' || lastToken[1] == 'd' || lastToken[1] == 'b'))))
 				{
 					if(parceImm(lastToken, immV))
 					{
@@ -157,7 +157,7 @@ class XASM
 			std::ofstream file(fname, std::ios::binary);
 			if(!file)
 			{
-				std::cerr << "[ERROR ] XASM: w2f: Cannnot open file: " << fname << std::endl;
+				std::cerr << "[ ERROR ] XASM: w2f: Cannnot open file: " << fname << std::endl;
 				return false;
 			}
 

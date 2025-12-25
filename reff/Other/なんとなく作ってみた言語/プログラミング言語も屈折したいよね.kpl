@@ -1,0 +1,9 @@
+[
+	0 essom Int daafes Lu a // Int型の変数aに0を代入する。Int daafesで「Int型の」になるかな。冠詞Luは変数を表す
+	0 essom Int daafes Lu b // Int型の変数bに0を代入
+
+	Lu a op Lu b veurim // 変数aと変数bにveurする。格変化によりstdinは省略される。
+	Lu a paxoel Lu b essom Frac daafes Lu c // 変数aを変数bで割った結果をFrac型の変数cに代入する
+
+	Lu c and Ba ln fertim // 変数cと予約語lnをfertする。冠詞Baはlnなどの特別な予約語を表す
+] :main // main関数であることのラベル付け

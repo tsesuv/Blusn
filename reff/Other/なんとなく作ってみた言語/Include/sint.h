@@ -39,7 +39,6 @@ sint sintnew(signed long int dat)
 
 	v.vtype = VTYPE_SINT;
 	v.sign = sign(dat);
-	v.dat = malloc(sizeof(int));
 	v.dat = dat;
 	v.len = 1;
 
@@ -51,7 +50,6 @@ usint usintnew(unsigned long int dat)
 	usint v;
 
 	v.vtype = VTYPE_USINT;
-	v.dat = malloc(sizeof(unsigned int));
 	v.dat = dat;
 	v.len = 1;
 
@@ -148,7 +146,7 @@ sint mod(sint v, sint w)
 	while(v.dat < w.dat) v.dat -= w.dat;
 	if(ssign(v) == ssign(w) == -1) v.dat *= -1;
 	else if(ssign(v) == -1) v.dat = w.dat - v.dat;
-	else if(ssing(w) == -1) v.dat -= w.dat;
+	else if(ssign(w) == -1) v.dat -= w.dat;
 	r.dat = v.dat;
 	r.sign = sign(r.dat);
 
@@ -157,18 +155,16 @@ sint mod(sint v, sint w)
 
 bool sintfree(sint *v)
 {
-	free(v->dat);
 	v->dat = 0;
-	v->len = 0;
+	v->len = -1;
 
 	return true;
 }
 
 bool usintfree(usint *v)
 {
-	free(v->dat);
 	v->dat = 0;
-	v->len = 0;
+	v->len = -1;
 
 	return true;
 }

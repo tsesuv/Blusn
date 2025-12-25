@@ -61,14 +61,6 @@ typedef struct
 typedef struct
 {
 	signature vtype;
-	packet *pool;
-	unsigned long int cap;
-	unsigned long int len;
-} map;
-
-typedef struct
-{
-	signature vtype;
 	str key;
 	any dat;
 	bool used;
@@ -76,5 +68,13 @@ typedef struct
 	usint next;
 	usint prev;
 } packet;
+
+typedef struct
+{
+	signature vtype;
+	packet *pool;
+	unsigned long int cap;
+	unsigned long int len;
+} map;
 
 #endif
