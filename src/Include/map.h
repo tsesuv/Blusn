@@ -1,5 +1,5 @@
 /* UnSynk Map Header */
-/* Version: 1.0.0 Pre-alpha */
+/* Version: 1.0.1 Pre-alpha */
 /* Created by UnSynk, tsesuv notsel */
 
 #ifndef MAP_H
@@ -8,7 +8,7 @@
 ////////////////////////////////////////////////////////
 
 #include "type.h"
-#include "packet.h"
+#include "any.h"
 
 ////////////////////////////////////////////////////////
 
@@ -22,7 +22,8 @@ map mapnew(unsigned long int cap)
 {
 	map m;
 	m.vtype = VTYPE_MAP;
-	m.pool = pketnew(cap);
+	m.key = strnew(cap);
+	m.dat = anynew(NULL, cap);
 	m.cap = cap;
 	m.len = 0;
 
@@ -31,7 +32,8 @@ map mapnew(unsigned long int cap)
 
 bool mapfree(map *m)
 {
-	pketfree(m->pool);
+	strfree(&m->key);
+	anyfree(&m->dat);
 	m->len = m->cap = 0;
 
 	return true;

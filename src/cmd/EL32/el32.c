@@ -1,4 +1,4 @@
-/* UnSynk Lurt Line text editor */
+/* UnSynk EL32 Line text editor */
 /* Version: 1.0.0 Pre-alpha */
 /* Created by UnSynk, tsesuv notsel */
 
@@ -105,22 +105,22 @@ bool ExecCmd(str cmd)
 
 bool version(void)
 {
-	txoutln(strset("Lurt - A line editor trying respect EDLIN"));
+	txoutln(strset("EL32 - A line editor trying respect EDLIN"));
 	txoutln(strset("-----------------------------------------"));
 	txoutln(strset(" Version: 1.0.0 Pre-Alpha"));
-	txoutln(strset(" Build: 2025113001"));
+	txoutln(strset(" Build: 2025122501"));
 	txoutln(strset("-----------------------------------------"));
-	txoutln(strset("enter `LURT /?' you get more helps."));
+	txoutln(strset("enter `EL32 /?' you get more helps."));
 
 	return true;
 }
 
 bool help(void)
 {
-	txoutln(strset("Lurt - A line editor trying respect EDLIN"));
+	txoutln(strset("EL32 - A line editor trying respect EDLIN"));
 	txoutln(strset("-----------------------------------------"));
 	txoutln(strset("Usage:"));
-	txoutln(strset("	LURT /I:<filepath> </B> </E:{Encode}>"));
+	txoutln(strset("	EL32 /I:<filepath> </B> </E:{Encode}>"));
 	txoutln(strset("-----------------------------------------"));
 	txoutln(strset("Options:"));
 	txoutln(strset("	/I	:	Specify file for edit."));

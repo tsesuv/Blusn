@@ -1,5 +1,5 @@
 /* UnSynk Type Header */
-/* Version: 1.0.0 Pre-alpha */
+/* Version: 1.0.1 Pre-alpha */
 /* Created by UnSynk, tsesuv notsel */
 
 #ifdef errno
@@ -12,7 +12,7 @@
 
 typedef enum {false, true} bool;
 
-typedef enum {VTYPE_ERR, VTYPE_STR, VTYPE_SINT, VTYPE_USINT, VTYPE_FRAC, VTYPE_ANY, VTYPE_MAP, VTYPE_PACKET} signature;
+typedef enum {VTYPE_ERR, VTYPE_STR, VTYPE_SINT, VTYPE_USINT, VTYPE_FRAC, VTYPE_ANY, VTYPE_MAP} signature;
 
 typedef struct
 {
@@ -56,25 +56,16 @@ typedef struct
 {
 	signature vtype;
 	void *dat;
+	unsigned int dsize;
 } any;
-
-typedef struct
-{
-	signature vtype;
-	packet *pool;
-	unsigned long int cap;
-	unsigned long int len;
-} map;
 
 typedef struct
 {
 	signature vtype;
 	str key;
 	any dat;
-	bool used;
-	usint addr;
-	usint next;
-	usint prev;
-} packet;
+	unsigned long int cap;
+	unsigned long int len;
+} map;
 
 #endif

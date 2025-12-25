@@ -98,13 +98,23 @@ class XASM
 			if(lastSpace != std::string::npos)
 			{
 				std::string lastToken = trimmed.substr(lastSpace + 1);
+				std::string immToken = lastToken;
+				bool brkImm = false;
 
-				if(!lastToken.empty() && (std::isdigit(lastToken[0]) || (2 < lastToken.size() && lastToken[0] == '0' && (lastToken[1] == 'x' || lastToken[1] == 'o' || lastToken[1] == 's' || lastToken[1] == 'd' || lastToken[1] == 'b'))))
+				// support [IMM] form (e.g., LD EAX, [0x2000])
+				if(!lastToken.empty() && lastToken.front() == '[' && lastToken.back() == ']')
 				{
-					if(parceImm(lastToken, immV))
+					immToken = lastToken.substr(1, lastToken.size() - 2);
+					brkImm = true;
+				}
+
+				if(!immToken.empty() && (std::isdigit(immToken[0]) || (2 < immToken.size() && immToken[0] == '0' && (immToken[1] == 'x' || immToken[1] == 'o' || immToken[1] == 's' || immToken[1] == 'd' || immToken[1] == 'b'))))
+				{
+					if(parceImm(immToken, immV))
 					{
 						hasImm = true;
-						mnemoWImm = trimmed.substr(0, lastSpace) + " IMM";
+						if(brkImm) mnemoWImm = trimmed.substr(0, lastSpace) + " [IMM]";
+						else mnemoWImm = trimmed.substr(0, lastSpace) + " IMM";
 					}
 				}
 			}
