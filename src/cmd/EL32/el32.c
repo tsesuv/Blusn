@@ -1,4 +1,4 @@
-/* UnSynk EL32 Line text editor */
+/* UnSynk EL32 x86 Edition */
 /* Version: 1.0.0 Pre-alpha */
 /* Created by UnSynk, tsesuv notsel */
 
@@ -110,7 +110,7 @@ bool version(void)
 	txoutln(strset(" Version: 1.0.0 Pre-Alpha"));
 	txoutln(strset(" Build: 2025122501"));
 	txoutln(strset("-----------------------------------------"));
-	txoutln(strset("enter `EL32 /?' you get more helps."));
+	txoutln(strset("Enter `EL32 /?' you get more helps."));
 
 	return true;
 }
