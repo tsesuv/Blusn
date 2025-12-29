@@ -30,26 +30,27 @@ int main(int ac, char **av)
 	mem.writeByte(1, 0x01);
 	mem.writeByte(2, 0x00);
 	mem.writeByte(3, 0x00);
-	mem.writeByte(4, 0x0F);
-	mem.writeDouble(5, 0x01010000);
-	mem.writeDouble(9, 0x34120000);
+	mem.writeByte(4, 0x00);
+	mem.writeByte(5, 0x03);
+	mem.writeByte(6, 0x01);
+	mem.writeByte(7, 0x00);
+	mem.writeDouble(8, 0x34120000);
+	mem.writeDouble(12, 0x00000000);
+	mem.writeDouble(16, 0x02010105);
+	mem.writeDouble(20, 0x34000000);
 
 	if(inst.decode(0, bytes, 10, &info)) printf("Decoded: len = %d, hasImm = %d\n", info.len, info.hasImm);
 
 	int al = 0;
-	while(cpu.getPC() < 14)
+	while(cpu.getPC() < 20)
 	{
 		bytes.clear();
 		inst.decode(cpu.getPC(), bytes, 4, &info);
 		exe.run(0, info);
+		printf("Decoded: len = %d, hasImm = %d\n", info.len, info.hasImm);
 		std::cout << "PC is " << cpu.getPC() << " now" << std::endl;
 		std::cout << "EAX: " << *cpu.getReg(0) << std::endl;
-		std::cout << "Now circle: " << al + 1 << std::endl;
-		al++;
-		if(5 < al)
-		{
-			cpu.setIRQ(cpu.IRQ_TIMER);
-		}
+		std::cout << "EBX: " << *cpu.getReg(1) << std::endl;
 	}
 
 	mem.free();
