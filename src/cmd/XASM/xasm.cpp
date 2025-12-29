@@ -75,8 +75,8 @@ bool help(void)
 	std::cout << "Options:" << std::endl;
 	std::cout << "	/i:<file path>  /if=<file path>  /infile:<file path>  :  Specify input file path." << std::endl;
 	std::cout << "	/o:<file path>  /of=<file path>  /outfile:<file path> :  Specify output file path." << std::endl;
-	std::cout << "	/?  /help											  :  This help message." << std::endl;
-	std::cout << "	/v  /version										  :  Print software infomations." << std::endl;
+	std::cout << "	/?  /help                                             :  This help message." << std::endl;
+	std::cout << "	/v  /version                                          :  Print software infomations." << std::endl;
 
 	return true;
 }
