@@ -390,7 +390,7 @@ class Exec
 			else if(inst->chkInst(info.oplist, {0x03, 0x07, 0x0C}, 3)) cpu->setReg(11, *cpu->getReg(3));
 
 			// HALT
-			else if(inst->chkInst(info.oplist, {0x0F}, 1)) if(!cpu->chkIRQ(~0)) return false; else;
+			else if(inst->chkInst(info.oplist, {0x0F}, 1)) if(cpu->chkIRQ(~0));
 			else return false;
 
 			cpu->setPC(cpu->getPC() + info.len);
