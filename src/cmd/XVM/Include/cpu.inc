@@ -45,9 +45,9 @@ class CPU
 			return true;
 		}
 
-		bool setReg(int idx, uint32_t dat)
+		bool setReg(int regID, uint32_t dat)
 		{
-			switch(idx)
+			switch(regID)
 			{
 				case 0:
 					EAX = dat;
@@ -81,11 +81,11 @@ class CPU
 			}
 		}
 
-		uint32_t *getReg(int idx)
+		uint32_t *getReg(int regID)
 		{
 			static uint32_t tmp;
 
-			switch(idx)
+			switch(regID)
 			{
 				case 0: return &EAX;
 				case 1: return &EBX;
@@ -161,6 +161,25 @@ class CPU
 			return PC;
 		}
 
+		bool pushSP(uint8_t len)
+		{
+			SP -= len;
+
+			return true;
+		}
+
+		bool popSP(uint8_t len)
+		{
+			SP += len;
+
+			return true;
+		}
+
+		uint32_t getSP(void)
+		{
+			return SP;
+		}
+
 		bool reset(void)
 		{
 			setIRQ(IRQ_BLOCKING);
@@ -174,7 +193,7 @@ class CPU
 			ESI = 0;
 			EBP = 0;
 			F = 0;
-			SP = 0;
+			SP = (uint32_t)-1;
 			CS = 0;
 			DS = 0;
 			SS = 0;
