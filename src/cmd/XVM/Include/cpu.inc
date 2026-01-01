@@ -33,6 +33,7 @@ class CPU
 		static const uint32_t FLAG_Z = 0x01; // Zero
 		static const uint32_t FLAG_S = 0x02; // Sign
 		static const uint32_t FLAG_C = 0x04; // Carry
+		static const uint32_t FLAG_R = 0x08; // Reset
 
 		static const uint32_t IRQ_TIMER = 0x01;
 		static const uint32_t IRQ_IO = 0x02;

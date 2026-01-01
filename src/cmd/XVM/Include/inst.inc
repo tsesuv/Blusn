@@ -769,11 +769,15 @@ class Inst
 			addInst({0x0D, 0x01, 0x05}, 3, false, 0);
 			addInst({0x0D, 0x01, 0x06}, 3, false, 0);
 
+			// EPSH/EPOP
+			addInst({0x0E, 0x00}, 2, false, 0);
+			addInst({0x0E, 0x01}, 2, false, 0);
+
 			// RET
-			addInst({0x0E}, 1, false, 0);
+			addInst({0x0F}, 1, false, 0);
 
 			// HALT
-			addInst({0x0F}, 1, false, 0);
+			addInst({0x10}, 1, false, 0);
 
 			return true;
 		}
@@ -781,20 +785,20 @@ class Inst
 		bool decode(uint32_t addr, std::vector<uint8_t> &bytes, uint32_t maxL, InstInfo *out)
 		{
 			if(maxL < 1) return false;
-			
+
 			uint8_t currentByte;
 
 			if(!mem->readByte(addr, &currentByte)) return false;
 
 			bytes.push_back(currentByte);
-			
+
 			auto it = instTable.find(bytes);
 			if(it != instTable.end())
 			{
 				*out = it->second;
 				return true;
 			}
-	
+
 			return decode(addr + 1, bytes, maxL - 1, out);
 		}
 

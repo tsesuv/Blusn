@@ -29,7 +29,7 @@ class Exec
 
 		bool push(int regID)
 		{
-			mem->writeDouble(cpu->getSP(), *cpu->getReg(regID));
+			if(regID != -1) mem->writeDouble(cpu->getSP(), *cpu->getReg(regID));
 			cpu->pushSP(4);
 
 			return true;
@@ -37,10 +37,13 @@ class Exec
 
 		bool pop(int regID)
 		{
-			uint32_t v;
 			cpu->popSP(4);
-			mem->readDouble(cpu->getSP(), &v);
-			cpu->setReg(regID, v);
+			if(regID != -1)
+			{
+				uint32_t v = 0;
+				mem->readDouble(cpu->getSP(), &v);
+				cpu->setReg(regID, v);
+			}
 
 			return true;
 		}
@@ -61,18 +64,44 @@ class Exec
 			if(inst->chkInst(info.oplist, {0x00}, 1));
 
 			// INC系
-			else if(inst->chkInst(info.oplist, {0x01, 0x00, 0x00}, 3)) cpu->setReg(0, *cpu->getReg(0) + 1);
-			else if(inst->chkInst(info.oplist, {0x01, 0x00, 0x01}, 3)) cpu->setReg(1, *cpu->getReg(1) + 1);
+			else if(inst->chkInst(info.oplist, {0x01, 0x00, 0x00}, 3))
+			{
+				cpu->setReg(0, *cpu->getReg(0) + 1);
+				if(*cpu->getReg(0) == 0) cpu->setFlag(cpu->FLAG_Z);
+			}
+			else if(inst->chkInst(info.oplist, {0x01, 0x00, 0x01}, 3))
+			{
+				cpu->setReg(1, *cpu->getReg(1) + 1);
+				if(*cpu->getReg(1) == 0) cpu->setFlag(cpu->FLAG_Z);
+			}
 			else if(inst->chkInst(info.oplist, {0x01, 0x00, 0x02}, 3))
 			{
 				uint8_t tmp;
 				mem->readByte(*cpu->getReg(8), &tmp);
 				mem->writeByte(*cpu->getReg(8), tmp + 1);
+
+				if(tmp == 0xFF) cpu->setFlag(cpu->FLAG_Z);
 			}
-			else if(inst->chkInst(info.oplist, {0x01, 0x00, 0x03}, 3)) cpu->setReg(2, *cpu->getReg(2) + 1);
-			else if(inst->chkInst(info.oplist, {0x01, 0x00, 0x04}, 3)) cpu->setReg(3, *cpu->getReg(3) + 1);
-			else if(inst->chkInst(info.oplist, {0x01, 0x00, 0x05}, 3)) cpu->setReg(4, *cpu->getReg(4) + 1);
-			else if(inst->chkInst(info.oplist, {0x01, 0x00, 0x06}, 3)) cpu->setReg(5, *cpu->getReg(5) + 1);
+			else if(inst->chkInst(info.oplist, {0x01, 0x00, 0x03}, 3))
+			{
+				cpu->setReg(2, *cpu->getReg(2) + 1);
+				if(*cpu->getReg(2) == 0) cpu->setFlag(cpu->FLAG_Z);
+			}
+			else if(inst->chkInst(info.oplist, {0x01, 0x00, 0x04}, 3))
+			{
+				cpu->setReg(3, *cpu->getReg(3) + 1);
+				if(*cpu->getReg(3) == 0) cpu->setFlag(cpu->FLAG_Z);
+			}
+			else if(inst->chkInst(info.oplist, {0x01, 0x00, 0x05}, 3))
+			{
+				cpu->setReg(4, *cpu->getReg(4) + 1);
+				if(*cpu->getReg(4) == 0) cpu->setFlag(cpu->FLAG_Z);
+			}
+			else if(inst->chkInst(info.oplist, {0x01, 0x00, 0x06}, 3))
+			{
+				cpu->setReg(5, *cpu->getReg(5) + 1);
+				if(*cpu->getReg(5) == 0) cpu->setFlag(cpu->FLAG_Z);
+			}
 
 			// ADD系
 			// ADD EAX, ...
@@ -1698,8 +1727,12 @@ class Exec
 			else if(inst->chkInst(info.oplist, {0x0D, 0x01, 0x05}, 3)) pop(5);
 			else if(inst->chkInst(info.oplist, {0x0D, 0x01, 0x06}, 3)) pop(6);
 
+			// EPSH/EPOP
+			else if(inst->chkInst(info.oplist, {0x0E, 0x00}, 2)) push(-1);
+			else if(inst->chkInst(info.oplist, {0x0E, 0x01}, 2)) pop(-1);
+
 			// RET
-			else if(inst->chkInst(info.oplist, {0x0E}, 1))
+			else if(inst->chkInst(info.oplist, {0x0F}, 1))
 			{
 				uint32_t tmp = *cpu->getReg(4);
 				uint32_t ump = 0;
@@ -1712,7 +1745,7 @@ class Exec
 			}
 
 			// HALT
-			else if(inst->chkInst(info.oplist, {0x0F}, 1)) if(cpu->chkIRQ(~0));
+			else if(inst->chkInst(info.oplist, {0x10}, 1)) if(cpu->chkIRQ(~0));
 			else return false;
 
 			cpu->setPC(cpu->getPC() + info.len);
