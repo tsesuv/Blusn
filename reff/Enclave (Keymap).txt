@@ -1,50 +1,50 @@
 Leyer0:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     |     | ESC |  ^  |Space|     |  m  |  a  |  i  |  u  |     |     |     |    |
-|     |Shift|  <  |  v  | [>] | Lyr2|  t  | [f] |  s  |  k  |Shift|     |          |
-|Shift| F/H | Tab | DEL |  BS |     |  n  |  e  |  o  |  p  |  r  |      Shift     |
+|     |Shift|  <  |  v  | [>] |     |  t  | [f] |  s  |  k  |Shift|     |          |
+| Lyr2| F/H | Tab | DEL |  BS |     |  n  |  e  |  o  |  p  |  r  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Leyer1:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     |     | ESC |  ^  |Space|     |  c  |  w  |  x  |  q  |     |     |     |    |
-|     |Shift|  <  |  v  | [>] | Lyr2|  d  | [v] |  z  |  g  |Shift|     |          |
-|Shift| F/H | Tab | DEL |  BS |     |  j  |  h  |  l  |  b  |  y  |      Shift     |
+|     |Shift|  <  |  v  | [>] |     |  d  | [v] |  z  |  g  |Shift|     |          |
+| Lyr2| F/H | Tab | DEL |  BS |     |  j  |  h  |  l  |  b  |  y  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Leyer2:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     |     | ESC |  ^  |Space|     |  @  |  #  |  [  |  ]  |     |     |     |    |
-|     |Shift|  <  |  v  | [>] | Lyr2|  /  | [$] |  (  |  )  |Shift|     |          |
-|Shift| F/H | Tab | DEL |  BS |     |  \  |  ,  |  .  |  ;  |  "  |      Shift     |
+|     |Shift|  <  |  v  | [>] ||  /  | [$] |  (  |  )  |Shift|     |          |
+| Lyr2| F/H | Tab | DEL |  BS |     |  \  |  ,  |  .  |  ;  |  "  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Leyer1+2:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     |     | ESC |  ^  |Space|     |  |  |  =  |  %  |  &  |     |     |     |    |
-|     |Shift|  <  |  v  | [>] | Lyr2|  ~  | [-] |  +  |  *  |Shift|     |          |
-|Shift| F/H | Tab | DEL |  BS |     |  ^  |  ?  |  !  |  :  |  '  |      Shift     |
+|     |Shift|  <  |  v  | [>] |     |  ~  | [-] |  +  |  *  |Shift|     |          |
+| Lyr2| F/H | Tab | DEL |  BS |     |  ^  |  ?  |  !  |  :  |  '  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Leyer2+Shift:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     |     | ESC |  ^  |Space|     |     |  `  |  {  |  }  |     |     |     |    |
-|     |Shift|  <  |  v  | [>] | Lyr2|     | [_] |  <  |  >  |Shift|     |          |
-|Shift| F/H | Tab | DEL |  BS |     |     |     |     |     |     |      Shift     |
+|     |Shift|  <  |  v  | [>] |     |     | [_] |  <  |  >  |Shift|     |          |
+| Lyr2| F/H | Tab | DEL |  BS |     |     |     |     |     |     |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Shift:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     |     | ESC |  ^  |Space|     |  M  |  A  |  I  |  U  |     |     |     |    |
-|     |Shift|  <  |  v  | [>] | Lyr2|  T  | [F] |  S  |  K  |Shift|     |          |
-|Shift| Ins | Tab | DEL |  BS |     |  N  |  E  |  O  |  P  |  R  |      Shift     |
+|     |Shift|  <  |  v  | [>] |     |  T  | [F] |  S  |  K  |Shift|     |          |
+| Lyr2| Ins | Tab | DEL |  BS |     |  N  |  E  |  O  |  P  |  R  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Leyer1+Shift:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     |     | ESC |  ^  |Space|     |  C  |  W  |  X  |  Q  |     |     |     |    |
-|     |Shift|  <  |  v  | [>] | Lyr2|  D  | [V] |  Z  |  G  |Shift|     |          |
-|Shift| Cps | Tab | DEL |  BS |     |  J  |  H  |  L  |  B  |  Y  |      Shift     |
+|     |Shift|  <  |  v  | [>] |     |  D  | [V] |  Z  |  G  |Shift|     |          |
+| Lyr2| Cps | Tab | DEL |  BS |     |  J  |  H  |  L  |  B  |  Y  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 *F/Hキーは日本語入力時のみ使用する全角/半角(漢字)
