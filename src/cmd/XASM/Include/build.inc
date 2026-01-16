@@ -675,6 +675,9 @@ inline bool buildTree(Node *r)
 	// HALT
 	addInst(r, {0x0F}, "HALT", 0);
 
+	// INT
+	addInst(r, {0x10}, "INT IMM", 1);
+
 	return true;
 }
 

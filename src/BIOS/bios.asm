@@ -1,0 +1,2 @@
+; BIOS Binary
+; BIOS ADDR: 0xFFFFFFF0

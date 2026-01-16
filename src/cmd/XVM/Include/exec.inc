@@ -29,7 +29,7 @@ class Exec
 
 		bool push(int regID)
 		{
-			if(regID != -1) mem->writeDouble(cpu->getSP(), *cpu->getReg(regID));
+			mem->writeDouble(cpu->getSP(), *cpu->getReg(regID));
 			cpu->pushSP(4);
 
 			return true;
@@ -37,13 +37,10 @@ class Exec
 
 		bool pop(int regID)
 		{
+			uint32_t v = 0;
 			cpu->popSP(4);
-			if(regID != -1)
-			{
-				uint32_t v = 0;
-				mem->readDouble(cpu->getSP(), &v);
-				cpu->setReg(regID, v);
-			}
+			mem->readDouble(cpu->getSP(), &v);
+			cpu->setReg(regID, v);
 
 			return true;
 		}
@@ -1727,12 +1724,8 @@ class Exec
 			else if(inst->chkInst(info.oplist, {0x0D, 0x01, 0x05}, 3)) pop(5);
 			else if(inst->chkInst(info.oplist, {0x0D, 0x01, 0x06}, 3)) pop(6);
 
-			// EPSH/EPOP
-			else if(inst->chkInst(info.oplist, {0x0E, 0x00}, 2)) push(-1);
-			else if(inst->chkInst(info.oplist, {0x0E, 0x01}, 2)) pop(-1);
-
 			// RET
-			else if(inst->chkInst(info.oplist, {0x0F}, 1))
+			else if(inst->chkInst(info.oplist, {0x0E}, 1))
 			{
 				uint32_t tmp = *cpu->getReg(4);
 				uint32_t ump = 0;
@@ -1745,7 +1738,7 @@ class Exec
 			}
 
 			// HALT
-			else if(inst->chkInst(info.oplist, {0x10}, 1)) if(cpu->chkIRQ(~0));
+			else if(inst->chkInst(info.oplist, {0x0F}, 1)) if(cpu->chkIRQ(~0));
 			else return false;
 
 			cpu->setPC(cpu->getPC() + info.len);

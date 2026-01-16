@@ -769,15 +769,14 @@ class Inst
 			addInst({0x0D, 0x01, 0x05}, 3, false, 0);
 			addInst({0x0D, 0x01, 0x06}, 3, false, 0);
 
-			// EPSH/EPOP
-			addInst({0x0E, 0x00}, 2, false, 0);
-			addInst({0x0E, 0x01}, 2, false, 0);
-
 			// RET
-			addInst({0x0F}, 1, false, 0);
+			addInst({0x0E}, 1, false, 0);
 
 			// HALT
-			addInst({0x10}, 1, false, 0);
+			addInst({0x0F}, 1, false, 0);
+
+			// INT
+			addInst({0x10}, 1, true, 1);
 
 			return true;
 		}
