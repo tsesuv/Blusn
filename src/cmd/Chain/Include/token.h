@@ -1,61 +1,42 @@
 #ifndef TOKEN_H
 #define TOKEN_H
 
-#include <stdio.h>
 #include "ch.h"
 
-int _pros_escape(const char *p, int i)
+typedef enum
 {
-	i++;
+	TK_OP,
+	TK_SYM,
+	TK_FMLA
+} tkType;
 
-	switch(p[i])
-	{
-		case '0': return 0;
-		case 'e': return 0x1B;
-		case 'j': return 0x0A;
-		case '6': break; // あとで対応する
-		case '1': break;
-		case '2': break;
-		case '3': break;
-		case '4': break;
-		case '9': return 0x7F;
-		default: return p[i];
-	}
-}
-
-int _append(char *buffer, int *idx, int *memsize, const char *s)
+typedef enum
 {
-	int l = strlen(s);
-	while(*memsize <= *idx + l)
-	{
-		*memsize *= 2;
-		buffer = realloc(buffer, *memsize);
-	}
+	OP_COLON,
+	OP_PAR_O,
+	OP_PAR_C,
+	OP_BLA_O,
+	OP_BLA_C
+} opType;
 
-	strcpy(buffer + *idx, s);
-	*idx += l;
-
-	return 0;
-}
-
-////////////////////////////////////////////////////////
-
-int _add_token(tkList *tklist, tkType type, const char *value)
+typedef struct
 {
-	if(tklist->capacity <= tklist->tk_count)
+	tkType type;
+
+	union
 	{
-		tklist->capacity *= 2;
-		tklist->tokens = realloc(tklist->tokens, sizeof(Token) * tklist->capacity);
-	}
+		opType op;
+		str symbol;
+	} value;
 
-	Token *t = &tklist->tokens[tklist->tk_count];
-	t->type = type;
-	t->value.symbol = malloc(strlen(value) + 1);
-	strcpy(t->value.symbol, value);
+	sint parPos;
+} Token;
 
-	tklist->tk_count++;
-
-	return 0;
-}
+typedef struct
+{
+	Token *token;
+	sint tkCount;
+	sint cap;
+} tkList;
 
 #endif /* token.h */

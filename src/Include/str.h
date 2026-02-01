@@ -47,7 +47,7 @@ str strnew(unsigned long int cap)
 	str s;
 
 	s.vtype = VTYPE_STR;
-	s.dat = malloc(cap + 1);
+	s.dat = (char *)malloc(cap + 1);
 	s.dat[0] = '\0';
 	s.len = 0;
 	s.cap = cap;
@@ -61,7 +61,7 @@ str strset(const char *p)
 	unsigned long int len = 0;
 
 	while(p[len]) len++;
-	
+
 	str s = strnew(len);
 
 	for(int k = 0; k < len; k++) s.dat[k] = p[k];
@@ -221,4 +221,4 @@ bool strfree(str *s)
 	return true;
 }
 
-#endif
+#endif /* str.h */

@@ -1,5 +1,5 @@
 mdl case0
-	[args arg] main int @public
+	int main @public
 	@begin
-		0 ret
+		ret 0
 	@end

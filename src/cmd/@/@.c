@@ -1,5 +1,5 @@
-/* UnSynk @ Evalizer */
-/* Version: 1.0.0 Pre-Alpha */
+/* UnSynk @ Compiler */
+/* Version: 1.0.1 Pre-Alpha */
 /* Created by UnSynk, tsesuv notsel */
 
 #include <stdio.h>
@@ -9,21 +9,14 @@
 
 ////////////////////////////////////////////////////////
 
-int cmp(int a, int b);
-
 ////////////////////////////////////////////////////////
 
 int main(void)
-{
-	str test = strset("Token1 Token2 123 000\n");
-	txout(test);
-	tkList *res = lexer(test);
-	printf("Token list size: %d\n", res->tk_cnt);
-	for(int i = 0; i < 4; i++)
-	{
-		printf("Token[%d]: %d (type), %s\n", i, res->token.type, strget(res->token.dat));
-		res = res->next;
-	}
+{	str test = strset("Token1 >>? Hello ?<< Token2 123 000");
+	txoutln(test);
+	Token t = tknset(TK_STR, strset("Token2"));
+	printf("Token: %d (type), %s\n", t.type, strget(t.dat));
+	tknfree(&t);
 	strfree(&test);
 
 	return 0;
@@ -32,11 +25,10 @@ int main(void)
 ////////////////////////////////////////////////////////
 
 bool version(void)
-{
-	printf("      UnSynk @ Evalizer\n");
+{	printf("      UnSynk @ Compiler\n");
 	printf("------------------------------\n");
-	printf(" Version: 1.0.0 Pre-Alpha\n");
-	printf(" Build  : 2025112201\n");
+	printf(" Version: 1.0.1 Pre-Alpha\n");
+	printf(" Build  : 2026020201\n");
 	printf("------------------------------\n");
 	printf("enter `@ /?' you get more helps.\n\n");
 
@@ -44,8 +36,7 @@ bool version(void)
 }
 
 bool help(void)
-{
-	printf("      UnSynk @ Evalizer\n");
+{	printf("      UnSynk @ Compiler\n");
 	printf("------------------------------\n");
 	printf("Usage:\n");
 	printf("	@ </autoexit:{true|false}> </hidden:{true|false}> </delay:{true|false}> </src:[\\file\\path.@]\n");
@@ -65,8 +56,3 @@ bool help(void)
 }
 
 ////////////////////////////////////////////////////////
-
-int cmp(int a, int b)
-{
-	return a - b;
-}

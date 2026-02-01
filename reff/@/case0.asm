@@ -1,3 +1,5 @@
-; _main
-LD ECX, 0
+; MDL NAME	:	case0
+; FUNC NAME	:	_main
+; FUNC SCP	:	@PUBLIC
+XOR EAX, EAX
 HALT
