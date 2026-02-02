@@ -1,5 +1,5 @@
 # intro.@
-# これでコメント。
+# これでコメント。複数行コメントは後々出てくる。
 include 'sysbio.@h" # sysbioはSYStem Basic Input/Output
 
 mdl intro # Javaのクラス的なのを採用
