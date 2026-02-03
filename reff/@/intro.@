@@ -17,12 +17,13 @@ mdl intro # Javaのクラス的なのを採用
 		@sys:txout 'Hello, world!", newl # さすがにわかると思うけど文字列はシングルクォーテーションから始まりダブルクォーテーションで終わる、
 										 # 文字列の中で文字列を扱うような入れ子が可能になる方式。
 										 # なんでかって？そりゃ、日本語で言う鍵括弧のように方向性のある括弧を使うためにそう割り当ててるからだよ
+										 # 勿論これの中でダブルクォーテーションを使いたいときは%でエスケープする必要はある
 		@sys:txout demo ~str, newl # ~は型変換演算子
 
 		int demo2 <- 16
 		int List$ls <- @intro:moreFunction demo, demo2 # リストは変数に$をつけた後にlsと指定する。これはプロパティ構文という構文である。
 
-		int i <- 0 and k <- 0, i++ next k++, for < 10 and < 5 # これなら二重ループ。iが速く動き、iが条件を満たしたらkが動いてiが初期値に戻る。
+		int i <- 0 and int k <- 0 -> i++ next k++ -> for < 10 and < 5 # これなら二重ループ。iが速く動き、iが条件を満たしたらkが動いてiが初期値に戻る。
 		@begin
 			@sys:txout 'i: ", i, newl, 'k: ", k, newl
 		@end
@@ -50,7 +51,8 @@ mdl intro # Javaのクラス的なのを採用
 	int moreFunction$ls args ag @private # プロパティ構文は関数定義、宣言でも同様。
 	@begin
 		int tmp <- @sys:getarg ag, 0 # こうなるのかなぁ・・・？わからん。
-		int tmp2 <- @sys:getarg ag, 1
+		int tmp2 <- @sys:getarg ag, 1 # ただこれならいろいろ便利っちゃ便利ではあるかなぁ。存在しない引数を受け取る可能性はあれど、
+									  # 呼び出し側で@xx:yy ,ag2みたいに書くことでデフォルト引数みたいなこともできないことはないからなぁ
 
 		tmp <- tmp ? tmp2 # <-は代入記号
 		tmp2 <- tmp ? tmp2 # ?はXOR演算子
