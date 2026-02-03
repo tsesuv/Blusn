@@ -28,7 +28,8 @@ mdl intro # Javaのクラス的なのを採用
 			@sys:txout 'i: ", i, newl, 'k: ", k, newl
 		@end
 
-		str s1;errno <- @sys:txin # errnoを使いたいときは後述のrtry用にこれをつける必要あり
+		str s1 <- @sys:txin;errno # errnoを使いたいときは後述のrtry用にこれをつける必要あり。再送する場所を記録するってわけ
+								  # なお当然ここで付けた後にほかで上書きしたら意味がなくなる。多分警告として出すかなぁ
 		s1.fail if # @xx:yy.zzやxx.yyはメンバ関数。
 		@begin
 			@sys:txout @sys:txout 'Invalid input", newl # ちなみに@sys:txout.noflushにするとバッファフラッシュをしないでおいておくこともできる。デフォルトは呼び出すとフラッシュされるようになっている。
