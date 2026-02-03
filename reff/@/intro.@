@@ -28,7 +28,7 @@ mdl intro # Javaのクラス的なのを採用
 		@end
 
 		str s1 <- @sys:txin;errno # errnoを使いたいときは後述のrtry用にこれをつける必要あり
-		@sys:txin.fail if # @xx:yy.zzはメンバ関数。
+		s1.fail if # @xx:yy.zzやxx.yyはメンバ関数。
 		@begin
 			@sys:txout @sys:txout 'Invalid input", newl # ちなみに@sys:txout.noflushにするとバッファフラッシュをしないでおいておくこともできる。デフォルトは呼び出すとフラッシュされるようになっている。
 			errno 'ERROR_INPUT_STR_INVALID"
