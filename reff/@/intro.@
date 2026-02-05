@@ -28,7 +28,7 @@ mdl intro # Javaのクラス的なのを採用
 		int List$ls <- @intro:moreFunction demo, demo2 # リストは変数に$をつけた後にlsと指定する。これはプロパティ構文という構文である。
 
 		int i <- 0 and int k <- 0 -> i++ next k++ -> for i < 10 and k < 5 # これなら二重ループ。iが速く動き、iが条件を満たしたらkが動いてiが初期値に戻る。
-		@begin
+		@begin															  # これのいいところって、一般的な方法だとどうしてもy->xの順で書くことになるのが、この書き方ならx->yの順でかけるところにある。
 			@sys:txout 'i: ", i, newl, 'k: ", k, newl
 		@end
 
