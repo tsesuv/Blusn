@@ -1,8 +1,9 @@
+```
 # intro.@
 # これでコメント。
 >>? 後述の方法で
-    複数行コメントも
-    当然できる。
+	複数行コメントも
+	当然できる。
 ?<<
 
 include 'sysbio.@h" # sysbioはSYStem Basic Input/Output
@@ -69,3 +70,5 @@ mdl intro # Javaのクラス的なのを採用
 		ret tmp, tmp2 # 複数返り値をどう処理するかなぁ。要検討。
 	@end
 @end
+```
+褒めろ(褒めろ)。マジで褒めろ。
