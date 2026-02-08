@@ -1,5 +1,5 @@
 /* UnSynk String Header */
-/* Version: 1.1.0 Pre-alpha */
+/* Version: 1.1.2 Pre-alpha */
 /* Created by UnSynk, tsesuv notsel */
 
 #ifndef STR_H
@@ -17,34 +17,33 @@
 ////////////////////////////////////////////////////////
 
 str strnew(unsigned long int cap);
-str strset(const char *p);
+str strset(char *p);
 
-str strcat(const str s1, const str s2);
+str strcat(str s1, str s2);
 bool strpush(str *s, char c);
 bool strrmv(str *s, unsigned long int pos);
 
-str strsub(const str s, unsigned long int start, unsigned long int len);
-bool strcmp(const str a, const str b);
-str strclne(const str *s);
+str strsub(str s, unsigned long int start, unsigned long int len);
+bool strcmp(str a, str b);
+str strclne(str *s);
 
-const unsigned long int strlen(const str s);
-const char *strget(const str s);
-bool strisdec(const str s);
+unsigned long int strlen(str s);
+char *strget(str s);
+bool strisdec(str s);
 
-sint str2sint(const str s);
-usint str2usint(const str s);
+sint str2sint(str s);
+usint str2usint(str s);
 
 str txin(void);
-bool txout(const str s, ...);
-bool txoutln(const str s, ...);
+bool txout(bool isImm, str s, ...);
+bool txoutln(bool isImm, str s, ...);
 
 bool strfree(str *s);
 
 ////////////////////////////////////////////////////////
 
 str strnew(unsigned long int cap)
-{
-	str s;
+{	str s;
 
 	s.vtype = VTYPE_STR;
 	s.dat = (char *)malloc(cap + 1);
@@ -56,7 +55,7 @@ str strnew(unsigned long int cap)
 	return s;
 }
 
-str strset(const char *p)
+str strset(char *p)
 {
 	unsigned long int len = 0;
 
@@ -71,7 +70,7 @@ str strset(const char *p)
 	return s;
 }
 
-str strcat(const str s1, const str s2)
+str strcat(str s1, str s2)
 {
 	str t = strclne(&s1);
 
@@ -85,7 +84,7 @@ bool strpush(str *s, char c)
 	if(!(s->len < s->cap))
 	{
 		s->cap = s->cap ? s->cap * 2 : 16;
-		s->dat = realloc(s->dat, s->cap + 1);
+		s->dat = (char *)realloc(s->dat, s->cap + 1);
 	}
 
 	s->dat[s->len++] = c;
@@ -102,7 +101,7 @@ bool strrmv(str *s, unsigned long int pos)
 	return true;
 }
 
-str strsub(const str s, unsigned long int start, unsigned long int len)
+str strsub(str s, unsigned long int start, unsigned long int len)
 {
 	if(s.len < start + len) len = s.len - start;
 
@@ -115,7 +114,7 @@ str strsub(const str s, unsigned long int start, unsigned long int len)
 	return t;
 }
 
-bool strcmp(const str a, const str b)
+bool strcmp(str a, str b)
 {
 	if(a.len != b.len) return false;
 
@@ -124,7 +123,7 @@ bool strcmp(const str a, const str b)
 	return true;
 }
 
-str strclne(const str *s)
+str strclne(str *s)
 {
 	str t = strnew(s->len);
 
@@ -135,27 +134,25 @@ str strclne(const str *s)
 	return t;
 }
 
-const unsigned long int strlen(str s)
+unsigned long int strlen(str s)
 {
 	return s.len;
 }
 
-const char *strget(str s)
+char *strget(str s)
 {
 	return s.dat;
 }
 
 bool strisdec(str s)
-{
-	for(unsigned long int i = 0; i < strlen(s); i++)
-	{
-		for(unsigned long int k = 0; k < 10; k++) if(strget(s)[i] != (char)(k + 0x30)) return false;
-	}
+{	bool ls[10] = {true};
+	bool t = false;
+	for(unsigned long int i = 0; i < strlen(s); i++) if(strget(s)[i] < '0' || '9' < strget(s)[i]) return false;
 
 	return true;
 }
 
-sint str2sint(const str s)
+sint str2sint(str s)
 {
 	signed int a = 0;
 
@@ -170,7 +167,7 @@ sint str2sint(const str s)
 	return v;
 }
 
-usint str2usint(const str s)
+usint str2usint(str s)
 {
 	usint v = usintnew(0);
 
@@ -179,17 +176,15 @@ usint str2usint(const str s)
 
 str txin(void)
 {
-	str s = strnew(1);
-	char *p;
+	str s = strnew(0);
+	int c;
 
-	scanf("%s", p);
-	s = strset(p);
-	if(p[s.len] == '\n') strrmv(&s, s.len);
+	while((c = getchar()) != '\n' && c != EOF) strpush(&s, c);
 
 	return s;
 }
 
-bool txout(const str s, ...)
+bool txout(bool isImm, str s, ...)
 {
 	va_list ap;
 	va_start(ap, s);
@@ -197,18 +192,20 @@ bool txout(const str s, ...)
 	vprintf(s.dat, ap);
 
 	va_end(ap);
+	if(isImm) strfree(&s);
 	return true;
 }
 
-bool txoutln(const str s, ...)
+bool txoutln(bool isImm, str s, ...)
 {
 	va_list ap;
 	va_start(ap, s);
 
-	strpush(&s, '\n');
 	vprintf(s.dat, ap);
+	printf("\n");
 
 	va_end(ap);
+	if(isImm) strfree(&s);
 	return true;
 }
 

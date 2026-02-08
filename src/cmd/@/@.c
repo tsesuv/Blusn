@@ -1,23 +1,19 @@
 /* UnSynk @ Compiler */
-/* Version: 1.0.1 Pre-Alpha */
+/* Version: 1.0.2 Pre-Alpha */
 /* Created by UnSynk, tsesuv notsel */
 
-#include <stdio.h>
-
+#include "@.h"
 #include "str.h"
 #include "token.h"
 
 ////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////////
-
 int main(void)
-{	str test = strset("Token1 >>? Hello ?<< Token2 123 000");
-	txoutln(test);
-	Token t = tknset(TK_STR, strset("Token2"));
-	printf("Token: %d (type), %s\n", t.type, strget(t.dat));
+{	Token t = tknset(TK_STR, strset("Token2"));
+
+	txoutln(true, strset("Token: %d (type), %s"), t.type, strget(t.dat));
+
 	tknfree(&t);
-	strfree(&test);
 
 	return 0;
 }
@@ -25,32 +21,29 @@ int main(void)
 ////////////////////////////////////////////////////////
 
 bool version(void)
-{	printf("      UnSynk @ Compiler\n");
-	printf("------------------------------\n");
-	printf(" Version: 1.0.1 Pre-Alpha\n");
-	printf(" Build  : 2026020201\n");
-	printf("------------------------------\n");
-	printf("enter `@ /?' you get more helps.\n\n");
+{	txoutln(true, strset("      UnSynk @ Compiler"));
+	txoutln(true, strset("------------------------------"));
+	txoutln(true, strset(" Version: 1.0.2 Pre-Alpha"));
+	txoutln(true, strset(" Build  : 2026020807"));
+	txoutln(true, strset("------------------------------"));
+	txoutln(true, strset("enter `@ /?' you get more helps.\n"));
 
 	return true;
 }
 
 bool help(void)
-{	printf("      UnSynk @ Compiler\n");
-	printf("------------------------------\n");
-	printf("Usage:\n");
-	printf("	@ </autoexit:{true|false}> </hidden:{true|false}> </delay:{true|false}> </src:[\\file\\path.@]\n");
-	printf("------------------------------\n");
-	printf("Options:\n");
-	printf("	/autoexit	:	Enable auto exit flag.\n");
-	printf("	/hidden		:	Enable output hidden flag.\n");
-	printf("	/delay		:	Enable delay execute flag.\n");
-	printf("	/src		:	Configuration source file path.\n");
-	printf("	/?			:	Print this help message.\n");
-	printf("	/help		:	Print this help message.\n");
-	printf("	/h			:	Print this help message.\n");
-	printf("	/v			:	Print software informations.\n");
-	printf("	/version	:	Print software informations.\n");
+{	txoutln(true, strset("      UnSynk @ Compiler"));
+	txoutln(true, strset("------------------------------"));
+	txoutln(true, strset("Usage:"));
+	txoutln(true, strset("	@ </src:[\\file\\path.@]> </out:[\\file\\path]> </detail:{true|false}>"));
+	txoutln(true, strset("------------------------------"));
+	txoutln(true, strset("Options:"));
+	txoutln(true, strset("	/src		:	Configuration source file path."));
+	txoutln(true, strset("	/?			:	Print this help message."));
+	txoutln(true, strset("	/help		:	Print this help message."));
+	txoutln(true, strset("	/h			:	Print this help message."));
+	txoutln(true, strset("	/v			:	Print software informations."));
+	txoutln(true, strset("	/version	:	Print software informations."));
 
 	return true;
 }
