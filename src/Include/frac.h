@@ -1,5 +1,5 @@
 /* UnSynk Frac Header */
-/* Version: 1.0.0 Pre-alpha */
+/* Version: 1.0.1 Pre-alpha */
 /* Created by UnSynk, tsesuv notsel */
 
 #ifndef FRAC_H
@@ -19,8 +19,7 @@ frac fracfree(frac *f);
 ////////////////////////////////////////////////////////
 
 frac fracnew(sint denom, sint numer)
-{
-	frac f;
+{	frac f;
 
 	f.vtype = VTYPE_FRAC;
 	f.sign = ssign(denom) * ssign(numer);

@@ -1,5 +1,5 @@
 /* UnSynk Type Header */
-/* Version: 1.0.1 Pre-alpha */
+/* Version: 1.0.2 Pre-alpha */
 /* Created by UnSynk, tsesuv notsel */
 
 #ifdef errno
@@ -10,19 +10,28 @@
 #ifndef TYPE_H
 #define TYPE_H
 
-typedef enum {false, true} bool;
+typedef enum
+{	false,
+	true
+} bool;
 
-typedef enum {VTYPE_ERR, VTYPE_STR, VTYPE_SINT, VTYPE_USINT, VTYPE_FRAC, VTYPE_ANY, VTYPE_MAP} signature;
+typedef enum
+{	VTYPE_ERR,
+	VTYPE_STR,
+	VTYPE_SINT,
+	VTYPE_USINT,
+	VTYPE_FRAC,
+	VTYPE_ANY,
+	VTYPE_MAP
+} signature;
 
 typedef struct
-{
-	bool IsErr;
+{	bool IsErr;
 	signed int code;
 } errno;
 
 typedef struct
-{
-	signature vtype; // 変数の型を保持する変数
+{	signature vtype; // 変数の型を保持する変数
 	char *dat; // data
 	unsigned long int len; // 長さ
 	unsigned long int cap; // キャパシティ
@@ -30,38 +39,33 @@ typedef struct
 } str;
 
 typedef struct
-{
-	signature vtype;
+{	signature vtype;
 	signed int sign;
 	unsigned int dat;
 	unsigned long int len; // 桁数
 } sint;
 
 typedef struct
-{
-	signature vtype;
+{	signature vtype;
 	unsigned int dat;
 	unsigned long int len;
 } usint;
 
 typedef struct
-{
-	signature vtype;
+{	signature vtype;
 	signed int sign;
 	usint denom;
 	usint numer;
 } frac;
 
 typedef struct
-{
-	signature vtype;
+{	signature vtype;
 	void *dat;
 	unsigned int dsize;
 } any;
 
 typedef struct
-{
-	signature vtype;
+{	signature vtype;
 	str key;
 	any dat;
 	unsigned long int cap;

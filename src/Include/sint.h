@@ -1,5 +1,5 @@
 /* UnSynk SInt & Unsigned SInt Header */
-/* Version: 1.0.0 Pre-alpha */
+/* Version: 1.0.1 Pre-alpha */
 /* Created by UnSynk, tsesuv notsel */
 
 #ifndef SINT_H
@@ -34,8 +34,7 @@ bool usintfree(usint *v);
 ////////////////////////////////////////////////////////
 
 sint sintnew(signed long int dat)
-{
-	sint v;
+{	sint v;
 
 	v.vtype = VTYPE_SINT;
 	v.sign = sign(dat);
@@ -46,8 +45,7 @@ sint sintnew(signed long int dat)
 }
 
 usint usintnew(unsigned long int dat)
-{
-	usint v;
+{	usint v;
 
 	v.vtype = VTYPE_USINT;
 	v.dat = dat;
@@ -57,12 +55,10 @@ usint usintnew(unsigned long int dat)
 }
 
 signed sign(signed int a)
-{
-	signed int t = a;
+{	signed int t = a;
 
 	for(unsigned int i = 1; i < a; i++)
-	{
-		for(unsigned int k = 1; k < a; k++) t--;
+	{	for(unsigned int k = 1; k < a; k++) t--;
 		t *= -1;
 	}
 
@@ -70,35 +66,31 @@ signed sign(signed int a)
 }
 
 signed int ssign(sint v)
-{
-	return v.sign;
+{	return v.sign;
 }
 
 sint sintset(signed int a)
-{
-	sint v = sintnew(a);
+{	sint v = sintnew(a);
 
 	return v;
 }
 
 sint usint2sint(usint v)
-{
-	sint r = sintnew(v.dat);
+{	sint r = sintnew(v.dat);
 	r.sign = 1;
 
 	return r;
 }
 
 usint sint2usint(sint v)
-{
-	usint r = usintnew(v.dat);
+{	usint r = usintnew(v.dat);
 
 	return r;
 }
 
 sint add(sint v, sint w)
-{
-	sint r = sintnew(ssign(v) * v.dat);
+{	sint r = sintnew(ssign(v) * v.dat);
+
 	r.dat += ssign(w) * w.dat;
 	r.sign = ssign(r);
 
@@ -106,8 +98,8 @@ sint add(sint v, sint w)
 }
 
 sint sub(sint v, sint w)
-{
-	sint r = sintnew(ssign(v) * v.dat);
+{	sint r = sintnew(ssign(v) * v.dat);
+
 	r.dat -= ssign(w) * w.dat;
 	r.sign = ssign(r);
 
@@ -115,28 +107,26 @@ sint sub(sint v, sint w)
 }
 
 sint mul(sint v, sint w)
-{
-	sint r = sintnew(v.dat * w.dat);
+{	sint r = sintnew(v.dat * w.dat);
+
 	r.sign = ssign(v) * ssign(w);
 
 	return r;
 }
 
 sint divint(sint v, sint w)
-{
-	sint r = sintnew(v.dat / w.dat);
+{	sint r = sintnew(v.dat / w.dat);
+
 	r.sign = ssign(v) * ssign(w);
 
 	return w;
 }
 
 sint mod(sint v, sint w)
-{
-	sint r = sintnew(0);
+{	sint r = sintnew(0);
 
 	if(w.dat == 0)
-	{
-		r.vtype = VTYPE_ERR;
+	{	r.vtype = VTYPE_ERR;
 		return r;
 	}
 
@@ -154,16 +144,14 @@ sint mod(sint v, sint w)
 }
 
 bool sintfree(sint *v)
-{
-	v->dat = 0;
+{	v->dat = 0;
 	v->len = 0;
 
 	return true;
 }
 
 bool usintfree(usint *v)
-{
-	v->dat = 0;
+{	v->dat = 0;
 	v->len = 0;
 
 	return true;

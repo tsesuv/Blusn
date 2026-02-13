@@ -1,5 +1,5 @@
 /* UnSynk Processing system Header */
-/* Version: 1.0.2 Pre-alpha */
+/* Version: 1.0.4 Pre-alpha */
 /* Created by UnSynk, tsesuv notsel */
 
 #ifndef TOKEN_H
@@ -47,15 +47,15 @@ typedef struct tkList
 
 Token tknnew(void);
 Token tknclne(Token *t);
-Token tknset(tkType type, str dat);
+Token tknset(const tkType type, const str dat);
 
 tkList *tklnew(tkList *head);
-bool tklset(tkList *L, Token t);
+bool tklset(tkList *L, const Token t);
 
 bool tknfree(Token *t);
 bool tklfree(tkList *L);
 
-tkList *tokenalizer(str s);
+tkList *tokenalizer(const str s);
 tkList *parser(tkList *L);
 
 ////////////////////////////////////////////////////////
@@ -64,7 +64,7 @@ Token tknnew(void)
 {	Token t;
 
 	t.type = TK_VOID;
-	t.dat.dat = NULL;
+	t.dat = strset("");
 	t.line = 0;
 
 	return t;
@@ -79,11 +79,12 @@ Token tknclne(Token *t)
 	return v;
 }
 
-Token tknset(tkType type, str dat)
-{	Token t = tknnew();
+Token tknset(const tkType type, const str dat)
+{	Token t;
 
 	t.type = type;
 	t.dat = dat;
+	t.line = 0;
 
 	return t;
 }
@@ -93,7 +94,7 @@ tkList *tklnew(tkList *head)
 
 	L->head = head == NULL ? L : head; // 仮にここで常にNULLにしてるとcaptもNULLになっちゃう問題があるからこうしてる
 	L->token.type = TK_VOID;
-	L->token.dat = strnew(0);
+	L->token.dat = strset("");
 	L->token.line = 0;
 	L->tkCnt = 0;
 	L->next = NULL;
@@ -102,11 +103,11 @@ tkList *tklnew(tkList *head)
 	return L;
 }
 
-bool tklset(tkList *L, Token t)
+bool tklset(tkList *L, const Token t)
 {	tkList *node = tklnew(L->head);
 
 	node->token.type = t.type;
-	node->token.dat = strclne(&t.dat);
+	node->token.dat = t.dat;
 	node->token.line = t.line;
 	node->tkCnt = ++L->head->tkCnt; // tkCntはどうやらトークンのインデックスを表すようになったようです。但しcapt、お前はただのカウンタとして働け
 	node->next = NULL;
@@ -119,7 +120,7 @@ bool tklset(tkList *L, Token t)
 }
 
 bool tknfree(Token *t)
-{	strfree(&t->dat);
+{	t->type = TK_VOID;
 	t->line = 0;
 
 	return true;
@@ -130,14 +131,39 @@ bool tklfree(tkList *L)
 	L = L->head;
 	while(L != NULL)
 	{	tmp = L->next;
+
 		tknfree(&L->token);
 		L->tkCnt = 0;
+		L->head = NULL;
+		L->next = NULL;
 		L->end = NULL;
+
 		free(L);
+
 		L = tmp;
 	}
 
 	return true;
+}
+
+tkList *tokenalizer(const str s)
+{	tkList *L = tklnew(NULL);
+
+	str tmp = strnew(0);
+
+	for(unsigned long int i = 0; i < strlen(s); i++)
+	{	if(strget(s)[i] == ' ')
+		{	tklset(L, tknset(TK_VOID, tmp));
+			strfree(&tmp);
+			tmp = strnew(0);
+		}
+
+		strpush(&tmp, strget(s)[i]);
+	}
+
+	strfree(&tmp);
+
+	return L;
 }
 
 ////////////////////////////////////////////////////////

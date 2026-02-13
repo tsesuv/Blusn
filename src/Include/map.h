@@ -19,8 +19,8 @@ bool mapfree(map *m);
 ////////////////////////////////////////////////////////
 
 map mapnew(unsigned long int cap)
-{
-	map m;
+{	map m;
+
 	m.vtype = VTYPE_MAP;
 	m.key = strnew(cap);
 	m.dat = anynew(NULL, cap);
@@ -31,8 +31,7 @@ map mapnew(unsigned long int cap)
 }
 
 bool mapfree(map *m)
-{
-	strfree(&m->key);
+{	strfree(&m->key);
 	anyfree(&m->dat);
 	m->len = m->cap = 0;
 
