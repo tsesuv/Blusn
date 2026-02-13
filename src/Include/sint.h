@@ -5,31 +5,32 @@
 #ifndef SINT_H
 #define SINT_H
 
-#include <stdlib.h>
+////////////////////////////////////////////////////////
 
 #include "type.h"
+
+#include <stdlib.h>
 
 ////////////////////////////////////////////////////////
 
 sint sintnew(signed long int dat);
 usint usintnew(unsigned long int dat);
 
-signed int sign(signed int a);
-signed int ssign(sint v);
+const signed int sign(const signed int a);
+const signed int ssign(const sint v);
 
-sint sintset(signed int a);
-sint usint2sint(usint v);
-usint sint2usint(sint v);
+const sint sintset(const signed int a);
+const sint usint2sint(const usint v);
+const usint sint2usint(const sint v);
 
-sint add(sint v, sint w);
-sint sub(sint v, sint w);
-sint mul(sint v, sint w);
-sint divint(sint v, sint w);
-sint mod(sint v, sint w);
+const sint add(const sint v, const sint w);
+const sint sub(const sint v, const sint w);
+const sint mul(const sint v, const sint w);
+const sint divint(const sint v, const sint w);
+const sint mod(const sint v, const sint w);
 
 bool sintfree(sint *v);
 bool usintfree(usint *v);
-
 
 ////////////////////////////////////////////////////////
 
@@ -54,7 +55,7 @@ usint usintnew(unsigned long int dat)
 	return v;
 }
 
-signed sign(signed int a)
+const signed int sign(const signed int a)
 {	signed int t = a;
 
 	for(unsigned int i = 1; i < a; i++)
@@ -65,30 +66,30 @@ signed sign(signed int a)
 	return t;
 }
 
-signed int ssign(sint v)
+const signed int ssign(const sint v)
 {	return v.sign;
 }
 
-sint sintset(signed int a)
+const sint sintset(const signed int a)
 {	sint v = sintnew(a);
 
 	return v;
 }
 
-sint usint2sint(usint v)
+const sint usint2sint(const usint v)
 {	sint r = sintnew(v.dat);
 	r.sign = 1;
 
 	return r;
 }
 
-usint sint2usint(sint v)
+const usint sint2usint(const sint v)
 {	usint r = usintnew(v.dat);
 
 	return r;
 }
 
-sint add(sint v, sint w)
+const sint add(const sint v, const sint w)
 {	sint r = sintnew(ssign(v) * v.dat);
 
 	r.dat += ssign(w) * w.dat;
@@ -97,7 +98,7 @@ sint add(sint v, sint w)
 	return r;
 }
 
-sint sub(sint v, sint w)
+const sint sub(const sint v, const sint w)
 {	sint r = sintnew(ssign(v) * v.dat);
 
 	r.dat -= ssign(w) * w.dat;
@@ -106,7 +107,7 @@ sint sub(sint v, sint w)
 	return r;
 }
 
-sint mul(sint v, sint w)
+const sint mul(const sint v, const sint w)
 {	sint r = sintnew(v.dat * w.dat);
 
 	r.sign = ssign(v) * ssign(w);
@@ -114,15 +115,15 @@ sint mul(sint v, sint w)
 	return r;
 }
 
-sint divint(sint v, sint w)
+const sint divint(const sint v, const sint w)
 {	sint r = sintnew(v.dat / w.dat);
 
 	r.sign = ssign(v) * ssign(w);
 
-	return w;
+	return r;
 }
 
-sint mod(sint v, sint w)
+const sint mod(const sint v, const sint w)
 {	sint r = sintnew(0);
 
 	if(w.dat == 0)
@@ -157,4 +158,6 @@ bool usintfree(usint *v)
 	return true;
 }
 
-#endif
+////////////////////////////////////////////////////////
+
+#endif /* sint.h */

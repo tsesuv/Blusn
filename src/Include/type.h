@@ -10,6 +10,8 @@
 #ifndef TYPE_H
 #define TYPE_H
 
+////////////////////////////////////////////////////////
+
 typedef enum
 {	false,
 	true
@@ -56,13 +58,13 @@ typedef struct
 	signed int sign;
 	usint denom;
 	usint numer;
-} frac;
+} frac; // 分母、分子をそれぞれ持つ「有理数型」。但し一切の実装が進んでない・・・
 
 typedef struct
 {	signature vtype;
 	void *dat;
 	unsigned int dsize;
-} any;
+} any; // 一応作ってある安全版void型・・・用途が一切思いつかないがな
 
 typedef struct
 {	signature vtype;
@@ -70,6 +72,8 @@ typedef struct
 	any dat;
 	unsigned long int cap;
 	unsigned long int len;
-} map;
+} map; // C++のmapって便利よね
 
-#endif
+////////////////////////////////////////////////////////
+
+#endif /* type.h */

@@ -38,4 +38,6 @@ bool mapfree(map *m)
 	return true;
 }
 
-#endif
+////////////////////////////////////////////////////////
+
+#endif /* map.h */

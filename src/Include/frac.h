@@ -29,4 +29,6 @@ frac fracnew(sint denom, sint numer)
 	return f;
 }
 
-#endif
+////////////////////////////////////////////////////////
+
+#endif /* frac.h */

@@ -42,4 +42,6 @@ bool anyfree(any *a)
 	return true;
 }
 
-#endif
+////////////////////////////////////////////////////////
+
+#endif /* any.h */
