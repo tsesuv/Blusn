@@ -55,4 +55,4 @@ class Core
 
 }
 
-#endif
+#endif /* core.inc */

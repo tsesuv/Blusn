@@ -1,5 +1,5 @@
 /* UnSynk SInt & Unsigned SInt Header */
-/* Version: 1.0.1 Pre-alpha */
+/* Version: 1.0.1 Pre-Alpha */
 /* Created by UnSynk, tsesuv notsel */
 
 #ifndef SINT_H

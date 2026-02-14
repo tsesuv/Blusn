@@ -1,0 +1,15 @@
+>>? ECHO Command ?<<
+
+include 'sysbio.@h"
+
+mdl echo
+@begin
+	int main args ag @public
+	@begin
+		str txt <- @sys:getag ag, 1
+
+		@sys:txout txt, newl
+
+		ret 0
+	@end
+@end

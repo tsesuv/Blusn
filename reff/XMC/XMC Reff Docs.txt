@@ -34,7 +34,7 @@ Regs
 |
 +--F
 |
-+--SP
++--ESP
 |
 +--CS
 |
@@ -2105,12 +2105,29 @@ OpCode
 |  +--HALT
 |
 +--10
+|  |
+|  +--00
+|  |  |
+|  |  +--IN (IMM) ; Reg: AL
+|  |
+|  +--01
+|     |
+|     +--OUT (IMM) ; Reg: AL
++--C0
+|  |
+|  +--TRAP ; Trap ID: EEX
+|
++--CF
+|  |
+|  +--00
+|  |  |
+|  |  +--SLD [EBX], ESP
+|  |
+|  +--01
+|     |
+|     +--SLD ESP, [EBX]
+|
++--FF
    |
-   +--00
-   |  |
-   |  +--IN (IMM) ; Reg: AL
-   |
-   +--01
-      |
-      +--OUT (IMM) ; Reg: AL
+   +--DTRP
 ============

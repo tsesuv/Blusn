@@ -1,15 +1,16 @@
-/* UnSynk @ Header */
+/* UnSynk SXT Header */
 /* Version: 1.0.0 Pre-Alpha */
 /* Created by UnSynk, tsesuv notsel */
 
-#ifndef AT_H
-#define AT_H
+#ifndef SXT_H
+#define SXT_H
+
+#include "str.h"
 
 ////////////////////////////////////////////////////////
 
-#include <stdio.h>
-#include <stdlib.h>
+unsigned char *WinPE_x86 = "\000";
 
 ////////////////////////////////////////////////////////
 
-#endif /* @.h */
+#endif /* sxt.h */

@@ -1,3 +1,7 @@
+/* UnSynk Chain Interpreter */
+/* Version: 1.0.0 Pre-Alpha */
+/* Created by UnSynk, tsesuv notsel */
+
 #include "ch.h"
 
 int main(void)

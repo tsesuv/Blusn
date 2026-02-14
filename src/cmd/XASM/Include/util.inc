@@ -39,4 +39,4 @@ inline std::string nomz_mnemo(const std::string &line)
 	return res;
 }
 
-#endif
+#endif /* util.inc */

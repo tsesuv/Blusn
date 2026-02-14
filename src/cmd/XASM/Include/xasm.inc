@@ -16,4 +16,4 @@
 #include <cstdint>
 #include <cctype>
 
-#endif
+#endif /* xasm.inc */

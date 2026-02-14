@@ -775,8 +775,21 @@ class Inst
 			// HALT
 			addInst({0x0F}, 1, false, 0);
 
-			// INT
-			addInst({0x10}, 1, true, 1);
+			// IN
+			addInst({0x10, 0x00}, 1, true, 1);
+
+			// OUT
+			addInst({0x10, 0x01}, 1, true, 1);
+
+			// TRAP
+			addInst({0xC0}, 1, false, 0);
+
+			// SLD
+			addInst({0xCF, 0x00}, 2, false, 0);
+			addInst({0xCF, 0x01}, 2, false, 0);
+
+			// DTRP
+			addInst({0xFF}, 1, false, 0);
 
 			return true;
 		}
@@ -809,4 +822,4 @@ class Inst
 		}
 };
 
-#endif
+#endif /* inst.inc */

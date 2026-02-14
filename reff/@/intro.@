@@ -57,8 +57,8 @@ mdl intro # Javaのクラス的なのを採用
 
 	int moreFunction$ls args ag @private # プロパティ構文は関数定義、宣言でも同様。
 	@begin
-		int tmp <- @sys:getarg ag, 0 # こうなるのかなぁ・・・？わからん。
-		int tmp2 <- @sys:getarg ag, 1 # ただこれならいろいろ便利っちゃ便利ではあるかなぁ。存在しない引数を受け取る可能性はあれど、
+		int tmp <- @sys:getag ag, 0 # こうなるのかなぁ・・・？わからん。
+		int tmp2 <- @sys:getag ag, 1 # ただこれならいろいろ便利っちゃ便利ではあるかなぁ。存在しない引数を受け取る可能性はあれど、
 									  # 呼び出し側で@xx:yy ,ag2みたいに書くことでデフォルト引数みたいなこともできないことはないからなぁ
 
 		tmp <- tmp ? tmp2 # <-は代入記号

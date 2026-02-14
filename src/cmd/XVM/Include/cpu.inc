@@ -176,6 +176,13 @@ class CPU
 			return true;
 		}
 
+		bool setSP(uint32_t addr)
+		{
+			SP = addr;
+
+			return true;
+		}
+
 		uint32_t getSP(void)
 		{
 			return SP;
@@ -208,4 +215,4 @@ class CPU
 };
 
 
-#endif
+#endif /* cpu.inc */

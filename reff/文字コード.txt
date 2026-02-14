@@ -1,0 +1,168 @@
+(NULL) <- 0x00
+
+(SPACE)
+!
+'
+"
+#
+$
+%
+&
+(
+)
+,
+-
+.
+*
++
+
+E
+(^ 0x10 ^)
+K
+M
+R
+O
+N
+I
+U
+Tx
+A
+T
+S
+J
+F
+W
+Qt
+Qf
+(^ 0x20 ^)
+Qs
+X
+P
+L
+
+/
+:
+;
+<
+=
+>
+?
+@
+[
+\
+]
+
+e
+(^ 0x30 ^)
+k
+m
+r
+o
+n
+i
+u
+tx
+a
+t
+s
+j
+f
+w
+qt
+qf
+(^ 0x40 ^)
+qs
+x
+p
+l
+
+^
+_
+`
+{
+|
+}
+~
+
+[終端文字]
+
+(Back Space)
+
+(BELL)
+
+(予約)
+
+⎿
+(^ 0x50 ^)
+⏌
+⎾
+⏋
+
+│(左)
+│(右)
+─(上)
+─(下)
+
+├(上太下細)
+┤(   ''   )
+⏉(左太右細)
+⏊(   ''   )
+
+├(上細下太)
+┤(   ''   )
+⏉(左細右太)
+⏊(   ''   )
+
+─(中,上太)
+(^ 0x60 ^)
+─(中,上細)
+
+│(中,左太)
+│(中,左細)
+
+┼(右下細)
+┼(右上細)
+┼(左下細)
+┼(左上細)
+
+█
+▓
+▒
+░
+(^ 0x6B ^)
+
+(ESCape)
+
+(Carriage Return)
+(Line Feed)
+
+(Form Feed)
+
+(Shift Out)
+(^ 0x70 ^)
+(Shift In)
+
+(Horizontal Tablation)
+(Vertical Tablation)
+
+(Data Link Escape)
+
+(Synchronus Idle)
+
+(CANcel)
+
+(Start Of Heading)
+(Start of BiNary)
+
+(End Of Heading)
+(End of BiNary)
+
+(ENQuiry)
+(ACKnowledge)
+
+(End Of File)
+
+(Negative AcKnowledge)
+
+(DEL)
+(^ 0x7F ^)

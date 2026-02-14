@@ -1739,6 +1739,24 @@ class Exec
 
 			// HALT
 			else if(inst->chkInst(info.oplist, {0x0F}, 1)) if(cpu->chkIRQ(~0));
+
+			// IN
+			else if(inst->chkInst(info.oplist, {0x10, 0x00}, 2));
+
+			// OUT
+			else if(inst->chkInst(info.oplist, {0x10, 0x01}, 2));
+
+			// TRAP
+			else if(inst->chkInst(info.oplist, {0xC0}, 1));
+
+			// SLD
+			else if(inst->chkInst(info.oplist, {0xCF, 0x00}, 2)) cpu->setReg(8, cpu->getSP());
+			else if(inst->chkInst(info.oplist, {0xCF, 0x01}, 2)) cpu->setSP(*cpu->getReg(8));
+
+			// DTRP
+			else if(inst->chkInst(info.oplist, {0xFF}, 1));
+
+			// Other
 			else return false;
 
 			cpu->setPC(cpu->getPC() + info.len);
@@ -1748,4 +1766,4 @@ class Exec
 		}
 };
 
-#endif
+#endif /* exec.inc */

@@ -675,10 +675,23 @@ inline bool buildTree(Node *r)
 	// HALT
 	addInst(r, {0x0F}, "HALT", 0);
 
-	// INT
-	addInst(r, {0x10}, "INT IMM", 1);
+	// IN
+	addInst(r, {0x10, 0x00}, "INT IMM", 1);
+
+	// OUT
+	addInst(r, {0x10, 0x01}, "OUT IMM", 1);
+
+	// TRAP
+	addInst(r, {0xC0}, "TRAP", 0);
+
+	// SLD
+	addInst(r, {0xCF, 0x00}, "SLD [EBX], ESP", 0);
+	addInst(r, {0xCF, 0x01}, "SLD ESP, [EBX]", 0);
+
+	// DTRP
+	addInst(r, {0xFF}, "DTRP", 0);
 
 	return true;
 }
 
-#endif
+#endif /* build.inc */

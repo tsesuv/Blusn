@@ -1,5 +1,5 @@
 /* UnSynk Processing system Header */
-/* Version: 1.0.4 Pre-alpha */
+/* Version: 1.0.4 Pre-Alpha */
 /* Created by UnSynk, tsesuv notsel */
 
 #ifndef TOKEN_H

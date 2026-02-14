@@ -1,42 +1,47 @@
+/* UnSynk EDLIN x86 Edition */
+/* Version: 1.0.0 Pre-Alpha */
+/* Created by UnSynk, tsesuv notsel */
+
+#include "str.h"
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <sys/stat.h>
 
 FILE *fp;
 FILE *bak;
 
-int b_exit(int crd, char *bname);
-int cln(char *p);
-int chkexist(char *path);
+int b_exit(int crd, const str bname);
+int cln(str p);
+int chkexist(const str path);
 int prmpt(char *out);
 
 int main(int ac, char **av)
-{
-	char *fname = (char *)malloc(sizeof(char));
+{	str fname = strset("");
 
 	for(int i = 0; i < ac; i++)
-	{
-		if(strcmp(av[i], "/i") == 0)
-		{
-			fname = realloc(fname, strlen(av[i + 1]));
-			strcpy(fname, av[i + 1]);
+	{	if(strcmp(strset(av[i]), strset("/i")))
+		{	fname = strclne(&strset(av[i + 1]));
 		}
 	}
-	char *bname = (char *)malloc(strlen(fname));
+	str bname = strclne(&fname);
 	strcpy(bname, fname);
-	bname[strlen(bname) - 3] = 'B';
-	bname[strlen(bname) - 2] = 'A';
-	bname[strlen(bname) - 1] = 'K';
+	for(int i = 0; i < 3; i++) strrmv(&bname, strlen(bname));
+	strpush(&bname, 'B');
+	strpush(&bname, 'A');
+	strpush(&bname, 'K');
 
 	char c = 0;
 	fp = fopen(fname, "rb+");
 	bak = fopen(bname, "wb");
 
 	if(!fp)
-	{
-		fclose(fp);
+	{	fclose(fp);
 		fp = NULL;
+
+		strfree(&bname);
+		strfree(&fname);
+
 		return -1;
 	}
 
@@ -44,24 +49,24 @@ int main(int ac, char **av)
 
 
 
-	char cmd[256] = {0};
+	str cmd = strnew(0);
 
 	if(!chkexist(fname)) puts("New file");
 
 	prmpt(cmd);
-	if(strcmp(cmd, "q") == 0) b_exit(1, bname);
+	if(strcmp(cmd, strset("q"))) b_exit(1, bname);
 	cln(cmd);
 
 	fclose(fp);
 
-	free(bname);
-	free(fname);
-	bname = fname = NULL;
+	strfree(&cmd);
+	strfree(&bname);
+	strfree(&fname);
 
 	return 0;
 }
 
-int b_exit(int crd, char *bname)
+int b_exit(int crd, const str bname)
 {
 	if(crd == 1)
 	{

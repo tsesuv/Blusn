@@ -1,5 +1,5 @@
 /* UnSynk String Header */
-/* Version: 1.2.0 Pre-alpha */
+/* Version: 1.2.0 Pre-Alpha */
 /* Created by UnSynk, tsesuv notsel */
 
 #ifndef STR_H

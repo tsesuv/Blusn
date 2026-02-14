@@ -1,5 +1,5 @@
 /* UnSynk Type Header */
-/* Version: 1.0.2 Pre-alpha */
+/* Version: 1.0.2 Pre-Alpha */
 /* Created by UnSynk, tsesuv notsel */
 
 #ifdef errno

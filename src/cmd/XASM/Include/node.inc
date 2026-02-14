@@ -12,7 +12,7 @@ struct Node
 	int immSize; // 即値のバイト数（0なら即値なし）
 
 	Node(): is_term(false), immSize(0) {}
-	
+
 	~Node()
 	{
 		for(auto &pair : children)
@@ -22,4 +22,4 @@ struct Node
 	}
 };
 
-#endif
+#endif /* node.inc */

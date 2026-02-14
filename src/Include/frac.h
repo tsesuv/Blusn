@@ -1,5 +1,5 @@
 /* UnSynk Frac Header */
-/* Version: 1.0.1 Pre-alpha */
+/* Version: 1.0.1 Pre-Alpha */
 /* Created by UnSynk, tsesuv notsel */
 
 #ifndef FRAC_H

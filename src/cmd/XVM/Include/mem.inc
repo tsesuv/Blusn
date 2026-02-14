@@ -138,4 +138,4 @@ class MEM
 		}
 };
 
-#endif
+#endif /* mem.inc */
