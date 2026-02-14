@@ -154,8 +154,8 @@ tkList *tokenalizer(const str s)
 	str tmp = strnew(0);
 
 	for(unsigned long int i = 0; i < strlen(s); i++)
-	{	if(strget(s)[i] == ' ')
-		{	tklset(L, tknset(TK_VOID, tmp));
+	{	if(strget(s)[i] == '+')
+		{	tklset(L, tknset(TK_NUM, tmp));
 			strfree(&tmp);
 			tmp = strnew(0);
 		}
