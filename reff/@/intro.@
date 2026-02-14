@@ -1,9 +1,8 @@
 # intro.@
 # これでコメント。
->>? 後述の方法で
-	複数行コメントも
-	当然できる。
-?<<
+# 後述の方法で
+# 複数行コメントも
+# 当然できる。
 
 include 'sysbio.@h" # sysbioはSYStem Basic Input/Output
 
