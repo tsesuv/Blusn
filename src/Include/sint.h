@@ -1,5 +1,5 @@
 /* UnSynk SInt & Unsigned SInt Header */
-/* Version: 1.0.1 Pre-Alpha */
+/* Version: 1.0.2 Pre-Alpha */
 /* Created by UnSynk, tsesuv notsel */
 
 #ifndef SINT_H
@@ -125,20 +125,22 @@ const sint divint(const sint v, const sint w)
 
 const sint mod(const sint v, const sint w)
 {	sint r = sintnew(0);
+	sint t1 = sintnew(v.dat);
+	sint t2 = sintnew(w.dat);
 
 	if(w.dat == 0)
 	{	r.vtype = VTYPE_ERR;
 		return r;
 	}
 
-	v.dat = ssign(v) * v.dat;
-	w.dat = ssign(w) * w.dat;
+	t1.dat = ssign(v) * v.dat;
+	t2.dat = ssign(w) * w.dat;
 
-	while(v.dat < w.dat) v.dat -= w.dat;
-	if(ssign(v) == ssign(w) == -1) v.dat *= -1;
-	else if(ssign(v) == -1) v.dat = w.dat - v.dat;
-	else if(ssign(w) == -1) v.dat -= w.dat;
-	r.dat = v.dat;
+	while(t1.dat < t2.dat) t1.dat -= t2.dat;
+	if(ssign(t1) == ssign(t2) == -1) t1.dat *= -1;
+	else if(ssign(t1) == -1) t1.dat = t2.dat - t1.dat;
+	else if(ssign(t2) == -1) t1.dat -= t2.dat;
+	r.dat = t1.dat;
 	r.sign = sign(r.dat);
 
 	return r;
