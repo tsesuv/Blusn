@@ -1,14 +1,14 @@
 >>? ECHO Command ?<<
 
-include 'sysbio.@h"
+"i(sysio.@h)
 
 mdl echo
 @begin
-	int main args ag @public
+	int main ags ag @public
 	@begin
 		str txt <- @sys:getag ag, 1
 
-		@sys:txout txt, newl
+		@sys:txoutln txt
 
 		ret 0
 	@end

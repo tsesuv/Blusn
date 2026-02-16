@@ -37,7 +37,7 @@ bool version(void)
 	txoutln(strset(" Version: 1.0.3 Pre-Alpha"));
 	txoutln(strset(" Build  : 2026021303"));
 	txoutln(strset("------------------------------"));
-	txoutln(strset("enter `@ /?' you get more helps.\n"));
+	txoutln(strset("enter `@ /?' you get more helps."));
 
 	return true;
 }
