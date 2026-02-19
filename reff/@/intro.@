@@ -13,7 +13,7 @@ mdl intro # Javaのクラス的なのを採用
 		int demo @public <- 32
 		# mdl内変数ではpublicを省略時はprivate。
 
-		@sys:txoutln 'Hello, world!"	>>? 文字列はシングル始まりダブル終わり。'Odh Rokki" ayn Xemir. (Xemir have "This Syntax"./Xemirはこのような構文を持っている。/Xem語はこのような構文を持っている。)
+		@sys:txoutln 'Hello, world!"	>>? 文字列はシングル始まりダブル終わり。'Odh Rokkas" ayn Xemir. (Xemir have "This Syntax"./Xemirはこのような構文を持っている。/Xem語はこのような構文を持っている。)
 											それのラテン転写が、始まりのほうがシングル、終わりのほうがダブルで転写することにしてるのでこうなっとるのです。
 											あ、Xemirは架空の言語じゃないからね。実在する言語ですので。
 										?<<

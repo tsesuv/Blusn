@@ -1,6 +1,58 @@
 (NULL) <- 0x00
 
+(ESCape)
+
+(Back Space)
+
+(BELL)
+
+(Line Feed)
+(Form Feed)
+
+(Shift Out)
+(Shift In)
+
+(Horizontal Tablation)
+(Vertical Tablation)
+
+(Carriage Return)
+
+(Data Link Escape)
+
+(Synchronus Idle)
+
+(CANcel)
+
+(Shift Character Area)
+(Shift Extra Symbol Area)
+
+(Start Of Heading)
+(Start of BiNary)
+
+(End Of Heading)
+(^ 0x10 ^)
+(End of BiNary)
+
+(Cursor Up)
+(Cursor Down)
+(Cursor Left)
+(Cursor Right)
+(Cursor Position Response)
+
+(ENQuiry)
+(ACKnowledge)
+
+(End Of File)
+
+(Negative AcKnowledge)
+
+(XON)
+(XOFF)
+
+[終端文字]
+
 (SPACE)
+(^ 0x20 ^)
 !
 '
 "
@@ -15,9 +67,10 @@ $
 .
 *
 +
+@
 
 E
-(^ 0x10 ^)
+(^ 0x30 ^)
 K
 M
 R
@@ -31,11 +84,10 @@ T
 S
 J
 F
-W
 Qt
 Qf
-(^ 0x20 ^)
 Qs
+(^ 0x40 ^)
 X
 P
 L
@@ -47,13 +99,14 @@ L
 =
 >
 ?
-@
 [
 \
 ]
+_
+§
 
 e
-(^ 0x30 ^)
+(^ 0x50 ^)
 k
 m
 r
@@ -67,33 +120,37 @@ t
 s
 j
 f
-w
 qt
 qf
-(^ 0x40 ^)
 qs
+(^ 0x60 ^)
 x
 p
 l
 
 ^
-_
 `
 {
 |
 }
 ~
+±
+≠
+¶
 
-[終端文字]
+█
+▓
+▒
+░
+(^ 0x70 ^)
 
-(Back Space)
+(Received Area)
 
-(BELL)
+(DEL)
+(^ 0x7F ^)
 
-(予約)
-
+(Extra Symbol Area:)
 ⎿
-(^ 0x50 ^)
 ⏌
 ⎾
 ⏋
@@ -114,7 +171,6 @@ _
 ⏊(   ''   )
 
 ─(中,上太)
-(^ 0x60 ^)
 ─(中,上細)
 
 │(中,左太)
@@ -124,45 +180,3 @@ _
 ┼(右上細)
 ┼(左下細)
 ┼(左上細)
-
-█
-▓
-▒
-░
-(^ 0x6B ^)
-
-(ESCape)
-
-(Carriage Return)
-(Line Feed)
-
-(Form Feed)
-
-(Shift Out)
-(^ 0x70 ^)
-(Shift In)
-
-(Horizontal Tablation)
-(Vertical Tablation)
-
-(Data Link Escape)
-
-(Synchronus Idle)
-
-(CANcel)
-
-(Start Of Heading)
-(Start of BiNary)
-
-(End Of Heading)
-(End of BiNary)
-
-(ENQuiry)
-(ACKnowledge)
-
-(End Of File)
-
-(Negative AcKnowledge)
-
-(DEL)
-(^ 0x7F ^)

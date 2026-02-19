@@ -6,16 +6,16 @@ FSデータ
 	ファイル名(例)
 	{
 		*ROOT
-		FILE1.TXT(0x80)データ部ポインタ(0xFF)
+		FILE1.TXT(0x1F)データ部ポインタ(0xFF)
 		DIR1\
 		DIR2\
-		FILE2.TXT(0x80)データ部ポインタ(0xFF)
+		FILE2.TXT(0x1F)データ部ポインタ(0xFF)
 		**
-		FILE3.BXO(0x80)データ部ポインタ(0xFF)
+		FILE3.BXO(0x1F)データ部ポインタ(0xFF)
 		DIR3\
 		**
 		**
-		FILE4.DVS(0x80)データ部ポインタ(0xFF)
+		FILE4.DVS(0x1F)データ部ポインタ(0xFF)
 		**
 	}
 	データ部(可変長)

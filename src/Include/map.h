@@ -1,5 +1,5 @@
 /* UnSynk Map Header */
-/* Version: 1.0.1 Pre-Alpha */
+/* Version: 1.0.2 Pre-Alpha */
 /* Created by UnSynk, tsesuv notsel */
 
 #ifndef MAP_H
@@ -8,34 +8,47 @@
 ////////////////////////////////////////////////////////
 
 #include "type.h"
-#include "any.h"
+#include "str.h"
+
+#include <stdio.h>
+#include <stdlib.h>
 
 ////////////////////////////////////////////////////////
 
-map mapnew(unsigned long int cap);
-
-bool mapfree(map *m);
-
 ////////////////////////////////////////////////////////
 
-map mapnew(unsigned long int cap)
+map mapnew(map *head)
 {	map m;
 
 	m.vtype = VTYPE_MAP;
-	m.key = strnew(cap);
-	m.dat = anynew(NULL, cap);
-	m.cap = cap;
+
+	m.head = head == NULL ? &m : head;
+
+	m.key = 0;
+	m.dat = NULL;
+
+	m.chld = &m;
+	m.next = &m;
+
+	m.cap = 0;
 	m.len = 0;
 
 	return m;
 }
 
-bool mapfree(map *m)
-{	strfree(&m->key);
-	anyfree(&m->dat);
-	m->len = m->cap = 0;
+void *mapget(map *m, const str key)
+{	map *o = m;
+	unsigned long int i = 0;
 
-	return true;
+	while(o->next != o)
+	{	if(o->key == strget(key)[i])
+		{	if(o->chld != o) o = o->chld;
+
+			i++;
+		} else o = o->next;
+	}
+
+	return o->dat;
 }
 
 ////////////////////////////////////////////////////////
