@@ -23,8 +23,8 @@ typedef enum
 	VTYPE_SINT,
 	VTYPE_USINT,
 	VTYPE_FRAC,
-	VTYPE_ANY,
-	VTYPE_MAP
+	VTYPE_MAP,
+	VTYPE_NODE
 } signature;
 
 typedef struct
@@ -67,16 +67,26 @@ typedef struct
 	usint numer;
 } frac; // 分母、分子をそれぞれ持つ「有理数型」。但し一切の実装が進んでない・・・
 
+typedef struct node
+{	signature vtype;
+
+	struct node *head;
+
+	str key;
+	void *dat;
+	unsigned long int dsze; // データサイズ
+
+	struct node *prev;
+	struct node *next;
+} node; // ある文字列とそれに対応するデータへのポインタ、リストとして使う場合はヘッドと直前・直後のノードへのポインタを持つ
+		// nodeという型。あくまで汎用的なノードの型でしかない
+
 typedef struct map // 木構造のmap型
 {	signature vtype;
 
-	struct map *head; // 先頭のポインタ
-
-	char key;
-	void *dat;
+	node *tree;
 
 	struct map *chld; // 子のポインタ
-	struct map *next; // 兄弟のポインタ
 
 	unsigned long int cap;
 	unsigned long int len;
