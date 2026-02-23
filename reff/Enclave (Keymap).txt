@@ -1,15 +1,15 @@
 Leyer0:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     | Ins | ESC |  ^  |Space|     |  m  |  a  |  i  |  u  |     |     |     |    |
-|Caps.|Shift|  <  |  v  | [>] |     |  t  | [e] |  s  |  k  |Shift|     |          |
-| F/H | Lyr2| Tab | DEL |  BS |     |  n  |  f  |  o  |  p  |  r  |      Shift     |
+|Caps.|Shift|  <  |  v  | [>] |     |  t  | [e] |  o  |  k  |Shift|     |          |
+| F/H | Lyr2| Tab | DEL |  BS |     |  n  |  f  |  s  |  p  |  r  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Layer1:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     | Ins | ESC |  ^  |Space|     |  c  |  h  |  x  |  q  |     |     |     |    |
-|Caps.|Shift|  <  |  v  | [>] |     |  d  | [w] |  z  |  g  |Shift|     |          |
-| F/H | Lyr2| Tab | DEL |  BS |     |  j  |  v  |  l  |  b  |  y  |      Shift     |
+|Caps.|Shift|  <  |  v  | [>] |     |  d  | [w] |  l  |  g  |Shift|     |          |
+| F/H | Lyr2| Tab | DEL |  BS |     |  j  |  v  |  z  |  b  |  y  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Layer2:
@@ -36,15 +36,15 @@ Layer2+Shift:
 Shift:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     | Ins | ESC |  ^  |Space|     |  M  |  A  |  I  |  U  |     |     |     |    |
-|Caps.|Shift|  <  |  v  | [>] |     |  T  | [F] |  S  |  K  |Shift|     |          |
-| F/H | Lyr2| Tab | DEL |  BS |     |  N  |  E  |  O  |  P  |  R  |      Shift     |
+|Caps.|Shift|  <  |  v  | [>] |     |  T  | [E] |  O  |  K  |Shift|     |          |
+| F/H | Lyr2| Tab | DEL |  BS |     |  N  |  F  |  S  |  P  |  R  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Layer1+Shift:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
-|     | Ins | ESC |  ^  |Space|     |  C  |  W  |  X  |  Q  |     |     |     |    |
-|Caps.|Shift|  <  |  v  | [>] |     |  D  | [V] |  Z  |  G  |Shift|     |          |
-| F/H | Lyr2| Tab | DEL |  BS |     |  J  |  H  |  L  |  B  |  Y  |      Shift     |
+|     | Ins | ESC |  ^  |Space|     |  C  |  H  |  X  |  Q  |     |     |     |    |
+|Caps.|Shift|  <  |  v  | [>] |     |  D  | [W] |  L  |  G  |Shift|     |          |
+| F/H | Lyr2| Tab | DEL |  BS |     |  J  |  V  |  Z  |  B  |  Y  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 *F/Hキーは日本語入力時のみ使用する全角/半角(漢字)キーです。
