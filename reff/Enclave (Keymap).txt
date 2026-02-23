@@ -25,7 +25,7 @@ Layer1+2:
 Layer2+Shift:
 |     | Ins | ESC |  ^  |Space|     |     |  `  |  {  |  }  |     |     |     |    |
 |Caps.|Shift|  <  |  v  | [>] | NLyr|     | [_] |  <  |  >  |Shift|     |          |
-| F/H | Lyr2| Tab | DEL |  BS |     |     |  §  |  ±  |  ≠  |  ¶  |      Shift     |
+| F/H | Lyr2| Tab | DEL |  BS |     |     |  §  |  ±  |  ≠  |     |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Shift:
