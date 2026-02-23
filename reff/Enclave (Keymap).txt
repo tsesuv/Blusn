@@ -1,52 +1,52 @@
 Leyer0:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     | Ins | ESC |  ^  |Space|     |  m  |  a  |  i  |  u  |     |     |     |    |
-|     |Shift|  <  |  v  | [>] |     |  t  | [e] |  s  |  k  |Shift|     |          |
+|Caps.|Shift|  <  |  v  | [>] |     |  t  | [e] |  s  |  k  |Shift|     |          |
 | F/H | Lyr2| Tab | DEL |  BS |     |  n  |  f  |  o  |  p  |  r  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Layer1:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     | Ins | ESC |  ^  |Space|     |  c  |  h  |  x  |  q  |     |     |     |    |
-|     |Shift|  <  |  v  | [>] |     |  d  | [w] |  z  |  g  |Shift|     |          |
+|Caps.|Shift|  <  |  v  | [>] |     |  d  | [w] |  z  |  g  |Shift|     |          |
 | F/H | Lyr2| Tab | DEL |  BS |     |  j  |  v  |  l  |  b  |  y  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Layer2:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     | Ins | ESC |  ^  |Space|     |  @  |  #  |  [  |  ]  |     |     |     |    |
-|     |Shift|  <  |  v  | [>] |     |  /  | [$] |  (  |  )  |Shift|     |          |
+|Caps.|Shift|  <  |  v  | [>] |     |  /  | [$] |  (  |  )  |Shift|     |          |
 | F/H | Lyr2| Tab | DEL |  BS |     |  \  |  ,  |  .  |  ;  |  "  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Layer1+2:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     | Ins | ESC |  ^  |Space|     |  |  |  =  |  %  |  &  |     |     |     |    |
-|     |Shift|  <  |  v  | [>] |     |  ~  | [-] |  +  |  *  |Shift|     |          |
+|Caps.|Shift|  <  |  v  | [>] |     |  ~  | [-] |  +  |  *  |Shift|     |          |
 | F/H | Lyr2| Tab | DEL |  BS |     |  ^  |  ?  |  !  |  :  |  '  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Layer2+Shift:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     | Ins | ESC |  ^  |Space|     |     |  `  |  {  |  }  |     |     |     |    |
-|     |Shift|  <  |  v  | [>] |     |     | [_] |  <  |  >  |Shift|     |          |
+|Caps.|Shift|  <  |  v  | [>] |     |     | [_] |  <  |  >  |Shift|     |          |
 | F/H | Lyr2| Tab | DEL |  BS |     |     |  §  |  ±  |  ≠  |  ¶  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Shift:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     | Ins | ESC |  ^  |Space|     |  M  |  A  |  I  |  U  |     |     |     |    |
-|     |Shift|  <  |  v  | [>] |     |  T  | [F] |  S  |  K  |Shift|     |          |
+|Caps.|Shift|  <  |  v  | [>] |     |  T  | [F] |  S  |  K  |Shift|     |          |
 | F/H | Lyr2| Tab | DEL |  BS |     |  N  |  E  |  O  |  P  |  R  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Layer1+Shift:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     | Ins | ESC |  ^  |Space|     |  C  |  W  |  X  |  Q  |     |     |     |    |
-|     |Shift|  <  |  v  | [>] |     |  D  | [V] |  Z  |  G  |Shift|     |          |
+|Caps.|Shift|  <  |  v  | [>] |     |  D  | [V] |  Z  |  G  |Shift|     |          |
 | F/H | Lyr2| Tab | DEL |  BS |     |  J  |  H  |  L  |  B  |  Y  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 *F/Hキーは日本語入力時のみ使用する全角/半角(漢字)キーです。
-CapsLockキーどこに置こうかなぁ・・・
-合計使用キー:44キー
+*左ホームポジションの^v<>はカーソルキーを表してます。
+合計使用キー:47キー
