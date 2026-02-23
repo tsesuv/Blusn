@@ -1,15 +1,15 @@
 Leyer0:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     | Ins | ESC |  ^  |Space|     |  m  |  a  |  i  |  u  |     |     |     |    |
-|     |Shift|  <  |  v  | [>] |     |  t  | [f] |  s  |  k  |Shift|     |          |
-| F/H | Lyr2| Tab | DEL |  BS |     |  n  |  e  |  o  |  p  |  r  |      Shift     |
+|     |Shift|  <  |  v  | [>] |     |  t  | [e] |  s  |  k  |Shift|     |          |
+| F/H | Lyr2| Tab | DEL |  BS |     |  n  |  f  |  o  |  p  |  r  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Layer1:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
-|     | Ins | ESC |  ^  |Space|     |  c  |  w  |  x  |  q  |     |     |     |    |
-|     |Shift|  <  |  v  | [>] |     |  d  | [v] |  z  |  g  |Shift|     |          |
-| F/H | Lyr2| Tab | DEL |  BS |     |  j  |  h  |  l  |  b  |  y  |      Shift     |
+|     | Ins | ESC |  ^  |Space|     |  c  |  h  |  x  |  q  |     |     |     |    |
+|     |Shift|  <  |  v  | [>] |     |  d  | [w] |  z  |  g  |Shift|     |          |
+| F/H | Lyr2| Tab | DEL |  BS |     |  j  |  v  |  l  |  b  |  y  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Layer2:
@@ -30,7 +30,7 @@ Layer2+Shift:
 |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |     |     |    |
 |     | Ins | ESC |  ^  |Space|     |     |  `  |  {  |  }  |     |     |     |    |
 |     |Shift|  <  |  v  | [>] |     |     | [_] |  <  |  >  |Shift|     |          |
-| F/H | Lyr2| Tab | DEL |  BS |     |     |     |     |     |     |      Shift     |
+| F/H | Lyr2| Tab | DEL |  BS |     |     |  §  |  ±  |  ≠  |  ¶  |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Shift:
