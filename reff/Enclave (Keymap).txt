@@ -1,51 +1,52 @@
 Leyer0:
-|     | Ins | ESC |  ^  |Space|     |  m  |  a  |  i  |  u  |     |     |     |    |
+| Tab | Ins | ESC |  ^  |Space|     |  m  |  a  |  i  |  u  |     |     |     |    |
 |Caps.|Shift|  <  |  v  | [>] | NLyr|  t  | [e] |  o  |  k  |Shift|     |          |
 | F/H | Lyr2| Tab | DEL |  BS |     |  n  |  f  |  s  |  p  |  r  |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Layer1:
-|     | Ins | ESC |  ^  |Space|     |  c  |  h  |  x  |  q  |     |     |     |    |
-|Caps.|Shift|  <  |  v  | [>] | NLyr|  d  | [w] |  l  |  g  |Shift|     |          |
+| Tab | Ins | ESC | PgUp|Space|     |  c  |  h  |  x  |  q  |     |     |     |    |
+|Caps.|Shift| Home| PgDn|[End]| NLyr|  d  | [w] |  l  |  g  |Shift|     |          |
 | F/H | Lyr2| Tab | DEL |  BS |     |  j  |  v  |  z  |  b  |  y  |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Layer2:
-|     | Ins | ESC |  ^  |Space|     |  @  |  #  |  [  |  ]  |     |     |     |    |
+| Tab | Ins | ESC |  ^  |Space|     |  @  |  #  |  [  |  ]  |     |     |     |    |
 |Caps.|Shift|  <  |  v  | [>] | NLyr|  /  | [$] |  (  |  )  |Shift|     |          |
 | F/H | Lyr2| Tab | DEL |  BS |     |  \  |  ,  |  .  |  ;  |  "  |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Layer1+2:
-|     | Ins | ESC |  ^  |Space|     |  |  |  =  |  %  |  &  |     |     |     |    |
+| Tab | Ins | ESC |  ^  |Space|     |  |  |  =  |  %  |  &  |     |     |     |    |
 |Caps.|Shift|  <  |  v  | [>] | NLyr|  ~  | [-] |  +  |  *  |Shift|     |          |
 | F/H | Lyr2| Tab | DEL |  BS |     |  ^  |  ?  |  !  |  :  |  '  |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Layer2+Shift:
-|     | Ins | ESC |  ^  |Space|     |     |  `  |  {  |  }  |     |     |     |    |
+| Tab | Ins | ESC |  ^  |Space|     |     |  `  |  {  |  }  |     |     |     |    |
 |Caps.|Shift|  <  |  v  | [>] | NLyr|     | [_] |  <  |  >  |Shift|     |          |
 | F/H | Lyr2| Tab | DEL |  BS |     |     |  §  |  ±  |  ≠  |     |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Shift:
-|     | Ins | ESC |  ^  |Space|     |  M  |  A  |  I  |  U  |     |     |     |    |
+| Tab | Ins | ESC |  ^  |Space|     |  M  |  A  |  I  |  U  |     |     |     |    |
 |Caps.|Shift|  <  |  v  | [>] | NLyr|  T  | [E] |  O  |  K  |Shift|     |          |
 | F/H | Lyr2| Tab | DEL |  BS |     |  N  |  F  |  S  |  P  |  R  |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Layer1+Shift:
-|     | Ins | ESC |  ^  |Space|     |  C  |  H  |  X  |  Q  |     |     |     |    |
-|Caps.|Shift|  <  |  v  | [>] | NLyr|  D  | [W] |  L  |  G  |Shift|     |          |
+| Tab | Ins | ESC | PgUp|Space|     |  C  |  H  |  X  |  Q  |     |     |     |    |
+|Caps.|Shift| Home| PgDn|[End]| NLyr|  D  | [W] |  L  |  G  |Shift|     |          |
 | F/H | Lyr2| Tab | DEL |  BS |     |  J  |  V  |  Z  |  B  |  Y  |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 NumLayer:
-|     | Ins | ESC |  ^  |Space|     |     |  7  |  8  |  9  |     |     |     |    |
+| Tab | Ins | ESC |  ^  |Space|     |     |  7  |  8  |  9  |     |     |     |    |
 |Caps.|Shift|  <  |  v  | [>] | NLyr|     | [4] |  5  |  6  |Shift|     |          |
 | F/H | Lyr2| Tab | DEL |  BS |     |     |  1  |  2  |  3  |  0  |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 *F/Hキーは日本語入力時のみ使用する全角/半角(漢字)キーです。
 *左ホームポジションの^v<>はカーソルキーを表してます。
+**一応載せておくと角括弧で囲われているキーは見てわかる通りホームポジションのあのポチです、載せる必要ないと思うけど。
 合計使用キー:37キー

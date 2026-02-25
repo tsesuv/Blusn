@@ -83,9 +83,9 @@ int b_exit(int crd, const str bname)
 	return 1;
 }
 
-int cln(char *p)
+int cln(str p)
 {
-	for(int i = 0; i < strlen(p); i++) p[i] = 0;
+	for(int i = 0; i < strlen(p); i++) p = 0;
 
 	return 0;
 }

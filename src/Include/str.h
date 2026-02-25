@@ -137,9 +137,7 @@ const char *strget(const str s)
 }
 
 bool strisdec(const str s)
-{	bool ls[10] = {true};
-	bool t = false;
-	for(unsigned long int i = 0; i < strlen(s); i++) if(strget(s)[i] < '0' || '9' < strget(s)[i]) return false;
+{	for(unsigned long int i = 0; i < strlen(s); i++) if(strget(s)[i] < '0' || '9' < strget(s)[i]) return false;
 
 	return true;
 }
