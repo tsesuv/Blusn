@@ -13,19 +13,19 @@ Layer1:
 Layer2:
 | Tab |     | ESC |  ^  |Space|     |  @  |  #  |  [  |  ]  |     |     |     |    |
 |Caps.|Shift|  <  |  v  | [>] | NLyr|  /  | [$] |  (  |  )  |Shift|     |          |
-| F/H | Lyr2| Tab | DEL |  BS | Ins |  \  |  ,  |  .  |  ;  |  "  |                |
+| F/H | Lyr2| Tab | DEL |  BS | Ins |  \  |  ,  |  .  |  ;  |     |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Layer1+2:
 | Tab |     | ESC |  ^  |Space|     |  |  |  =  |  %  |  &  |     |     |     |    |
 |Caps.|Shift|  <  |  v  | [>] | NLyr|  ~  | [-] |  +  |  *  |Shift|     |          |
-| F/H | Lyr2| Tab | DEL |  BS | Ins |  ^  |  ?  |  !  |  :  |  '  |                |
+| F/H | Lyr2| Tab | DEL |  BS | Ins |  ^  |  ?  |  !  |  :  |     |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Layer2+Shift:
 | Tab |     | ESC |  ^  |Space|     |     |  `  |  {  |  }  |     |     |     |    |
 |Caps.|Shift|  <  |  v  | [>] | NLyr|     | [_] |  <  |  >  |Shift|     |          |
-| F/H | Lyr2| Tab | DEL |  BS | Ins |     |  §  |  ±  |  ≠  |     |      Shift     |
+| F/H | Lyr2| Tab | DEL |  BS | Ins |     |  '  |  "  |     |     |      Shift     |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |  Ctrl  |
 
 Shift:
