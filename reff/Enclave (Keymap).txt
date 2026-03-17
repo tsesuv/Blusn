@@ -13,40 +13,40 @@ Layer1:
 Layer2:
 |     |     | ESC |  ^  |Space|     | (@) |  #  |  [  |  ]  |     |     |     |    |
 |     | Lyr2|  <  |  v  | [>] |     | (/) | [$] |  (  |  )  |     |     |          |
-|     |     | NLyr|DEL/S|  BS |     | (\) |  ,  |  .  |  ;  |     |                |
+|     |     | NLyr|DEL/S|  BS |     | (\) |  ,  |./Sft|  ;  |     |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |        |
 
 Layer1+2:
 |     |     | ESC |  ^  |Space|     |     |  =  |  %  |  &  |     |     |     |    |
 |     | Lyr2|  <  |  v  | [>] |     | (^) | [-] |  +  |  *  |     |     |          |
-|     |     | NLyr|DEL/S|  BS |     |     |  ?  |  !  |  :  |     |                |
+|     |     | NLyr|DEL/S|  BS |     |     |  ?  |!/Sft|  :  |     |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |        |
 
 Layer2+Shift:
 |     |     | ESC |  ^  |Space|     |     |  `  |  {  |  }  |     |     |     |    |
 |     | Lyr2|  <  |  v  | [>] |     | (|) | [_] |  <  |  >  |     |     |          |
-|     |     | NLyr|DEL/S|  BS |     |     |  '  |  "  |  ~  |     |                |
+|     |     | NLyr|DEL/S|  BS |     |     |  '  |"/Sft|  ~  |     |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |        |
 
 Shift:
 |     |     | ESC |  ^  |Space|     | (M) |  A  |  I  |  U  |     |     |     |    |
 |     | Lyr2|  <  |  v  | [>] |     | (T) | [E] |  O  |  K  |     |     |          |
-|     |     | NLyr|DEL/S|  BS |     | (F) |  N  |  S  |  P  |  Y  |                |
+|     |     | NLyr|DEL/S|  BS |     | (F) |  N  |S/Sft|  P  |  Y  |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |        |
 
 Layer1+Shift:
 |     |     | ESC | PgUp| Tab |     | (C) |  H  |  X  |  Q  |     |     |     |    |
 |     | Lyr2| Home| PgDn|[End]|     | (D) | [W] |  L  |  G  |     |     |          |
-|     |     | NLyr| DEL |  BS |     | (V) |  J  |  Z  |  B  |  R  |                |
+|     |     | NLyr|DEL/S|  BS |     | (V) |  J  |Z/Sft|  B  |  R  |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |        |
 
 NumLayer:
 |     |     | ESC |  ^  |Space|     |     |  7  |  8  |  9  |     |     |     |    |
-|     | Lyr2|  <  |  v  | [>] |     |     | [4] |  5  |  6  | (0) |     |          |
-|     |     | NLyr|DEL/S|  BS |     |     |  1  |  2  |  3  |     |                |
+|     | Lyr2|  <  |  v  | [>] |     |     | [4] |  5  |  6  |     |     |          |
+|     |     | NLyr|DEL/S|  BS |     |     |  1  |  2  |  3  |  0  |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |        |
 
-<> /Sや/Sftはシフト動作です。
+<> /Sや/Sftはシフト動作です。Enter/Lyr1含めこれらのキーはTap/Hold(TH)です。
 <> L0:eとL0:oのコンボでL0:(t)を入力します。全レイヤ共通です。
 <> L0:oとL0:kのコンボでL0:(f)を入力します。全レイヤ共通です。
 <> L0:eとL0:kのコンボでL0:(m)を入力します。全レイヤ共通です。
