@@ -1,13 +1,13 @@
 Leyer0:
 |     |     | ESC |  ^  |Space|     | (m) |  a  |  i  |  u  |     |     |     |    |
-|     | Lyr2|  <  |  v  | [>] |     | (t) | [e] |  o  |  k  | (r) |     |          |
-|     |     | NLyr|DEL/S|  BS |     | (f) |  n  |s/Sft|  p  |     |                |
+|     | Lyr2|  <  |  v  | [>] |     | (t) | [e] |  o  |  k  |     |     |          |
+|     |     | NLyr|DEL/S|  BS |     | (f) |  n  |s/Sft|  p  |  y  |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |        |
 
 Layer1:
 |     |     | F/H | PgUp| Tab |     | (c) |  h  |  x  |  q  |     |     |     |    |
-|     | Lyr2| Home| PgDn|[End]|     | (d) | [w] |  l  |  g  | (y) |     |          |
-|     |     | NLyr|DEL/S|  BS |     | (v) |  j  |z/Sft|  b  |     |                |
+|     | Lyr2| Home| PgDn|[End]|     | (d) | [w] |  l  |  g  |     |     |          |
+|     |     | NLyr|DEL/S|  BS |     | (v) |  j  |z/Sft|  b  |  r  |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |        |
 
 Layer2:
@@ -30,14 +30,14 @@ Layer2+Shift:
 
 Shift:
 |     |     | ESC |  ^  |Space|     | (M) |  A  |  I  |  U  |     |     |     |    |
-|     | Lyr2|  <  |  v  | [>] |     | (T) | [E] |  O  |  K  | (R) |     |          |
-|     |     | NLyr|DEL/S|  BS |     | (F) |  N  |  S  |  P  |     |                |
+|     | Lyr2|  <  |  v  | [>] |     | (T) | [E] |  O  |  K  |     |     |          |
+|     |     | NLyr|DEL/S|  BS |     | (F) |  N  |  S  |  P  |  Y  |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |        |
 
 Layer1+Shift:
 |     |     | ESC | PgUp| Tab |     | (C) |  H  |  X  |  Q  |     |     |     |    |
-|     | Lyr2| Home| PgDn|[End]|     | (D) | [W] |  L  |  G  | (Y) |     |          |
-|     |     | NLyr| DEL |  BS |     | (V) |  J  |  Z  |  B  |     |                |
+|     | Lyr2| Home| PgDn|[End]|     | (D) | [W] |  L  |  G  |     |     |          |
+|     |     | NLyr| DEL |  BS |     | (V) |  J  |  Z  |  B  |  R  |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |        |
 
 NumLayer:
@@ -50,9 +50,8 @@ NumLayer:
 <> L0:eとL0:oのコンボでL0:(t)を入力します。全レイヤ共通です。
 <> L0:oとL0:kのコンボでL0:(f)を入力します。全レイヤ共通です。
 <> L0:eとL0:kのコンボでL0:(m)を入力します。全レイヤ共通です。
-<> L0:eとL0:uのコンボでL0:(r)を入力します。全レイヤ共通です。
 <> L0:<とL0:>のコンボでCapsLockです。全レイヤ共通です。
 
 * F/Hキーは日本語入力時のみ使用する全角/半角(漢字)キーです。
 * 左ホームポジションの^v<>はカーソルキーを表してます。
-合計使用キー: 26キー
+合計使用キー: 27キー
