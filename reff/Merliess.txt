@@ -18,14 +18,14 @@ Layer2:
 
 Layer1+2:
 |     |     | ESC |  ^  |Space|     |     |  =  |  %  |  &  |     |     |     |    |
-|     | Lyr2|  <  |  v  | [>] |     | (^) | [-] |+/Sft|  *  |     |     |          |
-|     |     | NLyr|DEL/S|  BS |     |     |  ?  |  !  |  :  |     |                |
+|     | Lyr2|  <  |  v  | [>] |     |     | [-] |+/Sft|  *  |     |     |          |
+|     |     | NLyr|DEL/S|  BS |     |     |  ?  |  !  |  :  |  ^  |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |        |
 
 Layer2+Shift:
 |     |     | ESC |  ^  |Space|     |     |  `  |  {  |  }  |     |     |     |    |
-|     | Lyr2|  <  |  v  | [>] |     | (|) | [_] |</Sft|  >  |     |     |          |
-|     |     | NLyr|DEL/S|  BS |     |     |  '  |  "  |  ~  |     |                |
+|     | Lyr2|  <  |  v  | [>] |     |     | [_] |</Sft|  >  |     |     |          |
+|     |     | NLyr|DEL/S|  BS |     |     |  '  |  "  |  ~  |  |  |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |        |
 
 Shift:
