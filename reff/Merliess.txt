@@ -1,48 +1,48 @@
 Leyer0:
 |     |     | ESC |  ^  |Space|     | (m) |  a  |  i  |  u  |     |     |     |    |
-|     | Lyr2|  <  |  v  | [>] |     | (t) | [e] |o/Sft|  k  |     |     |          |
+|     |L3/L2|  <  |  v  | [>] |     | (t) | [e] |o/Sft|  k  |     |     |          |
 |     |     | NLyr|DEL/S|  BS |     | (f) |  n  |  s  |  p  |  y  |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |        |
 
 Layer1:
 |     |     | F/H | PgUp| Tab |     | (c) |  h  |  x  |  q  |     |     |     |    |
-|     | Lyr2| Home| PgDn|[End]|     | (d) | [w] |l/Sft|  g  |     |     |          |
+|     |L3/L2| Home| PgDn|[End]|     | (d) | [w] |l/Sft|  g  |     |     |          |
 |     |     | NLyr|DEL/S|  BS |     | (v) |  j  |  z  |  b  |  r  |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |        |
 
 Layer2:
 |     |     | ESC |  ^  |Space|     | (@) |  #  |  [  |  ]  |     |     |     |    |
-|     | Lyr2|  <  |  v  | [>] |     | (/) | [$] |(/Sft|  )  |     |     |          |
+|     |L3/L2|  <  |  v  | [>] |     | (/) | [$] |(/Sft|  )  |     |     |          |
 |     |     | NLyr|DEL/S|  BS |     | (\) |  ,  |  .  |  ;  |     |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |        |
 
 Layer1+2:
 |     |     | ESC |  ^  |Space|     |     |  =  |  %  |  &  |     |     |     |    |
-|     | Lyr2|  <  |  v  | [>] |     |     | [-] |+/Sft|  *  |     |     |          |
+|     |L3/L2|  <  |  v  | [>] |     |     | [-] |+/Sft|  *  |     |     |          |
 |     |     | NLyr|DEL/S|  BS |     |     |  ?  |  !  |  :  |  ^  |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |        |
 
 Layer2+Shift:
 |     |     | ESC |  ^  |Space|     |     |  `  |  {  |  }  |     |     |     |    |
-|     | Lyr2|  <  |  v  | [>] |     |     | [_] |</Sft|  >  |     |     |          |
+|     |L3/L2|  <  |  v  | [>] |     |     | [_] |</Sft|  >  |     |     |          |
 |     |     | NLyr|DEL/S|  BS |     |     |  '  |  "  |  ~  |  |  |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |        |
 
 Shift:
 |     |     | ESC |  ^  |Space|     | (M) |  A  |  I  |  U  |     |     |     |    |
-|     | Lyr2|  <  |  v  | [>] |     | (T) | [E] |O/Sft|  K  |     |     |          |
+|     |L3/L2|  <  |  v  | [>] |     | (T) | [E] |O/Sft|  K  |     |     |          |
 |     |     | NLyr|DEL/S|  BS |     | (F) |  N  |  S  |  P  |  Y  |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |        |
 
 Layer1+Shift:
 |     |     | ESC | PgUp| Tab |     | (C) |  H  |  X  |  Q  |     |     |     |    |
-|     | Lyr2| Home| PgDn|[End]|     | (D) | [W] |L/Sft|  G  |     |     |          |
+|     |L3/L2| Home| PgDn|[End]|     | (D) | [W] |L/Sft|  G  |     |     |          |
 |     |     | NLyr|DEL/S|  BS |     | (V) |  J  |  Z  |  B  |  R  |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |        |
 
 NumLayer:
 |     |     | ESC |  ^  |Space|     |     |  7  |  8  |  9  |     |     |     |    |
-|     | Lyr2|  <  |  v  | [>] |     |     | [4] |  5  |  6  |     |     |          |
+|     |L3/L2|  <  |  v  | [>] |     |     | [4] |  5  |  6  |     |     |          |
 |     |     | NLyr|DEL/S|  BS |     |     |  1  |  2  |  3  |  0  |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |        |
 
@@ -55,9 +55,9 @@ FnLyr:
 [] このテキストにおいて、Tap/Hold(TH)と言った場合には、「純粋なフラグ管理のみで制御されるTap/Hold動作」のことを指表します。
 
 <> /Sや/Sftはシフト動作です。Enter/Lyr1含めこれらのキーはTHです。
-<> L0:eとL0:iのコンボでL0:(t)を入力します。全レイヤ共通です。
-<> L0:sとL0:pのコンボでL0:(f)を入力します。全レイヤ共通です。
-<> L0:eとL0:kのコンボでL0:(m)を入力します。全レイヤ共通です。
+<> L3+L0:eでL0:(t)です。
+<> L3+L0:iでL0:(f)です。
+<> L3+L0:kでL0:(m)です。
 <> L0:<とL0:>のコンボでCapsLockです。全レイヤ共通です。
 <> L0:yのHoldでFnLyrです。全レイヤ共通です。
 
