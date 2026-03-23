@@ -1,18 +1,18 @@
 Leyer0:
-|     |     | ESC |  ^  |Space|     | (m) |  a  |  i  |  u  |     |     |     |    |
-|     |L3/L2|  <  |  v  | [>] |     | (t) | [e] |o/Sft|  k  |     |     |          |
-|     |     | NLyr|DEL/S|  BS |     | (f) |  n  |  s  |  p  |  y  |                |
+|     |     |  q  |  w  |Space|     |  m  |  a  |  i  |  u  |     |     |     |    |
+|     |Shift|  x  |  l  | [r] |     |  t  | [e] |  o  |  k  |Shift|     |          |
+|     |     | NLyr| DEL |  BS |     |  f  |  n  |  s  |  p  |  y  |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |        |
 
 Layer1:
-|     |     | F/H | PgUp| Tab |     | (c) |  h  |  x  |  q  |     |     |     |    |
-|     |L3/L2| Home| PgDn|[End]|     | (d) | [w] |l/Sft|  g  |     |     |          |
-|     |     | NLyr|DEL/S|  BS |     | (v) |  j  |  z  |  b  |  r  |                |
+|     |     | Esc |  ^  | Tab |     |  c  |  a  |  i  |  u  |     |     |     |    |
+|     |Shift|  <  |  v  | [>] |     |  d  | [e] |  o  |  g  |Shift|     |          |
+|     |     | NLyr| DEL |  BS |     |  v  |  j  |  z  |  b  | F/H |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |        |
 
 Layer2:
-|     |     | ESC |  ^  |Space|     | (@) |  #  |  [  |  ]  |     |     |     |    |
-|     |L3/L2|  <  |  v  | [>] |     | (/) | [$] |(/Sft|  )  |     |     |          |
+|     |     | ESC | PgUp|Space|     | (@) |  #  |  [  |  ]  |     |     |     |    |
+|     |L3/L2| Home| PgDn|[End]|     | (/) | [$] |(/Sft|  )  |     |     |          |
 |     |     | NLyr|DEL/S|  BS |     | (\) |  ,  |  .  |  ;  |     |                |
 |  Ctrl  |  Win  |  Alt  |         Enter/Lyr1         | Alt | Win |  App. |        |
 
@@ -55,9 +55,6 @@ FnLyr:
 [] このテキストにおいて、Tap/Hold(TH)と言った場合には、「純粋なフラグ管理のみで制御されるTap/Hold動作」のことを指表します。
 
 <> /Sや/Sftはシフト動作です。Enter/Lyr1含めこれらのキーはTHです。
-<> L3+L0:eでL0:(t)です。
-<> L3+L0:iでL0:(f)です。
-<> L3+L0:kでL0:(m)です。
 <> L0:<とL0:>のコンボでCapsLockです。全レイヤ共通です。
 <> L0:yのHoldでFnLyrです。全レイヤ共通です。
 
