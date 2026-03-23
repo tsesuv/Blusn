@@ -1,0 +1,122 @@
+子音は
+かがさざただなはばぱまやらわ
+頻度順では
+k n s r t m y h d g b z w p
+拗音はJ:Spaceも同時に押す
+長音はJ:/で個別入力
+促音はJ:uで個別入力
+J:nを単体で入力すると直後で入力する母音(連母音の場合後ろの母音)を小さい文字にする
+J:qを入力すると直後で入力する連母音の順序を逆にする(例:「うい」の連母音の入力前にJ:qを入力すると「いう」になる)
+改行・確定はJ:Space
+BackSpaceはJ:p
+空白文字・スペースはJ:/+J:j
+
+あい、あう、えい、おい、おう、うい
+
+J:h->う
+J:j->え
+J:k->い
+J:l->あ
+J:;->お
+ただし「えう」の場合のみJ:i->う
+またJ:mまたはJ:oまたはJ:,を同時に押すと末尾に「ん」が入る
+
+J:f->k
+J:d->n
+J:s->s
+J:v->r
+J:r->t
+J:e->m
+J:c->y
+J:w->h
+J:x->d
+J:g->g
+J:b->b
+J:t->z
+J:a->w
+J:z->p
+
+J:y->ん(単体)
+
+J:,->、
+J:.->。
+J:/->ー
+Shift+
+	J:,->＜
+	J:.->＞
+	J:/->＝
+
+J:a+
+	J:w->f
+	J:f->q
+	J:v->v
+
+J:w+J:e->x
+J:g+J:d->j
+J:s+J:f->c
+J:v+J:e->l
+J:r+J:e->てぃの子音th
+J:t+J:d->でぃの子音dh
+J:s+J:g->つぁの子音ts
+J:v+J:w->うぃの子音wh
+
+J:m+
+	J:x->1
+	J:c->2
+	J:v->3
+	J:s->4
+	J:d->5
+	J:f->6
+	J:w->7
+	J:e->8
+	J:r->9
+	J:t->0
+	J:g->
+	J:b->
+
+J:Shift+J:m+
+	J:x->#
+	J:c->$
+	J:v->%
+	J:s->(
+	J:d->)
+	J:f->&
+	J:w->"
+	J:e->'
+	J:r->
+
+J:i+
+	J:e->Up
+	J:s->Left
+	J:d->Down
+	J:f->Right
+	J:w->Escape
+	J:r->IME Toggle
+
+J:i+J:o+
+	J:e->PgUp
+	J:s->Home
+	J:d->PgDn
+	J:f->End
+
+J:o+
+	J:x->_
+	J:c->!
+	J:v->?
+	J:s->[
+	J:d->]
+	J:f->@
+	J:w->/
+	J:e->+
+	J:r->*
+
+J:Shift+J:o+
+	J:x->^
+	J:c->;
+	J:v->:
+	J:s->{
+	J:d->}
+	J:f->`
+	J:w->\
+	J:e->|
+	J:r->~
