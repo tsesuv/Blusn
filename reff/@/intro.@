@@ -11,7 +11,7 @@ mdl intro # Javaのクラス的なのを採用
 	@v	int demo @public <- 32
 		# mdl内変数ではpublicを省略時はprivate。
 
-		@sys:txoutln 'Hello, world!"
+		@sys:txoutln "(Hello, world!)
 		@sys:txoutln demo ~str # ~は型変換演算子
 
 		int demo2 <- 16
@@ -19,7 +19,7 @@ mdl intro # Javaのクラス的なのを採用
 
 		int k <- 0, k++, for k < 5
 		@v	int i <- 0, i++, for i < 10
-			@v	@sys:txoutln 'i: ", i, newl, 'k: ", k
+			@v	@sys:txoutln "(i: "$(i)%nk: "$(k))
 			@^ # 余談だが、この言語の条件式は0 < a < 10とかって書くこともできる。ただし<=、>、>=がないのには気を付けてね。あるのは=(等価)、!=(非等価)、<(未満)、!<(非未満)だけ。
 				 # もしa<=b,a>b,a>=bが使いたいなら、b!<a(a<=b),b<a(a<b),a!<b(a>=b)と書くことになる。
 		@^
@@ -27,7 +27,7 @@ mdl intro # Javaのクラス的なのを採用
 		str s1 <- @sys:txin;errno # errnoを使いたいときは後述のrtry用にこれをつける必要あり。再送する場所を記録するってわけ
 								  # なお当然ここで付けた後にほかで上書きしたら意味がなくなる。多分警告として出すかなぁ
 		s1.fail if # @xx:yy.zzやxx.yyはメンバ関数。
-		@v	@sys:txoutln 'Invalid input" # ちなみに@sys:txout.noflushや@sys:txoutln.noflushにすると
+		@v	@sys:txoutln "(Invalid input) # ちなみに@sys:txout.noflushや@sys:txoutln.noflushにすると
 										  # バッファフラッシュをしないでおいておくこともできる。デフォルトは呼び出すとフラッシュされるようになっている。
 			errno "err(ERROR_INPUT_STR_INVALID)
 			>>? errnoはretと排他の関係にある構文で、他言語でいう例外処理的な扱いになる。
@@ -70,6 +70,4 @@ mdl intro # Javaのクラス的なのを採用
 	"evl(@sys:txoutln 'Hi!")
 	みたいなことも書ける。上からインラインアセンブリ、ファイルパス指定(Windows)、ファイルパス指定(Linux)、ディレクトリ指定(Windows)、ディレクトリ指定(Linux)、
 	実行(Windows、ファイルの実行)、実行(Linux、ファイルの実行)、評価(プログラムの実行)。
-
-	ほかの使い方に拡張できたら面白そうよね。"()で文字列、は流石に重いか？
 ?<<
