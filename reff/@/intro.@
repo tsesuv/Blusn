@@ -55,7 +55,7 @@ mdl intro # Javaのクラス的なのを採用
 		tmp2 <- tmp ? tmp2 # ?はXOR演算子
 		tmp <- tmp ? tmp2 #ちなみにOR演算子は|、AND演算子は&、NOT演算子は!。全ビットに対してやる場合は|_,&_,!_みたいに書く
 
-		ret [tmp, tmp2] # 複数返り値をどう処理するかなぁ。要検討。
+		ret [tmp, tmp2]
 	@^
 @^
 
