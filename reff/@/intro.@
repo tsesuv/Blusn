@@ -7,35 +7,27 @@
 "i(sysio.@h) # sysioはSYStem Input/Output。biosにしようと思ったけどそれだと実際のbiosレベルで触れるいろいろと被っちゃうからこうした
 
 mdl intro # Javaのクラス的なのを採用
-@begin
-	int main ags ag @public
-	@begin
-		int demo @public <- 32
+@v	int main ags ag @public
+	@v	int demo @public <- 32
 		# mdl内変数ではpublicを省略時はprivate。
 
-		@sys:txoutln 'Hello, world!"	>>? 文字列はシングル始まりダブル終わり。'Odh Rokkas" ayn Xemir. (Xemir have "This Syntax"./Xemirはこのような構文を持っている。/Xem語はこのような構文を持っている。)
-											それのラテン転写が、始まりのほうがシングル、終わりのほうがダブルで転写することにしてるのでこうなっとるのです。
-											あ、Xemirは架空の言語じゃないからね。実在する言語ですので。
-										?<<
+		@sys:txoutln 'Hello, world!"
 		@sys:txoutln demo ~str # ~は型変換演算子
 
 		int demo2 <- 16
 		int List$ls <- @intro:moreFunction demo, demo2 # リストは変数に$をつけた後にlsと指定する。これはプロパティ構文という構文である。
 
 		int k <- 0, k++, for k < 5
-		@begin
-			int i <- 0, i++, for i < 10
-			@begin
-				@sys:txoutln 'i: ", i, newl, 'k: ", k
-			@end # 余談だが、この言語の条件式は0 < a < 10とかって書くこともできる。ただし<=、>、>=がないのには気を付けてね。あるのは=(等価)、!=(非等価)、<(未満)、!<(非未満)だけ。
+		@v	int i <- 0, i++, for i < 10
+			@v	@sys:txoutln 'i: ", i, newl, 'k: ", k
+			@^ # 余談だが、この言語の条件式は0 < a < 10とかって書くこともできる。ただし<=、>、>=がないのには気を付けてね。あるのは=(等価)、!=(非等価)、<(未満)、!<(非未満)だけ。
 				 # もしa<=b,a>b,a>=bが使いたいなら、b!<a(a<=b),b<a(a<b),a!<b(a>=b)と書くことになる。
-		@end
+		@^
 
 		str s1 <- @sys:txin;errno # errnoを使いたいときは後述のrtry用にこれをつける必要あり。再送する場所を記録するってわけ
 								  # なお当然ここで付けた後にほかで上書きしたら意味がなくなる。多分警告として出すかなぁ
 		s1.fail if # @xx:yy.zzやxx.yyはメンバ関数。
-		@begin
-			@sys:txoutln 'Invalid input" # ちなみに@sys:txout.noflushや@sys:txoutln.noflushにすると
+		@v	@sys:txoutln 'Invalid input" # ちなみに@sys:txout.noflushや@sys:txoutln.noflushにすると
 										  # バッファフラッシュをしないでおいておくこともできる。デフォルトは呼び出すとフラッシュされるようになっている。
 			errno "err(ERROR_INPUT_STR_INVALID)
 			>>? errnoはretと排他の関係にある構文で、他言語でいう例外処理的な扱いになる。
@@ -49,14 +41,13 @@ mdl intro # Javaのクラス的なのを採用
 
 				なおエラー処理、例外処理として使いたいからerrnoっていう名前だけど、DOS ASMのINT 0x21みたいな割込み命令として使うもOK。
 			?<<
-		@end
+		@^
 
 		ret 0 # return。
-	@end
+	@^
 
 	int moreFunction$ls ags ag @private # プロパティ構文は関数定義、宣言でも同様。
-	@begin
-		int tmp <- @sys:getag ag, 0 # こうなるのかなぁ・・・？わからん。
+	@v	int tmp <- @sys:getag ag, 0 # こうなるのかなぁ・・・？わからん。
 		int tmp2 <- @sys:getag ag, 1 # ただこれならいろいろ便利っちゃ便利ではあるかなぁ。存在しない引数を受け取る可能性はあれど、
 									  # 呼び出し側で@xx:yy ,ag2みたいに書くことでデフォルト引数みたいなこともできないことはないからなぁ
 
@@ -65,8 +56,8 @@ mdl intro # Javaのクラス的なのを採用
 		tmp <- tmp ? tmp2 #ちなみにOR演算子は|、AND演算子は&、NOT演算子は!。全ビットに対してやる場合は|_,&_,!_みたいに書く
 
 		ret [tmp, tmp2] # 複数返り値をどう処理するかなぁ。要検討。
-	@end
-@end
+	@^
+@^
 
 >>? 他にも、
 	"asm(RET 0)
@@ -79,4 +70,6 @@ mdl intro # Javaのクラス的なのを採用
 	"evl(@sys:txoutln 'Hi!")
 	みたいなことも書ける。上からインラインアセンブリ、ファイルパス指定(Windows)、ファイルパス指定(Linux)、ディレクトリ指定(Windows)、ディレクトリ指定(Linux)、
 	実行(Windows、ファイルの実行)、実行(Linux、ファイルの実行)、評価(プログラムの実行)。
+
+	ほかの使い方に拡張できたら面白そうよね。"()で文字列、は流石に重いか？
 ?<<
