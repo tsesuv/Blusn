@@ -1,0 +1,13 @@
+>>? UnSynk @ Compiler ?<<
+>>? Build: 2026070XXXXX ?<<
+>>? Created by UnSynk, tsesuv notsel ?<<
+
+%inc 'cslio.@h"
+%inc 'str.@h"
+%inc 'token.@h"
+
+mdl @
+:[	int main public ags ag
+	:[	ret 0
+	>
+>

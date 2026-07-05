@@ -72,12 +72,16 @@ int main(int ac, char **av)
 			tknset(&t, TK_STR, "Hola");
 			printf("Token: %s(%s)\n", type2str(t.type), t.dat);
 
-			byte *smp;
-			for(uint i = 0; i < 15; i++)
-			{	smp = getcnk(text, " \n,;[]{}:", "[]{}:", i);
-				printf("Chank[%2d]: %s ($%02X)\n", i, smp, smp[0]);
-				free(smp);
-			}
+			tkList *list = tklnew(NULL);
+			tklset(list, t);
+			tknset(&t, TK_ENT, "");
+			tklset(list, t);
+
+			printf("Tokens: %s, %s\n", list->head, list->head->next);
+
+			// tokenalizer(&list, text);
+
+			tklfree(list);
 
 			tknfree(&t);
 

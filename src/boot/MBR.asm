@@ -22,54 +22,59 @@ START:
 	mov bx, LSEG
 	mov es, bx
 	mov bx, LOFS
+	; es:bx = LSEG:LOFS
 
-	push bx
+	push bx ; save LOFS
 	push dx
 	xor dx, dx
 	xor si, si
 
 	diskRead:
-		inc cl
+		inc cl ; secter 2+
 
-		int 0x13
-		jc errorDisk
+		int 0x13 ; read to es:bx = LSEG:LOFS
+		jc errorDisk ; if err
 
-		mov bx, LOFS
+		mov bx, LOFS ; reset bx to LOFS
 
-		test dx, dx
-		jz cmp_b_0
-		inc bx
-		cmp dx, 1
-		jz cmp_b_1
-		inc bx
-		cmp dx, 2
-		jz cmp_b_2
-		inc bx
-		cmp dx, 3
-		jz cmp_b_3
-		inc bx
-		cmp dx, 4
-		jz cmp_b_4
-		inc bx
-		cmp dx, 5
-		jz cmp_b_4
-		jmp cmp_b_f
+		test dx, dx ; if first char
+		jz cmp_b_0 ; compare first char
+		inc bx ; see next char
+		cmp dx, 1 ; else if second char
+		jz cmp_b_1 ; compare second char
+		inc bx ; see next char
+		cmp dx, 2 ; else if third char
+		jz cmp_b_2 ; compare third char
+		inc bx ; see next char
+		cmp dx, 3 ; else if forth char
+		jz cmp_b_3 ; compare forth char
+		inc bx ; see next char
+		cmp dx, 4 ; else if fifth char
+		jz cmp_b_4 ; compare fifth char
+		inc bx ; see next char
+		cmp dx, 5 ; else if sixth char
+		jz cmp_b_4 ; compare sixth char
+		jmp cmp_b_f ; else
 
 		cmp_b_0:
-			cmp bx, 'H'
-			jz cmp_b_f
+			cmp bx, 0x51 ; if char = 0x51
+			jnz cmp_b_f
+			jmp cmp_b_t
 		cmp_b_1:
-			cmp bx, 't'
-			jz cmp_b_f
+			cmp bx, 0x6B
+			jnz cmp_b_f
+			jmp cmp_b_t
 		cmp_b_2:
-			cmp bx, 'F'
-			jz cmp_b_f
+			cmp bx, 0x4D
+			jnz cmp_b_f
+			jmp cmp_b_t
 		cmp_b_3:
-			cmp bx, 'S'
-			jz cmp_b_f
+			cmp bx, 0x48
+			jnz cmp_b_f
+			jmp cmp_b_t
 		cmp_b_4:
 			test bl, bl
-			jz cmp_b_f
+			jnz cmp_b_f
 
 		cmp_b_t:
 			inc dx
@@ -79,10 +84,11 @@ START:
 			xor dl, dl
 			inc si
 			cmp si, 20
-			jz errorDisk
+			jge errorDisk2
+			jmp diskRead
 
 		cmp_b_endBlock:
-		cmp dx, 6
+		cmp dx, 7
 		jnz diskRead
 
 		mov si, bx
@@ -104,6 +110,12 @@ errorDisk:
 
 	hlt
 
+errorDisk2:
+	mov si, err2
+	call print
+
+	hlt
+
 print: ; str: si, str is terminated $0
 	lodsb
 
@@ -121,6 +133,7 @@ return:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 err db "MBR: START: int $13: Disk I/O Error", 0x0D, 0x0A, 0x0
+err2 db "MBR: START: diskRead: cmp_b_f: Error", 0x0D, 0x0A, 0x0
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
