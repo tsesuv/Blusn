@@ -58,3 +58,6 @@ MはMaster releaseであり、基本的には安定版として付けられま�
 また、リリースコードには新規開発時に割り振る可き物は存在しません。飛び級も許されるし、降ろす事も出来ます。
 
 尚、リリースコードはバージョン番号を決めた後に付けます。
+
+
+Coffeeright (u) 2026 tsesuv xanuc notsel, Necessary coffees reserved.
