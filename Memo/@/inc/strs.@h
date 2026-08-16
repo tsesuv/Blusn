@@ -1,0 +1,37 @@
+%inc 'args.@h"
+
+mdl strs
+[	(chr ? bool) getc ags (ag, 2)
+	[	if (ag:count ag) = 0
+			ret false
+
+		str s <- ag:get ag, 0
+		int i <- ag:get ag, 1, 0
+
+		if (strs:size s) < i
+			ret false
+
+		ret (s.chr)_i
+	}
+
+	(int ? bool) slen public ags (ag, 1)
+	[	if (ag:count ag) = 0
+			ret false
+
+		str s <- ag:get ag, 0
+
+		int k <- 0
+		k++, for (strs:getc s, k) != null
+
+		ret k
+	}
+
+	(chr ? bool) upp public ags (ag, 1)
+	[	if (ag:count ag) = 0
+			ret false
+
+		chr t <- sys:getag ag, 0
+
+		ret $20 | t
+	]
+]

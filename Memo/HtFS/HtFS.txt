@@ -1,5 +1,5 @@
 (Sector 0)
-magic: "HtFS",0,0(6Byte) ; MasicNumber "HtFS\0\0"
+magic: "HtFS",0,0(6Byte) ; MasicCode "HtFS\0\0"
 build(6Byte)
 
 sectorMode(1Byte)        ; 0: Any, 1: 512, 2: 1024, 3: 4096, 4: 8192, 5: 16384, 6: 65536, 7: 1048576
@@ -59,17 +59,18 @@ volumeID(32Byte)         ; Hash value, Collision countmeasure: User can input ad
 (350Byte)
 
 
+$55
+$AA
 
-$0E                      ; End
-$08                      ; Of Header (H=$8)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (Sector 1)
-(PBR Code)(510Byte)
+(FBR Code)(510Byte)
 
-$55                      ; If 'isBootable' = true
-$AA                      ; If 'isBootable' = true
+$0E                      ; End
+$08                      ; Of Header (H=$8)
+                         ; If 'isBootable' = true
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 

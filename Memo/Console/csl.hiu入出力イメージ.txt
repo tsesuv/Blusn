@@ -1,0 +1,18 @@
+UnSynk Hiuut [Build 00160714]
+Created by UnSynk, tsesuv xanuc notsel.
+* gcd
+\EXTEND\UCFG\
+* dir
+DOCS\
+DOWNLOAD\
+* echo 'Hello'
+Hello
+* cd DOCS
+* gcd
+\EXTEND\UCFG\DOCS\
+* print -csl TEXT.TXT
+Hello, world!
+* cd ..
+* gcd
+\EXTEND\UCFG\
+*

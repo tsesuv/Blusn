@@ -1,0 +1,182 @@
+Regs
+|
++--00
+|  |
+|  +--AX
+|
++--01
+|  |
+|  +--BX
+|
++--02
+|  |
+|  +--CX
+|
++--03
+|  |
+|  +--DX
+|
++--04
+|  |
+|  +--EX
+|
++--05
+|  |
+|  +--DI
+|
++--06
+|  |
+|  +--SI
+|
++--07
+|  |
+|  +--BP
+|
++--08
+|  |
+|  +--SP
+|
++--09
+|  |
+|  +--CS
+|
++--0A
+|  |
+|  +--DS
+|
++--0B
+|  |
+|  +--SS
+|
++--0C
+|  |
+|  +--ES
+|
++--F
+============
+NOP
+
+INC
+-- AX, BX, CX, DX, EX, [BX], DI, SI, [DI], [SI]
+ADD
+-- (IMM), AX, BX, CX, DX, EX, [BX], DI, SI, [DI], [SI]
+DEC
+-- AX, BX, CX, DX, EX, [BX], DI, SI, [DI], [SI]
+SUB
+-- (IMM), AX, BX, CX, DX, EX, [BX], DI, SI, [DI], [SI]
+MUL
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+DIV
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+MOD
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+
+LD
+-- AX, BX, CX, DX, EX, [BX], DI, SI, [DI], [SI], SP
+SV
+-- (IMM), AX, BX, CX, DX, EX, [BX], DI, SI, [DI], [SI], SP
+
+OR
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+NOR
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+AND
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+NND
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+XOR
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+XNR
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+NOT
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+
+LST
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+RST
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+LRT
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+RRT
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+
+CMP
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+JMP
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+JPR
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+JPZ
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+JZR
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+JNZ
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+JPC
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+JCR
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+JNC
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+
+CLL
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+RET
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+TRP
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+
+PSH
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+POP
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+
+HLT
+-- (IMM), AX, BX, CX, DX, EX, DI, SI, [DI], [SI]
+
+IN
+-- (IMM), AX, BX, CX, DX, EX
+OUT
+-- (IMM), AX, BX, CX, DX, EX
+
+============
+OpCode
+|
++--00
+|  |
+|  +--NOP
+|
++--01 // 算術演算
+|  |
+|  +--00 // MHB0: インクリメント
+|  |  |
+|  |  +--INC EAX
+|  |
+|  +--01
+|  |  |
+|  |  +--INC EBX
+|  |
+|  +--02
+|  |  |
+|  |  +--INC [EBX]
+|  |
+|  +--03
+|  |  |
+|  |  +--INC ECX
+|  |
+|  +--04
+|  |  |
+|  |  +--INC EDX
+|  |
+|  +--05
+|  |  |
+|  |  +--INC EEX
+|  |
+|  +--06
+|  |  |
+|  |  +--INC EDI
+|  |
+|  +--11
+|     |
+|     +--ADD EAX, (IMM)
+============

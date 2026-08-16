@@ -1,0 +1,22 @@
+>>? ECHO ?<<
+
+%inc 'cslio.@h"
+
+mdl echo
+:[	int main public ags ag
+	:[	int ac <- sys:getag ag, 0
+		if 1 < ac
+		:[	str txt <- sys:getag ag, 1
+
+			sys:txoutln txt
+		> else
+		:[	chr txt
+			for txt != (null | `\r` | `\n`)
+			:[	txt <- sys:chin
+				sys:txout ~str txt
+			>
+		>
+
+		ret 0
+	>
+>

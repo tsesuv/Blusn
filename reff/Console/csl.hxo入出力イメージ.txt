@@ -1,5 +1,0 @@
-UnSynk Hiuut [Build 20AAXXYYZZZZ]
-Created by UnSynk, tsesuv notsel.
-\extend\ucfg\ * echo "Hello, world!"
-Hello, world!
-\extend\ucfg\ *

@@ -13,11 +13,7 @@ START:
 	mov ss, ax
 	mov sp, 0x7C00
 
-	mov ah, 0x02
-	mov al, 1
-	mov ch, 0
-	mov cl, 1
-	mov dh, 0
+	mov [Drive], dl
 
 	mov bx, LSEG
 	mov es, bx
@@ -29,75 +25,52 @@ START:
 	xor dx, dx
 	xor si, si
 
-	diskRead:
-		inc cl ; secter 2+
+	mov di, Magic
 
-		int 0x13 ; read to es:bx = LSEG:LOFS
+	diskRead:
+		cmp si, 20
+		jg errorDisk2
+
+		mov ah, 0x02
+		mov al, 1
+		mov dh, 0
+		mov cx, 2
+		add cx, si
+		mov ch, 0
+		mov dl, [Drive]
+
+		mov bx, 0x7E00
+		int 0x13 ; read to es:bx = LSEG:0x7E00
 		jc errorDisk ; if err
 
-		mov bx, LOFS ; reset bx to LOFS
-
-		test dx, dx ; if first char
-		jz cmp_b_0 ; compare first char
-		inc bx ; see next char
-		cmp dx, 1 ; else if second char
-		jz cmp_b_1 ; compare second char
-		inc bx ; see next char
-		cmp dx, 2 ; else if third char
-		jz cmp_b_2 ; compare third char
-		inc bx ; see next char
-		cmp dx, 3 ; else if forth char
-		jz cmp_b_3 ; compare forth char
-		inc bx ; see next char
-		cmp dx, 4 ; else if fifth char
-		jz cmp_b_4 ; compare fifth char
-		inc bx ; see next char
-		cmp dx, 5 ; else if sixth char
-		jz cmp_b_4 ; compare sixth char
-		jmp cmp_b_f ; else
-
-		cmp_b_0:
-			cmp bx, 0x51 ; if char = 0x51
-			jnz cmp_b_f
-			jmp cmp_b_t
-		cmp_b_1:
-			cmp bx, 0x6B
-			jnz cmp_b_f
-			jmp cmp_b_t
-		cmp_b_2:
-			cmp bx, 0x4D
-			jnz cmp_b_f
-			jmp cmp_b_t
-		cmp_b_3:
-			cmp bx, 0x48
-			jnz cmp_b_f
-			jmp cmp_b_t
-		cmp_b_4:
-			test bl, bl
-			jnz cmp_b_f
-
-		cmp_b_t:
-			inc dx
-			jmp cmp_b_endBlock
-
-		cmp_b_f:
-			xor dl, dl
-			inc si
-			cmp si, 20
-			jge errorDisk2
-			jmp diskRead
-
-		cmp_b_endBlock:
-		cmp dx, 7
-		jnz diskRead
+		push si
 
 		mov si, bx
-		add si, 10
+		mov di, Magic
+		mov cx, 6
+		call scmp
+
+		pop si
+
+		cmp ax, 6
+		je diskReadEnd
+
+		inc si
+		jmp diskRead
+
+	diskReadEnd:
+
+	mov si, bx
+	add si, 16 ; volumeLabel offset in the HtFS header
 
 	pop dx
 	pop bx
 
+	push ds
+	push es
+	pop ds
 	call print
+	pop ds
 
 	cli
 	hlt
@@ -108,32 +81,78 @@ errorDisk:
 	mov si, err
 	call print
 
-	hlt
+	jmp $
 
 errorDisk2:
 	mov si, err2
 	call print
 
-	hlt
+	jmp $
 
 print: ; str: si, str is terminated $0
-	lodsb
+	push si
+	push ax
 
-	test al, al
-	jz return
+	printBlock:
+		lodsb
 
-	mov ah, 0x0E
-	int 0x10
+		test al, al
+		jz printBlockEnd
 
-	jmp print
+		mov ah, 0x0E
+		int 0x10
 
-return:
+		jmp printBlock
+
+	printBlockEnd:
+
+	pop ax
+	pop si
+
+	ret
+
+scmp: ; src: es:si, cmp: ds:di, cnt: cx, result: ax = matched byte count
+	push si
+	push di
+	push bx
+	push dx
+	push cx
+
+	xor ax, ax
+
+	scmpBlock:
+		jcxz scmpBlockEnd
+
+		mov bl, [es:si]
+		mov dl, [di]
+
+		inc si
+		inc di
+		dec cx
+
+		cmp bl, dl
+		jne scmpBlock
+
+		inc ax
+
+		jmp scmpBlock
+
+	scmpBlockEnd:
+
+	pop cx
+	pop dx
+	pop bx
+	pop di
+	pop si
+
 	ret
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 err db "MBR: START: int $13: Disk I/O Error", 0x0D, 0x0A, 0x0
-err2 db "MBR: START: diskRead: cmp_b_f: Error", 0x0D, 0x0A, 0x0
+err2 db "MBR: START: diskRead: Error: Over 20", 0x0D, 0x0A, 0x0
+Magic db "HtFS", 0x0, 0x0
+Drive db 0
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

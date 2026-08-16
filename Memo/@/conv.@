@@ -1,0 +1,14 @@
+%inc 'cslio.@h"
+
+mdl conv
+:[	int main public
+	:[	str text <- sys:txin
+
+		int i <- 0, i++, for text_i != null
+			text_i <- if $60 < text_i < $7B, #11011111 & text_i, text_i
+
+		sys:txoutln text
+
+		ret 0
+	>
+>

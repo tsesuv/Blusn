@@ -1,0 +1,155 @@
+レジスタ
+aレジスタ
+bレジスタ
+cレジスタ
+dレジスタ
+eレジスタ
+fレジスタ ; フラグレジスタ
+hレジスタ
+lレジスタ
+pc:プログラムカウンタ
+sp:スタックポインタ
+bp:ブロックポインタ
+---------
+利用可能なメモリ量
+64KB 8Block(8MB)
+但しBlock7はスタックと共有
+リトルエンディアン(但しブロックポインタを指定する際はアドレスの前に指定)
+---------
+00:NOP
+01:ld a, b
+02:ld a, c
+03:ld a, d
+04:ld a, e
+05:ld b, a
+06:ld b, c
+07:ld b, d
+08:ld b, e
+09:ld c, a
+0A:ld c, b
+0B:ld c, d
+0C:ld c, e
+0D:ld d, a
+0E:ld d, b
+0F:ld d, c
+10:ld d, e
+11:ld e, a
+12:ld e, b
+13:ld e, c
+14:ld e, d
+15:ld d, [即値]
+16:ld e, [即値]
+17:ld e, bp
+18:ld bp, e
+19:ldd hl, bc
+1A:ldd hl, de
+1B:ldd bc, hl
+1C:ldd de, hl
+1D:ldd hl, [即値] [即値]
+1E:ldd hl, sp
+1F:ldd hl, pc
+20:mld [address], a ; アドレスは[即値](BP) [即値] [即値]で指定
+21:mld [address], d
+22:mld [address], e
+23:mld [即値], hl, a
+24:mld [即値], hl, d
+25:mld [即値], hl, e
+26:ldm a, [address]
+27:ldm d, [address]
+28:ldm e, [address]
+29:ldm a, [即値], hl
+2A:ldm d, [即値], hl
+2B:ldm e, [即値], hl
+2C:add a, b
+2D:add a, c
+2E:add a, d
+2F:add a, e
+30:add b, a
+31:add b, c
+32:add b, d
+33:add b, e
+34:add c, a
+35:add c, b
+36:add c, d
+37:add c, e
+38:add d, a
+39:add d, b
+3A:add d, c
+3B:add d, e
+3C:add e, a
+3D:add e, b
+3E:add e, c
+3F:add e, d
+40:sub a, b
+41:sub a, c
+42:sub a, d
+43:sub a, e
+44:sub b, a
+45:sub b, c
+46:sub b, d
+47:sub b, e
+48:sub c, a
+49:sub c, b
+4A:sub c, d
+4B:sub c, e
+4C:sub d, a
+4D:sub d, b
+4E:sub d, c
+4F:sub d, e
+50:sub e, a
+51:sub e, b
+52:sub e, c
+53:sub e, d
+54:or d, e
+55:and d, e
+56:xor d, e
+57:not d
+58:swap d
+59:lsf d
+5A:rsf d
+5B:llt d
+5C:rlt d
+5D:set f, [即値]
+5E:cmp b, [即値] ; b == imm?
+5F:cmp b, d ; b == d?
+60:cmp d, [即値] ; d < imm?
+61:cmp d, e ; d < e?
+62:cmp f, [即値] ; f && imm == imm?
+63:jmp [即値] [即値] [即値];一つ目の即値はブロックポインタ用
+64:jpr                 ;移動量:e
+65:jps                 ;移動量:e
+66:jpc                 ;移動量:e
+67:jpe                 ;移動量:e
+68:jpf [即値]          ;移動量:e
+69:call hl
+6A:push a
+6B:push b
+6C:push c
+6D:push d
+6E:push e
+6F:push h
+70:push l
+71:pop a
+72:pop b
+73:pop c
+74:pop d
+75:pop e
+76:pop h
+77:pop l
+78:ret
+79:syscall             ; 番号:a、引数:d
+---------
+SYSCALL一覧
+1:exit(d)
+2:stdout(d)
+3:nsync-stdin(d)
+4:sync-stdin(d)
+5:stop
+----------
+各フラグ一覧
+xxxx ECAS
+x:未使用。
+E:cmp b, [即値]で、b == 即値ならば立つ。
+C:キャリー。加算、減算でオーバーフロー、アンダーフローが起こるときに立つ。
+A:cmp f, [即値]で、f && 即値 == 即値ならば立つ。
+S:cmp d, [即値]で、d < 即値ならば立つ。
